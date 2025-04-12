@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:kiosk_book_reader/components/book_card.dart';
 import 'package:kiosk_book_reader/models/book.dart';
+import 'package:kiosk_book_reader/pages/book_read_page.dart';
 
 class BookListPage extends StatefulWidget {
   const BookListPage({super.key, required this.title});
@@ -78,6 +79,8 @@ class _BookListPageState extends State<BookListPage> {
     ),
   ];
 
+  CarouselSliderController booksCarouselController = CarouselSliderController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,7 +89,23 @@ class _BookListPageState extends State<BookListPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             CarouselSlider(
-              items: [for (var book in books) BookCard(book: book)],
+              items: [
+                for (var book in books)
+                  BookCard(
+                    book: book,
+                    onTap: () async {
+                      booksCarouselController.animateToPage(books.indexOf(book),
+                          duration: Duration(milliseconds: 300),
+                          curve: Curves.easeInOut);
+                      await Future.delayed(Duration(milliseconds: 400)); // Add a delay
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => BookReadPage()),
+                      );
+                    },
+                  ),
+              ],
+              carouselController: booksCarouselController,
               options: CarouselOptions(
                 aspectRatio: 4 / 1,
                 viewportFraction: 0.16,
