@@ -1,6 +1,8 @@
-import 'dart:async'; // Add this import
+import 'dart:async';
+import 'dart:typed_data';
+import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart'; // For rootBundle
+import 'package:flutter/services.dart';
 import 'package:bookfx/bookfx.dart';
 import 'package:kiosk_book_reader/models/book.dart';
 
@@ -17,12 +19,24 @@ class _ImgBookReadPageState extends State<ImgBookReadPage> {
   late BookController bookController;
   double? imgAspectRatio;
   bool isLoading = true;
+  Size? firstImageSize;
+  int currentPageIndex = 0;
+  final TransformationController _transformationController = TransformationController();
+  double _scale = 1.0;
+  bool _isZoomed = false;
 
   @override
   void initState() {
     super.initState();
     bookController = BookController();
     _loadFirstImageAspectRatio();
+    bookController.addListener(_updateCurrentPage);
+  }
+
+  void _updateCurrentPage() {
+    setState(() {
+      currentPageIndex = bookController.currentIndex;
+    });
   }
 
   Future<void> _loadFirstImageAspectRatio() async {
@@ -33,31 +47,26 @@ class _ImgBookReadPageState extends State<ImgBookReadPage> {
 
       final completer = Completer<Size>();
 
-      image.image
-          .resolve(const ImageConfiguration())
-          .addListener(
-            ImageStreamListener(
-              (ImageInfo info, bool _) {
-                if (!completer.isCompleted) {
-                  completer.complete(
-                    Size(
-                      info.image.width.toDouble(),
-                      info.image.height.toDouble(),
-                    ),
-                  );
-                }
-              },
-              onError: (Object error, StackTrace? stackTrace) {
-                if (!completer.isCompleted) {
-                  completer.completeError(error, stackTrace);
-                }
-              },
-            ),
-          );
+      image.image.resolve(const ImageConfiguration()).addListener(
+        ImageStreamListener(
+          (ImageInfo info, bool _) {
+            if (!completer.isCompleted) {
+              final size = Size(info.image.width.toDouble(), info.image.height.toDouble());
+              completer.complete(size);
+            }
+          },
+          onError: (Object error, StackTrace? stackTrace) {
+            if (!completer.isCompleted) {
+              completer.completeError(error, stackTrace);
+            }
+          },
+        ),
+      );
 
       final Size size = await completer.future;
       if (mounted) {
         setState(() {
+          firstImageSize = size;
           imgAspectRatio = size.width / size.height;
           isLoading = false;
         });
@@ -72,9 +81,19 @@ class _ImgBookReadPageState extends State<ImgBookReadPage> {
     }
   }
 
+  void _handleZoomReset() {
+    setState(() {
+      _transformationController.value = Matrix4.identity();
+      _scale = 1.0;
+      _isZoomed = false;
+    });
+  }
+
   @override
   void dispose() {
+    bookController.removeListener(_updateCurrentPage);
     bookController.dispose();
+    _transformationController.dispose();
     super.dispose();
   }
 
@@ -84,97 +103,180 @@ class _ImgBookReadPageState extends State<ImgBookReadPage> {
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
 
-    final screenSize = MediaQuery.of(context).size;
-    final bookHeight = screenSize.height;
-    final screenWidth = screenSize.width;
-    final bookWidth = bookHeight * imgAspectRatio!;
-    final bookLeftOffset = (screenWidth - bookWidth) / 2;
-
-    void goToNextPage() {
-      if (bookController.currentIndex + 1 < widget.book.numberOfPage) {
-        bookController.next();
-      }
-    }
-
-    void goToPreviousPage() {
-      if (bookController.currentIndex > 0) {
-        bookController.last();
-      }
-    }
-
     return Scaffold(
-      body: Stack(
-        children: [
-          Center(
-            child: BookFx(
-              currentBgColor: Color.fromARGB(255, 214, 187, 135),
-              size: Size(bookWidth, bookHeight),
-              pageCount: widget.book.numberOfPage,
-              currentPage: (index) {
-                return Image.asset(
-                  'assets/${widget.book.id}/$index.jpg',
-                  fit: BoxFit.fill,
-                  height: bookHeight,
-                );
-              },
-              nextPage: (index) {
-                return Image.asset(
-                  'assets/${widget.book.id}/$index.jpg',
-                  fit: BoxFit.fill,
-                  height: bookHeight,
-                );
-              },
-              controller: bookController,
-            ),
-          ),
+      body: SafeArea(
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            final screenSize = constraints.biggest;
+            final maxHeight = screenSize.height;
+            final maxWidth = screenSize.width;
 
-          // Back floating button
-          Positioned(
-            top: 40,
-            left: 20,
-            child: FloatingActionButton(
-              mini: true,
-              backgroundColor: Colors.black.withOpacity(0.6),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Icon(Icons.arrow_back, color: Colors.white),
-            ),
-          ),
+            double bookWidth = min(maxWidth, maxHeight * imgAspectRatio!);
+            double bookHeight = bookWidth / imgAspectRatio!;
 
-          // Previous Button (Left of PDF)
-          Positioned(
-            left: bookLeftOffset - 70,
-            top: bookHeight / 2 - 35,
-            child: ElevatedButton(
-              onPressed: goToPreviousPage,
-              style: ElevatedButton.styleFrom(
-                shape: const CircleBorder(),
-                padding: const EdgeInsets.all(18),
-                backgroundColor: Theme.of(context).primaryColor,
-                foregroundColor: Colors.white,
-              ),
-              child: const Icon(Icons.chevron_left, size: 36),
-            ),
-          ),
+            if (bookHeight > maxHeight) {
+              bookHeight = maxHeight;
+              bookWidth = bookHeight * imgAspectRatio!;
+            }
 
-          // Next Button (Right of PDF)
-          Positioned(
-            right: bookLeftOffset - 70,
-            top: bookHeight / 2 - 35,
-            child: ElevatedButton(
-              onPressed: goToNextPage,
-              style: ElevatedButton.styleFrom(
-                shape: const CircleBorder(),
-                padding: const EdgeInsets.all(18),
-                backgroundColor: Theme.of(context).primaryColor,
-                foregroundColor: Colors.white,
-              ),
-              child: const Icon(Icons.chevron_right, size: 36),
-            ),
-          ),
-        ],
+            void goToNextPage() {
+              if (currentPageIndex + 1 < widget.book.numberOfPage) {
+                bookController.next();
+                if (_isZoomed) _handleZoomReset();
+              }
+            }
+
+            void goToPreviousPage() {
+              if (currentPageIndex > 0) {
+                bookController.last();
+                if (_isZoomed) _handleZoomReset();
+              }
+            }
+
+            return Stack(
+              children: [
+                Center(
+                  child: GestureDetector(
+                    onDoubleTap: () {
+                      if (_isZoomed) _handleZoomReset();
+                    },
+                    child: InteractiveViewer(
+                      transformationController: _transformationController,
+                      minScale: 1.0,
+                      maxScale: 3.0,
+                      panEnabled: _isZoomed,
+                      scaleEnabled: true,
+                      boundaryMargin: const EdgeInsets.all(20),
+                      onInteractionUpdate: (ScaleUpdateDetails details) {
+                        setState(() {
+                          _scale = _transformationController.value.getMaxScaleOnAxis();
+                          _isZoomed = _scale > 1.01;
+                        });
+                      },
+                      child: AbsorbPointer(
+                        absorbing: _isZoomed,
+                        child: SizedBox(
+                          width: bookWidth,
+                          height: bookHeight,
+                          child: BookFx(
+                            currentBgColor: const Color.fromARGB(255, 214, 187, 135),
+                            size: Size(bookWidth, bookHeight),
+                            pageCount: widget.book.numberOfPage,
+                            currentPage: (index) {
+                              return _buildBookPage(index, bookWidth, bookHeight);
+                            },
+                            nextPage: (index) {
+                              return _buildBookPage(index, bookWidth, bookHeight);
+                            },
+                            controller: bookController,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+
+                Positioned(
+                  top: 8,
+                  left: 8,
+                  child: FloatingActionButton(
+                    mini: true,
+                    backgroundColor: Colors.black.withOpacity(0.6),
+                    onPressed: () => Navigator.pop(context),
+                    child: const Icon(Icons.arrow_back, color: Colors.white),
+                  ),
+                ),
+
+                if (_isZoomed)
+                  Positioned(
+                    top: 8,
+                    right: 8,
+                    child: FloatingActionButton(
+                      mini: true,
+                      backgroundColor: Colors.black.withOpacity(0.6),
+                      onPressed: _handleZoomReset,
+                      child: const Icon(Icons.fullscreen_exit, color: Colors.white),
+                    ),
+                  ),
+
+                if (bookWidth < maxWidth - 32 && !_isZoomed) ...[
+                  Positioned(
+                    left: max(8.0, (maxWidth - bookWidth) / 4),
+                    top: (maxHeight / 2) - 28,
+                    child: _buildNavButton(
+                      context,
+                      icon: Icons.chevron_left,
+                      onPressed: goToPreviousPage,
+                    ),
+                  ),
+                  Positioned(
+                    right: max(8.0, (maxWidth - bookWidth) / 4),
+                    top: (maxHeight / 2) - 28,
+                    child: _buildNavButton(
+                      context,
+                      icon: Icons.chevron_right,
+                      onPressed: goToNextPage,
+                    ),
+                  ),
+                ],
+
+                if (bookWidth >= maxWidth - 32)
+                  Positioned(
+                    bottom: 16,
+                    left: 0,
+                    right: 0,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        _buildNavButton(
+                          context,
+                          icon: Icons.chevron_left,
+                          onPressed: goToPreviousPage,
+                        ),
+                        const SizedBox(width: 20),
+                        _buildNavButton(
+                          context,
+                          icon: Icons.chevron_right,
+                          onPressed: goToNextPage,
+                        ),
+                      ],
+                    ),
+                  ),
+              ],
+            );
+          },
+        ),
       ),
+    );
+  }
+
+  Widget _buildBookPage(int index, double width, double height) {
+    return SizedBox(
+      width: width,
+      height: height,
+      child: Image.asset(
+        'assets/${widget.book.id}/$index.jpg',
+        fit: BoxFit.cover,
+        width: width,
+        height: height,
+      ),
+    );
+  }
+
+  Widget _buildNavButton(
+    BuildContext context, {
+    required IconData icon,
+    required VoidCallback onPressed,
+  }) {
+    return ElevatedButton(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        shape: const CircleBorder(),
+        padding: const EdgeInsets.all(14),
+        backgroundColor: Theme.of(context).primaryColor,
+        foregroundColor: Colors.white,
+      ),
+      child: Icon(icon, size: 28),
     );
   }
 }
