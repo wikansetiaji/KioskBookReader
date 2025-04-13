@@ -14,7 +14,7 @@ class KioskBookReaderApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        brightness: Brightness.dark
+        brightness: Brightness.light
       ),
       home: const BookListPage(title: 'Flutter Demo Home Page'),
     );

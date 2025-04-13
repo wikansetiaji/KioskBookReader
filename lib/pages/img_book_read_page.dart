@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:math';
-import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:bookfx/bookfx.dart';
@@ -115,8 +114,6 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
       _handleZoomReset();
     } else {
       final scale = 2.8;
-      final renderBox = context.findRenderObject() as RenderBox;
-      final size = renderBox.size;
 
       final x = -position.dx * (scale - 1);
       final y = -position.dy * (scale - 1);
@@ -195,6 +192,17 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
               children: [
                 Center(
                   child: GestureDetector(
+                    onTapDown: (TapDownDetails details) {
+                      final box = context.findRenderObject() as RenderBox;
+                      final localPosition = box.globalToLocal(
+                        details.globalPosition,
+                      );
+
+                      final relativeX = localPosition.dx / box.size.width;
+                      final relativeY = localPosition.dy / box.size.height;
+
+                      print('Tapped at: $relativeX, $relativeY (relative)');
+                    },
                     onDoubleTapDown:
                         (details) => _handleDoubleTap(context, details),
                     child: InteractiveViewer(

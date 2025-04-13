@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:kiosk_book_reader/components/book_card.dart';
 import 'package:kiosk_book_reader/models/book.dart';
-import 'package:kiosk_book_reader/pages/pdf_book_read_page.dart';
 import 'package:kiosk_book_reader/pages/img_book_read_page.dart';
 
 class BookListPage extends StatefulWidget {
