@@ -381,10 +381,8 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                     Text(
                       '${(_scale * 100).toStringAsFixed(0)}%',
                       style: const TextStyle(
-                        fontFamily: 'Archivo',
-                        fontWeight: FontWeight.bold,
-                        color: Color.fromARGB(255, 162, 29, 58),
-                        fontSize: 16,
+                        fontFamily: 'PublicSans',
+                        color: Color.fromARGB(255, 85, 85, 85),
                       ),
                     ),
                     Expanded(child: Container()),
@@ -395,13 +393,21 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                       enabled: currentPageIndex > 0,
                     ),
                     const SizedBox(width: 20),
-                    Text(
-                      '${currentPageIndex + 1} / ${widget.book.numberOfPage}',
-                      style: const TextStyle(
-                        fontFamily: 'Archivo',
-                        fontWeight: FontWeight.bold,
-                        color: Color.fromARGB(255, 162, 29, 58),
-                        fontSize: 16,
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        color: Color.fromARGB(255, 85, 85, 85),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10,
+                          vertical: 10,
+                        ),
+                        child: Text(
+                          '${currentPageIndex + 1} / ${widget.book.numberOfPage}',
+                          style: const TextStyle(
+                            fontFamily: 'PublicSans',
+                            color: Color.fromARGB(255, 255, 255, 255),
+                          ),
+                        ),
                       ),
                     ),
                     const SizedBox(width: 20),
@@ -413,6 +419,10 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                     ),
                     Expanded(child: Container()),
                     SizedBox(width: 72),
+                  ],
+                ),
+                Column(children: [
+
                   ],
                 ),
                 SizedBox(height: 20),
