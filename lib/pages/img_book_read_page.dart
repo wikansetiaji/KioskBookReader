@@ -1,6 +1,6 @@
 import 'dart:async';
-import 'dart:typed_data';
 import 'dart:math';
+import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:bookfx/bookfx.dart';
@@ -15,13 +15,17 @@ class ImgBookReadPage extends StatefulWidget {
   State<ImgBookReadPage> createState() => _ImgBookReadPageState();
 }
 
-class _ImgBookReadPageState extends State<ImgBookReadPage> {
+class _ImgBookReadPageState extends State<ImgBookReadPage>
+    with TickerProviderStateMixin {
   late BookController bookController;
+  late AnimationController _animationController;
+  Animation<Matrix4>? _animation;
   double? imgAspectRatio;
   bool isLoading = true;
   Size? firstImageSize;
   int currentPageIndex = 0;
-  final TransformationController _transformationController = TransformationController();
+  final TransformationController _transformationController =
+      TransformationController();
   double _scale = 1.0;
   bool _isZoomed = false;
 
@@ -29,6 +33,13 @@ class _ImgBookReadPageState extends State<ImgBookReadPage> {
   void initState() {
     super.initState();
     bookController = BookController();
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 300),
+    )..addListener(() {
+      _transformationController.value = _animation!.value;
+    });
+
     _loadFirstImageAspectRatio();
     bookController.addListener(_updateCurrentPage);
   }
@@ -41,27 +52,34 @@ class _ImgBookReadPageState extends State<ImgBookReadPage> {
 
   Future<void> _loadFirstImageAspectRatio() async {
     try {
-      final ByteData data = await rootBundle.load('assets/${widget.book.id}/1.jpg');
+      final ByteData data = await rootBundle.load(
+        'assets/${widget.book.id}/1.jpg',
+      );
       final Uint8List bytes = data.buffer.asUint8List();
       final Image image = Image.memory(bytes);
-
       final completer = Completer<Size>();
 
-      image.image.resolve(const ImageConfiguration()).addListener(
-        ImageStreamListener(
-          (ImageInfo info, bool _) {
-            if (!completer.isCompleted) {
-              final size = Size(info.image.width.toDouble(), info.image.height.toDouble());
-              completer.complete(size);
-            }
-          },
-          onError: (Object error, StackTrace? stackTrace) {
-            if (!completer.isCompleted) {
-              completer.completeError(error, stackTrace);
-            }
-          },
-        ),
-      );
+      image.image
+          .resolve(const ImageConfiguration())
+          .addListener(
+            ImageStreamListener(
+              (ImageInfo info, bool _) {
+                if (!completer.isCompleted) {
+                  completer.complete(
+                    Size(
+                      info.image.width.toDouble(),
+                      info.image.height.toDouble(),
+                    ),
+                  );
+                }
+              },
+              onError: (Object error, StackTrace? stackTrace) {
+                if (!completer.isCompleted) {
+                  completer.completeError(error, stackTrace);
+                }
+              },
+            ),
+          );
 
       final Size size = await completer.future;
       if (mounted) {
@@ -82,17 +100,57 @@ class _ImgBookReadPageState extends State<ImgBookReadPage> {
   }
 
   void _handleZoomReset() {
+    final resetMatrix = Matrix4.identity();
+    _animateTo(resetMatrix);
     setState(() {
-      _transformationController.value = Matrix4.identity();
       _scale = 1.0;
       _isZoomed = false;
     });
+  }
+
+  void _handleDoubleTap(BuildContext context, TapDownDetails details) {
+    final position = details.localPosition;
+
+    if (_isZoomed) {
+      _handleZoomReset();
+    } else {
+      final scale = 2.8;
+      final renderBox = context.findRenderObject() as RenderBox;
+      final size = renderBox.size;
+
+      final x = -position.dx * (scale - 1);
+      final y = -position.dy * (scale - 1);
+
+      final zoomed =
+          Matrix4.identity()
+            ..translate(x, y)
+            ..scale(scale);
+
+      _animateTo(zoomed);
+
+      setState(() {
+        _scale = scale;
+        _isZoomed = true;
+      });
+    }
+  }
+
+  void _animateTo(Matrix4 target) {
+    _animation = Matrix4Tween(
+      begin: _transformationController.value,
+      end: target,
+    ).animate(
+      CurvedAnimation(parent: _animationController, curve: Curves.easeInOut),
+    );
+
+    _animationController.forward(from: 0);
   }
 
   @override
   void dispose() {
     bookController.removeListener(_updateCurrentPage);
     bookController.dispose();
+    _animationController.dispose();
     _transformationController.dispose();
     super.dispose();
   }
@@ -137,9 +195,8 @@ class _ImgBookReadPageState extends State<ImgBookReadPage> {
               children: [
                 Center(
                   child: GestureDetector(
-                    onDoubleTap: () {
-                      if (_isZoomed) _handleZoomReset();
-                    },
+                    onDoubleTapDown:
+                        (details) => _handleDoubleTap(context, details),
                     child: InteractiveViewer(
                       transformationController: _transformationController,
                       minScale: 1.0,
@@ -147,27 +204,40 @@ class _ImgBookReadPageState extends State<ImgBookReadPage> {
                       panEnabled: _isZoomed,
                       scaleEnabled: true,
                       boundaryMargin: const EdgeInsets.all(20),
-                      onInteractionUpdate: (ScaleUpdateDetails details) {
+                      onInteractionUpdate: (details) {
+                        final newScale =
+                            _transformationController.value.getMaxScaleOnAxis();
                         setState(() {
-                          _scale = _transformationController.value.getMaxScaleOnAxis();
-                          _isZoomed = _scale > 1.01;
+                          _scale = newScale;
+                          _isZoomed = newScale != 1.0;
                         });
                       },
-                      child: AbsorbPointer(
-                        absorbing: _isZoomed,
-                        child: SizedBox(
-                          width: bookWidth,
-                          height: bookHeight,
+                      child: SizedBox(
+                        width: bookWidth,
+                        height: bookHeight,
+                        child: AbsorbPointer(
+                          absorbing: _isZoomed,
                           child: BookFx(
-                            currentBgColor: const Color.fromARGB(255, 214, 187, 135),
+                            currentBgColor: const Color.fromARGB(
+                              255,
+                              214,
+                              187,
+                              135,
+                            ),
                             size: Size(bookWidth, bookHeight),
                             pageCount: widget.book.numberOfPage,
-                            currentPage: (index) {
-                              return _buildBookPage(index, bookWidth, bookHeight);
-                            },
-                            nextPage: (index) {
-                              return _buildBookPage(index, bookWidth, bookHeight);
-                            },
+                            currentPage:
+                                (index) => _buildBookPage(
+                                  index,
+                                  bookWidth,
+                                  bookHeight,
+                                ),
+                            nextPage:
+                                (index) => _buildBookPage(
+                                  index,
+                                  bookWidth,
+                                  bookHeight,
+                                ),
                             controller: bookController,
                           ),
                         ),
@@ -176,6 +246,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage> {
                   ),
                 ),
 
+                // Back button
                 Positioned(
                   top: 8,
                   left: 8,
@@ -187,6 +258,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage> {
                   ),
                 ),
 
+                // Reset zoom
                 if (_isZoomed)
                   Positioned(
                     top: 8,
@@ -195,10 +267,14 @@ class _ImgBookReadPageState extends State<ImgBookReadPage> {
                       mini: true,
                       backgroundColor: Colors.black.withOpacity(0.6),
                       onPressed: _handleZoomReset,
-                      child: const Icon(Icons.fullscreen_exit, color: Colors.white),
+                      child: const Icon(
+                        Icons.fullscreen_exit,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
 
+                // Side nav
                 if (bookWidth < maxWidth - 32 && !_isZoomed) ...[
                   Positioned(
                     left: max(8.0, (maxWidth - bookWidth) / 4),
@@ -220,6 +296,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage> {
                   ),
                 ],
 
+                // Bottom nav
                 if (bookWidth >= maxWidth - 32)
                   Positioned(
                     bottom: 16,
@@ -257,8 +334,6 @@ class _ImgBookReadPageState extends State<ImgBookReadPage> {
       child: Image.asset(
         'assets/${widget.book.id}/$index.jpg',
         fit: BoxFit.cover,
-        width: width,
-        height: height,
       ),
     );
   }
