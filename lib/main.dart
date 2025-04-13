@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kiosk_book_reader/pages/book_list_page.dart';
+import 'package:kiosk_book_reader/pages/home_page.dart';
 
 void main() {
   runApp(const KioskBookReaderApp());
@@ -16,7 +16,7 @@ class KioskBookReaderApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.light
       ),
-      home: const BookListPage(title: 'Flutter Demo Home Page'),
+      home: const HomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }

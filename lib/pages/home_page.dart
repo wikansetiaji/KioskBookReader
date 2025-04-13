@@ -4,15 +4,15 @@ import 'package:kiosk_book_reader/models/book.dart';
 import 'package:kiosk_book_reader/pages/img_book_read_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class BookListPage extends StatefulWidget {
-  const BookListPage({super.key, required this.title});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key, required this.title});
   final String title;
 
   @override
-  State<BookListPage> createState() => _BookListPageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _BookListPageState extends State<BookListPage> {
+class _HomePageState extends State<HomePage> {
   final List<Book> books = [
     Book(
       id: "tjahaja_siang",
