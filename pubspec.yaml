@@ -63,6 +63,8 @@ flutter:
 
   assets:
   - assets/sample.pdf
+  - assets/pahesan/
+  - assets/tjahaja_siang/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
