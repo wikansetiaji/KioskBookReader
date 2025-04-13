@@ -27,6 +27,8 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
       TransformationController();
   double _scale = 1.0;
   bool _isZoomed = false;
+  double _bookHeight = 0;
+  double _bookWidth = 0;
 
   @override
   void initState() {
@@ -40,13 +42,6 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
     });
 
     _loadFirstImageAspectRatio();
-    bookController.addListener(_updateCurrentPage);
-  }
-
-  void _updateCurrentPage() {
-    setState(() {
-      currentPageIndex = bookController.currentIndex;
-    });
   }
 
   Future<void> _loadFirstImageAspectRatio() async {
@@ -145,11 +140,27 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
 
   @override
   void dispose() {
-    bookController.removeListener(_updateCurrentPage);
     bookController.dispose();
     _animationController.dispose();
     _transformationController.dispose();
     super.dispose();
+  }
+
+  void goToNextPage() {
+    if (currentPageIndex + 1 < widget.book.numberOfPage) {
+      bookController.next();
+      if (_isZoomed) _handleZoomReset();
+    }
+  }
+
+  void goToPreviousPage() {
+    if (currentPageIndex > 0) {
+      bookController.last();
+      setState(() {
+        currentPageIndex -= 1;
+      });
+      if (_isZoomed) _handleZoomReset();
+    }
   }
 
   @override
@@ -159,177 +170,255 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
     }
 
     return Scaffold(
-      body: SafeArea(
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            final screenSize = constraints.biggest;
-            final maxHeight = screenSize.height;
-            final maxWidth = screenSize.width;
-
-            double bookWidth = min(maxWidth, maxHeight * imgAspectRatio!);
-            double bookHeight = bookWidth / imgAspectRatio!;
-
-            if (bookHeight > maxHeight) {
-              bookHeight = maxHeight;
-              bookWidth = bookHeight * imgAspectRatio!;
-            }
-
-            void goToNextPage() {
-              if (currentPageIndex + 1 < widget.book.numberOfPage) {
-                bookController.next();
-                if (_isZoomed) _handleZoomReset();
-              }
-            }
-
-            void goToPreviousPage() {
-              if (currentPageIndex > 0) {
-                bookController.last();
-                if (_isZoomed) _handleZoomReset();
-              }
-            }
-
-            return Stack(
-              children: [
-                Center(
-                  child: GestureDetector(
-                    onTapDown: (TapDownDetails details) {
-                      final box = context.findRenderObject() as RenderBox;
-                      final localPosition = box.globalToLocal(
-                        details.globalPosition,
-                      );
-
-                      final relativeX = localPosition.dx / box.size.width;
-                      final relativeY = localPosition.dy / box.size.height;
-
-                      print('Tapped at: $relativeX, $relativeY (relative)');
-                    },
-                    onDoubleTapDown:
-                        (details) => _handleDoubleTap(context, details),
-                    child: InteractiveViewer(
-                      transformationController: _transformationController,
-                      minScale: 1.0,
-                      maxScale: 3.0,
-                      panEnabled: _isZoomed,
-                      scaleEnabled: true,
-                      boundaryMargin: const EdgeInsets.all(20),
-                      onInteractionUpdate: (details) {
-                        final newScale =
-                            _transformationController.value.getMaxScaleOnAxis();
-                        setState(() {
-                          _scale = newScale;
-                          _isZoomed = newScale != 1.0;
-                        });
+      backgroundColor: Color.fromARGB(255, 238, 233, 212),
+      body: Center(
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Image.asset('assets/bg-texture.png', fit: BoxFit.fill),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Image.asset(
+                  'assets/header.png',
+                  fit: BoxFit.fitHeight,
+                  height: 80,
+                ),
+                Row(
+                  children: [
+                    SizedBox(width: 20),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
                       },
-                      child: SizedBox(
-                        width: bookWidth,
-                        height: bookHeight,
-                        child: AbsorbPointer(
-                          absorbing: _isZoomed,
-                          child: BookFx(
-                            currentBgColor: const Color.fromARGB(
-                              255,
-                              214,
-                              187,
-                              135,
-                            ),
-                            size: Size(bookWidth, bookHeight),
-                            pageCount: widget.book.numberOfPage,
-                            currentPage:
-                                (index) => _buildBookPage(
-                                  index,
-                                  bookWidth,
-                                  bookHeight,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.transparent,
+                        shadowColor:
+                            Colors.transparent, // Removes button shadow
+                        side: BorderSide(
+                          color: Color.fromARGB(255, 162, 29, 58),
+                          width: 2,
+                        ),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 24,
+                          vertical: 12,
+                        ),
+                      ),
+                      child: Text(
+                        '< KEMBALI',
+                        style: TextStyle(
+                          fontFamily: 'Archivo',
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 162, 29, 58),
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+                    Expanded(child: Container()),
+                  ],
+                ),
+                SizedBox(height: 20),
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20.0),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        color: const Color.fromARGB(43, 0, 0, 0),
+                        padding: EdgeInsets.all(20),
+                        child: LayoutBuilder(
+                          builder: (context, constraints) {
+                            final screenSize = constraints.biggest;
+                            final maxHeight = screenSize.height;
+                            final maxWidth = screenSize.width;
+
+                            double bookWidth = min(
+                              maxWidth,
+                              maxHeight * imgAspectRatio!,
+                            );
+                            double bookHeight = bookWidth / imgAspectRatio!;
+
+                            if (bookHeight > maxHeight) {
+                              bookHeight = maxHeight;
+                              bookWidth = bookHeight * imgAspectRatio!;
+                            }
+
+                            _bookHeight = bookHeight;
+                            _bookWidth = bookWidth;
+
+                            return Stack(
+                              children: [
+                                Center(
+                                  child: GestureDetector(
+                                    onTapDown: (TapDownDetails details) {
+                                      final box =
+                                          context.findRenderObject()
+                                              as RenderBox;
+                                      final localPosition = box.globalToLocal(
+                                        details.globalPosition,
+                                      );
+
+                                      final relativeX =
+                                          localPosition.dx / box.size.width;
+                                      final relativeY =
+                                          localPosition.dy / box.size.height;
+
+                                      print(
+                                        'Tapped at: $relativeX, $relativeY (relative)',
+                                      );
+                                    },
+                                    onDoubleTapDown:
+                                        (details) =>
+                                            _handleDoubleTap(context, details),
+                                    child: InteractiveViewer(
+                                      transformationController:
+                                          _transformationController,
+                                      minScale: 1.0,
+                                      maxScale: 3.0,
+                                      panEnabled: _isZoomed,
+                                      scaleEnabled: true,
+                                      boundaryMargin: const EdgeInsets.all(20),
+                                      onInteractionUpdate: (details) {
+                                        final newScale =
+                                            _transformationController.value
+                                                .getMaxScaleOnAxis();
+                                        setState(() {
+                                          _scale = newScale;
+                                          _isZoomed = newScale != 1.0;
+                                        });
+                                      },
+                                      child: SizedBox(
+                                        width: bookWidth,
+                                        height: bookHeight,
+                                        child: AbsorbPointer(
+                                          absorbing: _isZoomed,
+                                          child: BookFx(
+                                            currentBgColor:
+                                                const Color.fromARGB(
+                                                  255,
+                                                  214,
+                                                  187,
+                                                  135,
+                                                ),
+                                            size: Size(bookWidth, bookHeight),
+                                            pageCount: widget.book.numberOfPage,
+                                            currentPage:
+                                                (index) => _buildBookPage(
+                                                  index,
+                                                  bookWidth,
+                                                  bookHeight,
+                                                ),
+                                            nextPage:
+                                                (index) => _buildBookPage(
+                                                  index,
+                                                  bookWidth,
+                                                  bookHeight,
+                                                ),
+                                            controller: bookController,
+                                            nextCallBack: (index) {
+                                              setState(() {
+                                                currentPageIndex = index - 1;
+                                              });
+                                            },
+                                            lastCallBack: (index) {
+                                              if (index > 0) {
+                                                setState(() {
+                                                  currentPageIndex = index - 1;
+                                                });
+                                              }
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
                                 ),
-                            nextPage:
-                                (index) => _buildBookPage(
-                                  index,
-                                  bookWidth,
-                                  bookHeight,
-                                ),
-                            controller: bookController,
-                          ),
+                              ],
+                            );
+                          },
                         ),
                       ),
                     ),
                   ),
                 ),
-
-                // Back button
-                Positioned(
-                  top: 8,
-                  left: 8,
-                  child: FloatingActionButton(
-                    mini: true,
-                    backgroundColor: Colors.black.withOpacity(0.6),
-                    onPressed: () => Navigator.pop(context),
-                    child: const Icon(Icons.arrow_back, color: Colors.white),
-                  ),
-                ),
-
-                // Reset zoom
-                if (_isZoomed)
-                  Positioned(
-                    top: 8,
-                    right: 8,
-                    child: FloatingActionButton(
-                      mini: true,
-                      backgroundColor: Colors.black.withOpacity(0.6),
-                      onPressed: _handleZoomReset,
-                      child: const Icon(
-                        Icons.fullscreen_exit,
-                        color: Colors.white,
+                SizedBox(height: 16),
+                Row(
+                  children: [
+                    SizedBox(width: 16),
+                    if (_isZoomed)
+                      ElevatedButton(
+                        onPressed: _handleZoomReset,
+                        style: ElevatedButton.styleFrom(
+                          shape: const CircleBorder(),
+                          padding: const EdgeInsets.all(14),
+                          backgroundColor: Color.fromARGB(255, 85, 85, 85),
+                          foregroundColor: Colors.white,
+                        ),
+                        child: Icon(Icons.zoom_out, size: 28),
+                      ),
+                    if (!_isZoomed)
+                      ElevatedButton(
+                        onPressed: () {
+                          final scale = 2.8;
+                          final zoomed =
+                              Matrix4.identity()
+                                ..translate(_bookWidth * -1, _bookHeight * -1)
+                                ..scale(scale);
+                          _animateTo(zoomed);
+                          setState(() {
+                            _scale = scale;
+                            _isZoomed = true;
+                          });
+                        },
+                        style: ElevatedButton.styleFrom(
+                          shape: const CircleBorder(),
+                          padding: const EdgeInsets.all(14),
+                          backgroundColor: Color.fromARGB(255, 85, 85, 85),
+                          foregroundColor: Colors.white,
+                        ),
+                        child: Icon(Icons.zoom_in, size: 28),
+                      ),
+                    Text(
+                      '${(_scale * 100).toStringAsFixed(0)}%',
+                      style: const TextStyle(
+                        fontFamily: 'Archivo',
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 162, 29, 58),
+                        fontSize: 16,
                       ),
                     ),
-                  ),
-
-                // Side nav
-                if (bookWidth < maxWidth - 32 && !_isZoomed) ...[
-                  Positioned(
-                    left: max(8.0, (maxWidth - bookWidth) / 4),
-                    top: (maxHeight / 2) - 28,
-                    child: _buildNavButton(
+                    Expanded(child: Container()),
+                    _buildNavButton(
                       context,
                       icon: Icons.chevron_left,
                       onPressed: goToPreviousPage,
+                      enabled: currentPageIndex > 0,
                     ),
-                  ),
-                  Positioned(
-                    right: max(8.0, (maxWidth - bookWidth) / 4),
-                    top: (maxHeight / 2) - 28,
-                    child: _buildNavButton(
+                    const SizedBox(width: 20),
+                    Text(
+                      '${currentPageIndex + 1} / ${widget.book.numberOfPage}',
+                      style: const TextStyle(
+                        fontFamily: 'Archivo',
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 162, 29, 58),
+                        fontSize: 16,
+                      ),
+                    ),
+                    const SizedBox(width: 20),
+                    _buildNavButton(
                       context,
                       icon: Icons.chevron_right,
                       onPressed: goToNextPage,
+                      enabled: currentPageIndex + 1 < widget.book.numberOfPage,
                     ),
-                  ),
-                ],
-
-                // Bottom nav
-                if (bookWidth >= maxWidth - 32)
-                  Positioned(
-                    bottom: 16,
-                    left: 0,
-                    right: 0,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        _buildNavButton(
-                          context,
-                          icon: Icons.chevron_left,
-                          onPressed: goToPreviousPage,
-                        ),
-                        const SizedBox(width: 20),
-                        _buildNavButton(
-                          context,
-                          icon: Icons.chevron_right,
-                          onPressed: goToNextPage,
-                        ),
-                      ],
-                    ),
-                  ),
+                    Expanded(child: Container()),
+                    SizedBox(width: 72),
+                  ],
+                ),
+                SizedBox(height: 20),
               ],
-            );
-          },
+            ),
+          ],
         ),
       ),
     );
@@ -350,13 +439,14 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
     BuildContext context, {
     required IconData icon,
     required VoidCallback onPressed,
+    bool enabled = true,
   }) {
     return ElevatedButton(
-      onPressed: onPressed,
+      onPressed: enabled ? onPressed : null,
       style: ElevatedButton.styleFrom(
         shape: const CircleBorder(),
         padding: const EdgeInsets.all(14),
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: Color.fromARGB(255, 85, 85, 85),
         foregroundColor: Colors.white,
       ),
       child: Icon(icon, size: 28),
