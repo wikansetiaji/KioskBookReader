@@ -2,9 +2,12 @@ import 'dart:async'; // Add this import
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; // For rootBundle
 import 'package:bookfx/bookfx.dart';
+import 'package:kiosk_book_reader/models/book.dart';
 
 class ImgBookReadPage extends StatefulWidget {
-  const ImgBookReadPage({super.key});
+  final Book book;
+
+  const ImgBookReadPage({super.key, required this.book});
 
   @override
   State<ImgBookReadPage> createState() => _ImgBookReadPageState();
@@ -24,7 +27,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage> {
 
   Future<void> _loadFirstImageAspectRatio() async {
     try {
-      final ByteData data = await rootBundle.load('assets/tjahaja_siang/1.jpg');
+      final ByteData data = await rootBundle.load('assets/${widget.book.id}/1.jpg');
       final Uint8List bytes = data.buffer.asUint8List();
       final Image image = Image.memory(bytes);
 
@@ -82,13 +85,13 @@ class _ImgBookReadPageState extends State<ImgBookReadPage> {
     }
 
     final screenSize = MediaQuery.of(context).size;
-    final screenHeight = screenSize.height;
+    final bookHeight = screenSize.height;
     final screenWidth = screenSize.width;
-    final bookWidth = screenHeight * imgAspectRatio!;
+    final bookWidth = bookHeight * imgAspectRatio!;
     final bookLeftOffset = (screenWidth - bookWidth) / 2;
 
     void goToNextPage() {
-      if (bookController.currentIndex + 1 < 12) {
+      if (bookController.currentIndex + 1 < widget.book.numberOfPage) {
         bookController.next();
       }
     }
@@ -105,20 +108,20 @@ class _ImgBookReadPageState extends State<ImgBookReadPage> {
           Center(
             child: BookFx(
               currentBgColor: Color.fromARGB(255, 214, 187, 135),
-              size: Size(bookWidth, screenHeight),
-              pageCount: 13,
+              size: Size(bookWidth, bookHeight),
+              pageCount: widget.book.numberOfPage,
               currentPage: (index) {
                 return Image.asset(
-                  'assets/tjahaja_siang/$index.jpg',
+                  'assets/${widget.book.id}/$index.jpg',
                   fit: BoxFit.fill,
-                  height: screenHeight,
+                  height: bookHeight,
                 );
               },
               nextPage: (index) {
                 return Image.asset(
-                  'assets/tjahaja_siang/$index.jpg',
+                  'assets/${widget.book.id}/$index.jpg',
                   fit: BoxFit.fill,
-                  height: screenHeight,
+                  height: bookHeight,
                 );
               },
               controller: bookController,
@@ -142,7 +145,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage> {
           // Previous Button (Left of PDF)
           Positioned(
             left: bookLeftOffset - 70,
-            top: screenHeight / 2 - 35,
+            top: bookHeight / 2 - 35,
             child: ElevatedButton(
               onPressed: goToPreviousPage,
               style: ElevatedButton.styleFrom(
@@ -158,7 +161,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage> {
           // Next Button (Right of PDF)
           Positioned(
             right: bookLeftOffset - 70,
-            top: screenHeight / 2 - 35,
+            top: bookHeight / 2 - 35,
             child: ElevatedButton(
               onPressed: goToNextPage,
               style: ElevatedButton.styleFrom(

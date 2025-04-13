@@ -22,16 +22,14 @@ class BookCard extends StatelessWidget {
             children: [
               Expanded(
                 child: ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
-                  child: CachedNetworkImage(
-                    fit: BoxFit.fill,
-                    imageUrl: book.coverUrl,
-                    placeholder: (context, url) {
-                      return Center(child: CircularProgressIndicator());
-                    },
-                    errorWidget: (context, url, error) {
-                      return Center(child: Icon(Icons.error));
-                    },
+                  borderRadius: BorderRadius.circular(10),
+                  child: SizedBox(
+                    width: double.infinity, // Takes full width
+                    child: Image.asset(
+                      'assets/${book.id}/cover.jpg',
+                      fit: BoxFit.cover, // Changed from fill to cover
+                      alignment: Alignment.center,
+                    ),
                   ),
                 ),
               ),
@@ -44,11 +42,11 @@ class BookCard extends StatelessWidget {
               ),
               SizedBox(height: 5),
               Text(
-                book.year.toString(),
+                book.date.toString(),
                 style: TextStyle(fontSize: 14, color: Colors.grey[600]),
               ),
               SizedBox(height: 5),
-              Text('by ${book.author}', style: TextStyle(fontSize: 16)),
+              Text('oleh ${book.author}', style: TextStyle(fontSize: 16)),
             ],
           ),
         ),

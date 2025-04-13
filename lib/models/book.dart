@@ -1,13 +1,15 @@
 class Book {
+  final String id;
   final String title;
   final String author;
-  final String coverUrl;
-  final int year;
+  final String date;
+  final int numberOfPage;
 
   Book({
+    required this.id,
     required this.title,
     required this.author,
-    required this.coverUrl,
-    required this.year,
+    required this.date,
+    required this.numberOfPage,
   });
 }
