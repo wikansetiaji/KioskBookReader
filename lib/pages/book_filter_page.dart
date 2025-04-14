@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kiosk_book_reader/components/book_list_widget.dart';
 import 'package:kiosk_book_reader/models/book.dart';
 
 class BookFilterPage extends StatefulWidget {
@@ -64,36 +65,51 @@ class _BookFilterPageState extends State<BookFilterPage> {
                       Expanded(child: Container()),
                     ],
                   ),
-                  Expanded(
-                    child: Column(
-                      children: [
-                        SizedBox(height: 20),
-                        Text(
-                          'ARSIP DIGITAL',
-                          style: TextStyle(
-                            fontFamily: 'Archivo',
-                            fontSize: 18,
-                            color: Color.fromARGB(255, 85, 85, 85),
-                            letterSpacing: -0.2,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                        SizedBox(height: 20),
-                        Text(
-                          'SEMUA PENULIS WANITA',
-                          style: TextStyle(
-                            fontFamily: 'Archivo',
-                            fontSize: 28,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 119, 24, 45),
-                            letterSpacing: -2.0,
-                            height: 0.8,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
+                  Text(
+                    'ARSIP DIGITAL',
+                    style: TextStyle(
+                      fontFamily: 'Archivo',
+                      fontSize: 18,
+                      color: Color.fromARGB(255, 85, 85, 85),
+                      letterSpacing: -0.2,
                     ),
+                    textAlign: TextAlign.center,
                   ),
+                  SizedBox(height: 20),
+                  Row(
+                    children: [
+                      Expanded(child: Container()),
+                      Text(
+                        'TULISAN KARYA',
+                        style: TextStyle(
+                          fontFamily: 'Archivo',
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 85, 85, 85),
+                          letterSpacing: -1.5,
+                          height: 0.8,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(width: 20),
+                      Text(
+                        'SEMUA PENULIS WANITA',
+                        style: TextStyle(
+                          fontFamily: 'Archivo',
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 119, 24, 45),
+                          letterSpacing: -1.5,
+                          height: 0.8,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      Expanded(child: Container()),
+                    ],
+                  ),
+                  SizedBox(height: 20),
+
+                  BookListWidget(),
                 ],
               ),
             ],
