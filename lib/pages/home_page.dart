@@ -20,11 +20,13 @@ class _HomePageState extends State<HomePage> {
       author: "Maria Walanda Maramis",
       date: "15 Juni 1917",
       numberOfPage: 4,
-      highlightPage: 1,
-      highlightCenterX: 0.79,
-      highlightCenterY: 0.73,
-      highlightWidth: 0.3,
-      highlightHeight: 0.38
+      highlight: BookHighlight(
+        page: 1,
+        centerX: 0.79,
+        centerY: 0.73,
+        width: 0.3,
+        height: 0.38,
+      ),
     ),
     Book(
       id: "pahesan",
@@ -32,13 +34,14 @@ class _HomePageState extends State<HomePage> {
       author: "Wikan Setiadji",
       date: "15 Juni 1917",
       numberOfPage: 12,
-      highlightPage: 3,
-      highlightCenterX: 0.72,
-      highlightCenterY: 0.76,
-      highlightWidth: 0.39,
-      highlightHeight: 0.20
+      highlight: BookHighlight(
+        page: 3,
+        centerX: 0.72,
+        centerY: 0.76,
+        width: 0.39,
+        height: 0.20,
+      ),
     ),
-    
   ];
 
   final CarouselSliderController booksCarouselController =

@@ -5,7 +5,11 @@ class BookInfoWidget extends StatelessWidget {
   final Book book;
   final VoidCallback onShowHighlight;
 
-  const BookInfoWidget({super.key, required this.book, required this.onShowHighlight});
+  const BookInfoWidget({
+    super.key,
+    required this.book,
+    required this.onShowHighlight,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -40,28 +44,29 @@ class BookInfoWidget extends StatelessWidget {
                             SizedBox(height: 10),
                             Row(
                               children: [
-                                ElevatedButton(
-                                  onPressed: () {
-                                    onShowHighlight();
-                                  },
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.transparent,
-                                    shadowColor:
-                                        Colors
-                                            .transparent, // Removes button shadow
-                                    side: BorderSide(
-                                      color: Color.fromARGB(255, 162, 29, 58),
-                                      width: 2,
+                                if (book.highlight != null)
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      onShowHighlight();
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.transparent,
+                                      shadowColor:
+                                          Colors
+                                              .transparent, // Removes button shadow
+                                      side: BorderSide(
+                                        color: Color.fromARGB(255, 162, 29, 58),
+                                        width: 2,
+                                      ),
+                                    ),
+                                    child: Text(
+                                      'LIHAT TAJUK TULISAN ASLI >',
+                                      style: TextStyle(
+                                        fontFamily: 'Archivo',
+                                        color: Color.fromARGB(255, 162, 29, 58),
+                                      ),
                                     ),
                                   ),
-                                  child: Text(
-                                    'LIHAT TAJUK TULISAN ASLI >',
-                                    style: TextStyle(
-                                      fontFamily: 'Archivo',
-                                      color: Color.fromARGB(255, 162, 29, 58),
-                                    ),
-                                  ),
-                                ),
                                 Expanded(child: Container()),
                               ],
                             ),

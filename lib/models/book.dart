@@ -4,11 +4,7 @@ class Book {
   final String author;
   final String date;
   final int numberOfPage;
-  final int highlightPage;
-  final double highlightCenterX;
-  final double highlightCenterY;
-  final double highlightWidth;
-  final double highlightHeight;
+  final BookHighlight? highlight;
 
   Book({
     required this.id,
@@ -16,10 +12,22 @@ class Book {
     required this.author,
     required this.date,
     required this.numberOfPage,
-    required this.highlightPage,
-    required this.highlightCenterX, 
-    required this.highlightCenterY,
-    required this.highlightWidth,
-    required this.highlightHeight,
+    this.highlight,
+  });
+}
+
+class BookHighlight {
+  final int page;
+  final double centerX;
+  final double centerY;
+  final double width;
+  final double height;
+
+  BookHighlight({
+    required this.page,
+    required this.centerX,
+    required this.centerY,
+    required this.width,
+    required this.height,
   });
 }
