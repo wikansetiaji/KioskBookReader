@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:kiosk_book_reader/models/book.dart';
 import 'package:kiosk_book_reader/pages/img_book_read_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:kiosk_book_reader/pages/book_filter_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.title});
@@ -301,7 +302,7 @@ class _HomePageState extends State<HomePage> {
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color.fromARGB(255, 162, 29, 58),
-                    padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                    padding: EdgeInsets.symmetric(horizontal: 24, vertical: 24),
                   ),
                   child: Text(
                     'BACA TULISAN',
@@ -315,7 +316,16 @@ class _HomePageState extends State<HomePage> {
                 ),
                 SizedBox(height: 20),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder:
+                            (context) =>
+                                BookFilterPage(book: books[_selectedIndex]),
+                      ),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.transparent,
                     shadowColor: Colors.transparent, // Removes button shadow
@@ -323,7 +333,7 @@ class _HomePageState extends State<HomePage> {
                       color: Color.fromARGB(255, 162, 29, 58),
                       width: 2,
                     ),
-                    padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                    padding: EdgeInsets.symmetric(horizontal: 24, vertical: 24),
                   ),
                   child: Text(
                     'LIHAT GALERI ARSIP LAINNYA',

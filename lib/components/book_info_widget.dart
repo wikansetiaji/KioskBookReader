@@ -113,13 +113,11 @@ class BookInfoWidget extends StatelessWidget {
                               scrollDirection: Axis.horizontal,
                               children: [
                                 for (var i = 0; i < 10; i++)
-                                  Expanded(
-                                    child: Container(
-                                      padding: EdgeInsets.all(8),
-                                      child: Image.asset(
-                                        'assets/pahesan/cover.jpg',
-                                        fit: BoxFit.fitHeight,
-                                      ),
+                                  Container(
+                                    padding: EdgeInsets.all(8),
+                                    child: Image.asset(
+                                      'assets/pahesan/cover.jpg',
+                                      fit: BoxFit.fitHeight,
                                     ),
                                   ),
                               ],
