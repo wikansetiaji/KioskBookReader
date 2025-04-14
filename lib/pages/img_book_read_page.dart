@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:bookfx/bookfx.dart';
+import 'package:kiosk_book_reader/components/book_info_widget.dart';
 import 'package:kiosk_book_reader/models/book.dart';
 
 class ImgBookReadPage extends StatefulWidget {
@@ -29,6 +30,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
   bool _isZoomed = false;
   double _bookHeight = 0;
   double _bookWidth = 0;
+  bool _isShowHighlight = false;
 
   @override
   void initState() {
@@ -108,7 +110,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
     if (_isZoomed) {
       _handleZoomReset();
     } else {
-      final scale = 2.8;
+      final scale = 2.0;
 
       final x = -position.dx * (scale - 1);
       final y = -position.dy * (scale - 1);
@@ -149,6 +151,9 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
   void goToNextPage() {
     if (currentPageIndex + 1 < widget.book.numberOfPage) {
       bookController.next();
+      setState(() {
+        _isShowHighlight = false;
+      });
       if (_isZoomed) _handleZoomReset();
     }
   }
@@ -158,8 +163,34 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
       bookController.last();
       setState(() {
         currentPageIndex -= 1;
+        _isShowHighlight = false;
       });
       if (_isZoomed) _handleZoomReset();
+    }
+  }
+
+  void showHighlight() {
+    if (widget.book.highlightPage >= 0 && widget.book.highlightPage < widget.book.numberOfPage) {
+      bookController.goTo(widget.book.highlightPage);
+      setState(() {
+        currentPageIndex = widget.book.highlightPage - 1;
+      });
+      if (_isZoomed) _handleZoomReset();
+
+      final scale = 2.0;
+      final zoomed =
+          Matrix4.identity()
+            ..scale(scale)
+            ..translate(
+              _bookWidth * -(widget.book.highlightCenterX - (0.5 / scale)),
+              _bookHeight * -(widget.book.highlightCenterY - (0.5 / scale)),
+            );
+      _animateTo(zoomed);
+      setState(() {
+        _scale = scale;
+        _isZoomed = true;
+        _isShowHighlight = true;
+      });
     }
   }
 
@@ -250,23 +281,6 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                               children: [
                                 Center(
                                   child: GestureDetector(
-                                    onTapDown: (TapDownDetails details) {
-                                      final box =
-                                          context.findRenderObject()
-                                              as RenderBox;
-                                      final localPosition = box.globalToLocal(
-                                        details.globalPosition,
-                                      );
-
-                                      final relativeX =
-                                          localPosition.dx / box.size.width;
-                                      final relativeY =
-                                          localPosition.dy / box.size.height;
-
-                                      print(
-                                        'Tapped at: $relativeX, $relativeY (relative)',
-                                      );
-                                    },
                                     onDoubleTapDown:
                                         (details) =>
                                             _handleDoubleTap(context, details),
@@ -287,47 +301,93 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                                           _isZoomed = newScale != 1.0;
                                         });
                                       },
-                                      child: SizedBox(
-                                        width: bookWidth,
-                                        height: bookHeight,
-                                        child: AbsorbPointer(
-                                          absorbing: _isZoomed,
-                                          child: BookFx(
-                                            currentBgColor:
-                                                const Color.fromARGB(
-                                                  255,
-                                                  214,
-                                                  187,
-                                                  135,
+                                      child: GestureDetector(
+                                        onTapDown: (TapDownDetails details) {
+                                          print(
+                                            'Tapped at relative: (${details.localPosition.dx / bookWidth},${details.localPosition.dy / bookHeight})',
+                                          );
+                                        },
+                                        child: Stack(
+                                          alignment: Alignment.center,
+                                          children: [
+                                            SizedBox(
+                                              width: bookWidth,
+                                              height: bookHeight,
+                                              child: AbsorbPointer(
+                                                absorbing: _isZoomed,
+                                                child: BookFx(
+                                                  currentBgColor:
+                                                      const Color.fromARGB(
+                                                        255,
+                                                        214,
+                                                        187,
+                                                        135,
+                                                      ),
+                                                  size: Size(
+                                                    bookWidth,
+                                                    bookHeight,
+                                                  ),
+                                                  pageCount:
+                                                      widget.book.numberOfPage,
+                                                  currentPage:
+                                                      (index) => _buildBookPage(
+                                                        index,
+                                                        bookWidth,
+                                                        bookHeight,
+                                                      ),
+                                                  nextPage:
+                                                      (index) => _buildBookPage(
+                                                        index,
+                                                        bookWidth,
+                                                        bookHeight,
+                                                      ),
+                                                  controller: bookController,
+                                                  nextCallBack: (index) {
+                                                    setState(() {
+                                                      _isShowHighlight = false;
+                                                      currentPageIndex =
+                                                          index - 1;
+                                                    });
+                                                  },
+                                                  lastCallBack: (index) {
+                                                    if (index > 0) {
+                                                      setState(() {
+                                                        _isShowHighlight =
+                                                            false;
+                                                        currentPageIndex =
+                                                            index - 1;
+                                                      });
+                                                    }
+                                                  },
                                                 ),
-                                            size: Size(bookWidth, bookHeight),
-                                            pageCount: widget.book.numberOfPage,
-                                            currentPage:
-                                                (index) => _buildBookPage(
-                                                  index,
-                                                  bookWidth,
-                                                  bookHeight,
+                                              ),
+                                            ),
+                                            if (_isShowHighlight)
+                                              Positioned(
+                                                left:
+                                                    widget.book.highlightCenterX * bookWidth -
+                                                    ((widget.book.highlightWidth / 2) * bookWidth),
+                                                top:
+                                                    widget.book.highlightCenterY * bookHeight -
+                                                    ((widget.book.highlightHeight / 2) * bookHeight),
+                                                child: ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                        Radius.circular(10),
+                                                      ),
+                                                  child: Container(
+                                                    color: Color.fromARGB(
+                                                      80,
+                                                      238,
+                                                      245,
+                                                      145,
+                                                    ),
+                                                    width: widget.book.highlightWidth * bookWidth,
+                                                    height: widget.book.highlightHeight * bookHeight,
+                                                  ),
                                                 ),
-                                            nextPage:
-                                                (index) => _buildBookPage(
-                                                  index,
-                                                  bookWidth,
-                                                  bookHeight,
-                                                ),
-                                            controller: bookController,
-                                            nextCallBack: (index) {
-                                              setState(() {
-                                                currentPageIndex = index - 1;
-                                              });
-                                            },
-                                            lastCallBack: (index) {
-                                              if (index > 0) {
-                                                setState(() {
-                                                  currentPageIndex = index - 1;
-                                                });
-                                              }
-                                            },
-                                          ),
+                                              ),
+                                          ],
                                         ),
                                       ),
                                     ),
@@ -359,10 +419,13 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                     if (!_isZoomed)
                       ElevatedButton(
                         onPressed: () {
-                          final scale = 2.8;
+                          final scale = 2.0;
                           final zoomed =
                               Matrix4.identity()
-                                ..translate(_bookWidth * -1, _bookHeight * -1)
+                                ..translate(
+                                  _bookWidth / 2 * -1,
+                                  _bookHeight / 2 * -1,
+                                )
                                 ..scale(scale);
                           _animateTo(zoomed);
                           setState(() {
@@ -422,192 +485,11 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                   ],
                 ),
                 SizedBox(height: 20),
-                Expanded(
-                  child: Container(
-                    padding: EdgeInsets.all(20),
-                    child: Row(
-                      spacing: 15,
-                      children: [
-                        Expanded(
-                          child: Column(
-                            spacing: 15,
-                            children: [
-                              Expanded(
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(10),
-                                  ),
-                                  child: Container(
-                                    padding: EdgeInsets.all(16),
-                                    color: Color.fromARGB(255, 255, 239, 212),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          '“DJEMPOETAN BAGI BANGSA PEREMPUAN”',
-                                          style: const TextStyle(
-                                            fontFamily: 'Archivo',
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 20,
-                                          ),
-                                        ),
-                                        SizedBox(height: 10),
-                                        Row(
-                                          children: [
-                                            ElevatedButton(
-                                              onPressed: () {
-                                                Navigator.pop(context);
-                                              },
-                                              style: ElevatedButton.styleFrom(
-                                                backgroundColor:
-                                                    Colors.transparent,
-                                                shadowColor:
-                                                    Colors
-                                                        .transparent, // Removes button shadow
-                                                side: BorderSide(
-                                                  color: Color.fromARGB(
-                                                    255,
-                                                    162,
-                                                    29,
-                                                    58,
-                                                  ),
-                                                  width: 2,
-                                                ),
-                                              ),
-                                              child: Text(
-                                                'LIHAT TAJUK TULISAN ASLI >',
-                                                style: TextStyle(
-                                                  fontFamily: 'Archivo',
-                                                  color: Color.fromARGB(
-                                                    255,
-                                                    162,
-                                                    29,
-                                                    58,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            Expanded(child: Container()),
-                                          ],
-                                        ),
-                                        SizedBox(height: 10),
-                                        Expanded(
-                                          child: Scrollbar(
-                                            thumbVisibility: true,
-                                            child: SingleChildScrollView(
-                                              scrollDirection: Axis.vertical,
-                                              child: Text(
-                                                'Maria Walanda Maramis, lahir di Sulawesi Utara pada 1 Desember 1872, adalah pelopor emansipasi perempuan yang menekankan peran ibu dalam keluarga dan pendidikan anak. Ia mendirikan PIKAT dan Sekolah Rumah Tangga (Huishold School) untuk pendidikan gratis untuk anak-anak perempuan, menulis di Tjehaja Sijang, dan memperjuangkan hak politik perempuan lewat kampanye surat ke Batavia.',
-                                                style: const TextStyle(
-                                                  fontFamily: 'PublicSans',
-                                                  color: Colors.black,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              ClipRRect(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(10),
-                                ),
-                                child: Container(
-                                  width: double.infinity,
-                                  padding: EdgeInsets.all(16),
-                                  color: Colors.white,
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'BACA EDISI LAINNYA,',
-                                        style: const TextStyle(
-                                          fontFamily: 'Archivo',
-                                          fontWeight: FontWeight.bold,
-                                          color: Color.fromARGB(
-                                            255,
-                                            119,
-                                            24,
-                                            45,
-                                          ),
-                                          fontSize: 16,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          child: Column(
-                            spacing: 15,
-                            children: [
-                              Expanded(
-                                child: Image.asset(
-                                  'assets/authors/maramis.png',
-                                  fit: BoxFit.fitHeight,
-                                ),
-                              ),
-                              Expanded(
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(10),
-                                  ),
-                                  child: Container(
-                                    padding: EdgeInsets.all(16),
-                                    color: Color.fromARGB(255, 255, 239, 212),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          'LATAR BELAKANG',
-                                          style: const TextStyle(
-                                            fontFamily: 'Archivo',
-                                            fontWeight: FontWeight.bold,
-                                            color: Color.fromARGB(
-                                              255,
-                                              119,
-                                              24,
-                                              45,
-                                            ),
-                                            fontSize: 16,
-                                          ),
-                                        ),
-                                        SizedBox(height: 10),
-                                        Expanded(
-                                          child: Scrollbar(
-                                            thumbVisibility: true,
-                                            child: SingleChildScrollView(
-                                              scrollDirection: Axis.vertical,
-                                              child: Text(
-                                                'Maria Walanda Maramis, lahir di Sulawesi Utara pada 1 Desember 1872, adalah pelopor emansipasi perempuan yang menekankan peran ibu dalam keluarga dan pendidikan anak. Ia mendirikan PIKAT dan Sekolah Rumah Tangga (Huishold School) untuk pendidikan gratis untuk anak-anak perempuan, menulis di Tjehaja Sijang, dan memperjuangkan hak politik perempuan lewat kampanye surat ke Batavia.',
-                                                style: const TextStyle(
-                                                  fontFamily: 'PublicSans',
-                                                  color: Colors.black,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                BookInfoWidget(
+                  book: widget.book,
+                  onShowHighlight: () {
+                    showHighlight();
+                  },
                 ),
                 SizedBox(height: 20),
               ],

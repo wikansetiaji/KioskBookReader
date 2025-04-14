@@ -20,6 +20,11 @@ class _HomePageState extends State<HomePage> {
       author: "Maria Walanda Maramis",
       date: "15 Juni 1917",
       numberOfPage: 4,
+      highlightPage: 1,
+      highlightCenterX: 0.79,
+      highlightCenterY: 0.73,
+      highlightWidth: 0.3,
+      highlightHeight: 0.38
     ),
     Book(
       id: "pahesan",
@@ -27,21 +32,13 @@ class _HomePageState extends State<HomePage> {
       author: "Wikan Setiadji",
       date: "15 Juni 1917",
       numberOfPage: 12,
+      highlightPage: 3,
+      highlightCenterX: 0.72,
+      highlightCenterY: 0.76,
+      highlightWidth: 0.39,
+      highlightHeight: 0.20
     ),
-    Book(
-      id: "tjahaja_siang",
-      title: "Tjahaja Siang",
-      author: "Maria Walanda Maramis",
-      date: "15 Juni 1917",
-      numberOfPage: 4,
-    ),
-    Book(
-      id: "pahesan",
-      title: "Pahesan",
-      author: "Maria Walanda Maramis",
-      date: "15 Juni 1917",
-      numberOfPage: 12,
-    ),
+    
   ];
 
   final CarouselSliderController booksCarouselController =
