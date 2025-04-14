@@ -14,6 +14,7 @@ class BookInfoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
+      flex: 57,
       child: Container(
         padding: EdgeInsets.all(20),
         child: Row(

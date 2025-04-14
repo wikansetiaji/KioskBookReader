@@ -57,7 +57,12 @@ class _HomePageState extends State<HomePage> {
         child: Stack(
           alignment: Alignment.center,
           children: [
-            Image.asset('assets/bg-texture.png', fit: BoxFit.fill),
+            Positioned.fill(
+              child: Image.asset(
+                'assets/bg-texture.png',
+                fit: BoxFit.cover,
+              ),
+            ),
             Column(
               children: [
                 SvgPicture.asset(
@@ -288,7 +293,7 @@ class _HomePageState extends State<HomePage> {
                       fontFamily: 'Archivo',
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
-                      fontSize: 16,
+                      fontSize: 24,
                     ),
                   ),
                 ),
@@ -310,7 +315,7 @@ class _HomePageState extends State<HomePage> {
                       fontFamily: 'Archivo',
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 162, 29, 58),
-                      fontSize: 16,
+                      fontSize: 24,
                     ),
                   ),
                 ),

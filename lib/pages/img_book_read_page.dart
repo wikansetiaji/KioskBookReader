@@ -224,7 +224,12 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
         child: Stack(
           alignment: Alignment.center,
           children: [
-            Image.asset('assets/bg-texture.png', fit: BoxFit.fill),
+            Positioned.fill(
+              child: Image.asset(
+                'assets/bg-texture.png',
+                fit: BoxFit.cover,
+              ),
+            ),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
@@ -268,6 +273,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                 ),
                 SizedBox(height: 20),
                 Expanded(
+                  flex: 43,
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20.0),
                     child: ClipRRect(
