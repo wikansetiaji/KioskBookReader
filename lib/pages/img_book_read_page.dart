@@ -421,9 +421,193 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                     SizedBox(width: 72),
                   ],
                 ),
-                Column(children: [
-
-                  ],
+                SizedBox(height: 20),
+                Expanded(
+                  child: Container(
+                    padding: EdgeInsets.all(20),
+                    child: Row(
+                      spacing: 15,
+                      children: [
+                        Expanded(
+                          child: Column(
+                            spacing: 15,
+                            children: [
+                              Expanded(
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(10),
+                                  ),
+                                  child: Container(
+                                    padding: EdgeInsets.all(16),
+                                    color: Color.fromARGB(255, 255, 239, 212),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          '“DJEMPOETAN BAGI BANGSA PEREMPUAN”',
+                                          style: const TextStyle(
+                                            fontFamily: 'Archivo',
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 20,
+                                          ),
+                                        ),
+                                        SizedBox(height: 10),
+                                        Row(
+                                          children: [
+                                            ElevatedButton(
+                                              onPressed: () {
+                                                Navigator.pop(context);
+                                              },
+                                              style: ElevatedButton.styleFrom(
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                shadowColor:
+                                                    Colors
+                                                        .transparent, // Removes button shadow
+                                                side: BorderSide(
+                                                  color: Color.fromARGB(
+                                                    255,
+                                                    162,
+                                                    29,
+                                                    58,
+                                                  ),
+                                                  width: 2,
+                                                ),
+                                              ),
+                                              child: Text(
+                                                'LIHAT TAJUK TULISAN ASLI >',
+                                                style: TextStyle(
+                                                  fontFamily: 'Archivo',
+                                                  color: Color.fromARGB(
+                                                    255,
+                                                    162,
+                                                    29,
+                                                    58,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            Expanded(child: Container()),
+                                          ],
+                                        ),
+                                        SizedBox(height: 10),
+                                        Expanded(
+                                          child: Scrollbar(
+                                            thumbVisibility: true,
+                                            child: SingleChildScrollView(
+                                              scrollDirection: Axis.vertical,
+                                              child: Text(
+                                                'Maria Walanda Maramis, lahir di Sulawesi Utara pada 1 Desember 1872, adalah pelopor emansipasi perempuan yang menekankan peran ibu dalam keluarga dan pendidikan anak. Ia mendirikan PIKAT dan Sekolah Rumah Tangga (Huishold School) untuk pendidikan gratis untuk anak-anak perempuan, menulis di Tjehaja Sijang, dan memperjuangkan hak politik perempuan lewat kampanye surat ke Batavia.',
+                                                style: const TextStyle(
+                                                  fontFamily: 'PublicSans',
+                                                  color: Colors.black,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(10),
+                                ),
+                                child: Container(
+                                  width: double.infinity,
+                                  padding: EdgeInsets.all(16),
+                                  color: Colors.white,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'BACA EDISI LAINNYA,',
+                                        style: const TextStyle(
+                                          fontFamily: 'Archivo',
+                                          fontWeight: FontWeight.bold,
+                                          color: Color.fromARGB(
+                                            255,
+                                            119,
+                                            24,
+                                            45,
+                                          ),
+                                          fontSize: 16,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Column(
+                            spacing: 15,
+                            children: [
+                              Expanded(
+                                child: Image.asset(
+                                  'assets/authors/maramis.png',
+                                  fit: BoxFit.fitHeight,
+                                ),
+                              ),
+                              Expanded(
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(10),
+                                  ),
+                                  child: Container(
+                                    padding: EdgeInsets.all(16),
+                                    color: Color.fromARGB(255, 255, 239, 212),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'LATAR BELAKANG',
+                                          style: const TextStyle(
+                                            fontFamily: 'Archivo',
+                                            fontWeight: FontWeight.bold,
+                                            color: Color.fromARGB(
+                                              255,
+                                              119,
+                                              24,
+                                              45,
+                                            ),
+                                            fontSize: 16,
+                                          ),
+                                        ),
+                                        SizedBox(height: 10),
+                                        Expanded(
+                                          child: Scrollbar(
+                                            thumbVisibility: true,
+                                            child: SingleChildScrollView(
+                                              scrollDirection: Axis.vertical,
+                                              child: Text(
+                                                'Maria Walanda Maramis, lahir di Sulawesi Utara pada 1 Desember 1872, adalah pelopor emansipasi perempuan yang menekankan peran ibu dalam keluarga dan pendidikan anak. Ia mendirikan PIKAT dan Sekolah Rumah Tangga (Huishold School) untuk pendidikan gratis untuk anak-anak perempuan, menulis di Tjehaja Sijang, dan memperjuangkan hak politik perempuan lewat kampanye surat ke Batavia.',
+                                                style: const TextStyle(
+                                                  fontFamily: 'PublicSans',
+                                                  color: Colors.black,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
                 SizedBox(height: 20),
               ],

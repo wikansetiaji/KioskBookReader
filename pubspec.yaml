@@ -67,6 +67,7 @@ flutter:
   - assets/pahesan/
   - assets/tjahaja_siang/
   - assets/
+  - assets/authors/
 
   fonts:
   - family: Archivo
