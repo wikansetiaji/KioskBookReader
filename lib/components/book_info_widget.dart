@@ -72,16 +72,13 @@ class BookInfoWidget extends StatelessWidget {
                             ),
                             SizedBox(height: 10),
                             Expanded(
-                              child: Scrollbar(
-                                thumbVisibility: true,
-                                child: SingleChildScrollView(
-                                  scrollDirection: Axis.vertical,
-                                  child: Text(
-                                    'Dalam artikelnya, Maria Walanda Maramis menekankan pentingnya peran perempuan sebagai ibu dan guru pertama bagi anak-anak. Ia mengajak para perempuan Minahasa untuk menyadari tanggung jawab mereka dalam membentuk generasi yang bermoral dan berpengetahuan. Ia menyoroti ketertinggalan perempuan dalam pendidikan serta pentingnya mendidik anak sejak dini, baik secara fisik maupun spiritual. Maria juga menekankan bahwa kemajuan bangsa bergantung pada kualitas perempuan sebagai pendidik utama dalam keluarga, dan menyerukan agar kaum perempuan Minahasa ikut aktif dalam pembangunan masyarakat melalui pendidikan dan kesadaran akan peran strategis mereka. Artikel ini mencerminkan semangat emansipasi dan cita-cita kesetaraan yang ia perjuangkan.',
-                                    style: const TextStyle(
-                                      fontFamily: 'PublicSans',
-                                      color: Colors.black,
-                                    ),
+                              child: SingleChildScrollView(
+                                scrollDirection: Axis.vertical,
+                                child: Text(
+                                  'Dalam artikelnya, Maria Walanda Maramis menekankan pentingnya peran perempuan sebagai ibu dan guru pertama bagi anak-anak. Ia mengajak para perempuan Minahasa untuk menyadari tanggung jawab mereka dalam membentuk generasi yang bermoral dan berpengetahuan. Ia menyoroti ketertinggalan perempuan dalam pendidikan serta pentingnya mendidik anak sejak dini, baik secara fisik maupun spiritual. Maria juga menekankan bahwa kemajuan bangsa bergantung pada kualitas perempuan sebagai pendidik utama dalam keluarga, dan menyerukan agar kaum perempuan Minahasa ikut aktif dalam pembangunan masyarakat melalui pendidikan dan kesadaran akan peran strategis mereka. Artikel ini mencerminkan semangat emansipasi dan cita-cita kesetaraan yang ia perjuangkan.',
+                                  style: const TextStyle(
+                                    fontFamily: 'PublicSans',
+                                    color: Colors.black,
                                   ),
                                 ),
                               ),
@@ -111,23 +108,20 @@ class BookInfoWidget extends StatelessWidget {
                           ),
                           SizedBox(
                             height: 130,
-                            child: Scrollbar(
-                              thumbVisibility: true,
-                              child: ListView(
-                                scrollDirection: Axis.horizontal,
-                                children: [
-                                  for (var i = 0; i < 10; i++)
-                                    Expanded(
-                                      child: Container(
-                                        padding: EdgeInsets.all(8),
-                                        child: Image.asset(
-                                          'assets/pahesan/cover.jpg',
-                                          fit: BoxFit.fitHeight,
-                                        ),
+                            child: ListView(
+                              scrollDirection: Axis.horizontal,
+                              children: [
+                                for (var i = 0; i < 10; i++)
+                                  Expanded(
+                                    child: Container(
+                                      padding: EdgeInsets.all(8),
+                                      child: Image.asset(
+                                        'assets/pahesan/cover.jpg',
+                                        fit: BoxFit.fitHeight,
                                       ),
                                     ),
-                                ],
-                              ),
+                                  ),
+                              ],
                             ),
                           ),
                         ],
@@ -176,16 +170,13 @@ class BookInfoWidget extends StatelessWidget {
                             ),
                             SizedBox(height: 10),
                             Expanded(
-                              child: Scrollbar(
-                                thumbVisibility: true,
-                                child: SingleChildScrollView(
-                                  scrollDirection: Axis.vertical,
-                                  child: Text(
-                                    'Maria Walanda Maramis, lahir di Sulawesi Utara pada 1 Desember 1872, adalah pelopor emansipasi perempuan yang menekankan peran ibu dalam keluarga dan pendidikan anak. Ia mendirikan PIKAT dan Sekolah Rumah Tangga (Huishold School) untuk pendidikan gratis untuk anak-anak perempuan, menulis di Tjehaja Sijang, dan memperjuangkan hak politik perempuan lewat kampanye surat ke Batavia.',
-                                    style: const TextStyle(
-                                      fontFamily: 'PublicSans',
-                                      color: Colors.black,
-                                    ),
+                              child: SingleChildScrollView(
+                                scrollDirection: Axis.vertical,
+                                child: Text(
+                                  'Maria Walanda Maramis, lahir di Sulawesi Utara pada 1 Desember 1872, adalah pelopor emansipasi perempuan yang menekankan peran ibu dalam keluarga dan pendidikan anak. Ia mendirikan PIKAT dan Sekolah Rumah Tangga (Huishold School) untuk pendidikan gratis untuk anak-anak perempuan, menulis di Tjehaja Sijang, dan memperjuangkan hak politik perempuan lewat kampanye surat ke Batavia.',
+                                  style: const TextStyle(
+                                    fontFamily: 'PublicSans',
+                                    color: Colors.black,
                                   ),
                                 ),
                               ),

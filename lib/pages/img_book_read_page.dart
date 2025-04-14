@@ -31,6 +31,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
   double _bookHeight = 0;
   double _bookWidth = 0;
   bool _isShowHighlight = false;
+  bool _isNavigating = false; // cater bookfx bug
 
   @override
   void initState() {
@@ -149,8 +150,17 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
   }
 
   void goToNextPage() {
+    if (_isNavigating) return; // cater bookfx bug
     if (currentPageIndex + 1 < widget.book.numberOfPage) {
       bookController.next();
+      setState(() {
+        _isNavigating = true;
+      });
+      Future.delayed(const Duration(milliseconds: 600)).then((val) {
+        setState(() {
+          _isNavigating = false;
+        });
+      });
       setState(() {
         _isShowHighlight = false;
       });
@@ -159,11 +169,18 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
   }
 
   void goToPreviousPage() {
+    if (_isNavigating) return; // cater bookfx bug
     if (currentPageIndex > 0) {
       bookController.last();
       setState(() {
-        currentPageIndex -= 1;
-        _isShowHighlight = false;
+        _isNavigating = true;
+      });
+      Future.delayed(const Duration(milliseconds: 600)).then((val) {
+        setState(() {
+          currentPageIndex -= 1;
+          _isShowHighlight = false;
+          _isNavigating = false;
+        });
       });
       if (_isZoomed) _handleZoomReset();
     }
@@ -482,7 +499,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                       context,
                       icon: Icons.chevron_left,
                       onPressed: goToPreviousPage,
-                      enabled: currentPageIndex > 0,
+                      enabled: currentPageIndex > 0 && !_isNavigating,
                     ),
                     const SizedBox(width: 20),
                     ClipRRect(
