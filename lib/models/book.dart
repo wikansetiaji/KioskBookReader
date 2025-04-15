@@ -6,10 +6,12 @@ class Book {
   final String contentTitle;
   final String content;
   final int numberOfPage;
+  final String? authorId;
   final BookHighlight? highlight;
   final String? collection;
   final String? edition;
-  final List<Book> otherEdition;
+  final String? editionId;
+  final bool isOtherEdition;
 
   Book({
     required this.id,
@@ -19,10 +21,12 @@ class Book {
     required this.contentTitle,
     required this.content,
     required this.numberOfPage,
+    this.authorId,
     this.collection,
     this.edition,
     this.highlight,
-    this.otherEdition = const [],
+    this.editionId,
+    this.isOtherEdition = false,
   });
 }
 

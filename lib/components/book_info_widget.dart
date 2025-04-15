@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kiosk_book_reader/components/other_book_edition_item_widget.dart';
 import 'package:kiosk_book_reader/models/book.dart';
+import 'package:kiosk_book_reader/pages/book_filter_page.dart';
 import 'package:kiosk_book_reader/repository/books_repository.dart';
 
 class BookInfoWidget extends StatelessWidget {
@@ -101,7 +102,9 @@ class BookInfoWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        book.otherEdition.isNotEmpty ? 'BACA EDISI LAINNYA,' : 'BUKU LAINNYA,',
+                        book.editionId != null
+                            ? 'BACA EDISI LAINNYA,'
+                            : 'BACA BUKU LAINNYA,',
                         style: const TextStyle(
                           fontFamily: 'Archivo',
                           fontWeight: FontWeight.bold,
@@ -118,14 +121,30 @@ class BookInfoWidget extends StatelessWidget {
                               child: ListView(
                                 scrollDirection: Axis.vertical,
                                 children: [
-                                  for (var otherEdition in book.otherEdition.isNotEmpty ? book.otherEdition : BooksRepository().getAllBooks())
-                                    OtherBookEditionItemWidget(book: otherEdition,),
+                                  for (var otherEdition
+                                      in book.editionId != null
+                                          ? BooksRepository().getBookEditions(
+                                            editionId: book.editionId!,
+                                          )
+                                          : BooksRepository().getAllBooks())
+                                    OtherBookEditionItemWidget(
+                                      book: otherEdition,
+                                    ),
                                 ],
                               ),
                             ),
                             ElevatedButton(
                               onPressed: () {
-                                
+                                Navigator.popUntil(
+                                  context,
+                                  (Route<dynamic> route) => route.isFirst,
+                                );
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => BookFilterPage(),
+                                  ),
+                                );
                               },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Color.fromARGB(
