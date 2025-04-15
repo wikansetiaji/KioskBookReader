@@ -99,35 +99,22 @@ class _BookListWidgetState extends State<BookListWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: LayoutBuilder(
-        builder: (context, constraints) {
-          final screenSize = constraints.biggest;
-          double spacing = 40;
-          double imageSize = (screenSize.width - spacing * 3) / 2;
-
-          return SingleChildScrollView(
-            padding: EdgeInsets.symmetric(horizontal: spacing, vertical: 0),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 100),
-                  child: Column(
-                    children: [
-                      for (int i = 0; i < books.length; i += 2)
-                        BookListItemWidget(
-                          book: books[i],
-                          width: imageSize,
-                          spacing: spacing,
-                        ),
-                    ],
-                  ),
-                ),
-                SizedBox(width: spacing),
-                Column(
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final screenSize = constraints.biggest;
+        double spacing = 40;
+        double imageSize = (screenSize.width - spacing * 3) / 2;
+    
+        return SingleChildScrollView(
+          padding: EdgeInsets.symmetric(horizontal: spacing, vertical: 0),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 100),
+                child: Column(
                   children: [
-                    for (int i = 1; i < books.length; i += 2)
+                    for (int i = 0; i < books.length; i += 2)
                       BookListItemWidget(
                         book: books[i],
                         width: imageSize,
@@ -135,11 +122,22 @@ class _BookListWidgetState extends State<BookListWidget> {
                       ),
                   ],
                 ),
-              ],
-            ),
-          );
-        },
-      ),
+              ),
+              SizedBox(width: spacing),
+              Column(
+                children: [
+                  for (int i = 1; i < books.length; i += 2)
+                    BookListItemWidget(
+                      book: books[i],
+                      width: imageSize,
+                      spacing: spacing,
+                    ),
+                ],
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }
