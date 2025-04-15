@@ -19,17 +19,20 @@ jobs:
         with:
           flutter-version: "stable"
 
-      - name: Enable Windows
+      - name: Enable Windows desktop
         run: flutter config --enable-windows-desktop
+        shell: bash
 
       - name: Install dependencies
         run: flutter pub get
+        shell: bash
 
-      - name: Build .exe
+      - name: Build Windows executable
         run: flutter build windows
+        shell: bash
 
-      - name: Upload executable
-        uses: actions/upload-artifact@v3
+      - name: Upload Release folder as artifact
+        uses: actions/upload-artifact@v3.1.3
         with:
           name: windows-exe
-          path: build\windows\runner\Release\
+          path: build/windows/runner/Release/
