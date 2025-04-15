@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kiosk_book_reader/pages/home_page.dart';
+import 'package:kiosk_book_reader/service/idle_timer.dart';
 
 void main() {
   runApp(const KioskBookReaderApp());
@@ -11,12 +12,62 @@ class KioskBookReaderApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        brightness: Brightness.light
+    return MyApp();
+  }
+}
+
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
+  late IdleTimer _idleTimer;
+  final GlobalKey<NavigatorState> _navigatorKey = GlobalKey<NavigatorState>();
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+    _idleTimer = IdleTimer(
+      timeout: Duration(minutes: 10),
+      onTimeout: _onIdleTimeout,
+    );
+    _idleTimer.reset();
+  }
+
+  void _onIdleTimeout() {
+    print("TIMEOUT");
+    final context = _navigatorKey.currentContext;
+    if (context != null) {
+      Navigator.popUntil(
+        context,
+        (route) => route.isFirst,
+      );
+    }
+  }
+
+  void _onUserInteraction() {
+    print("USER INTERACTION");
+    _idleTimer.reset();
+  }
+
+  @override
+  void dispose() {
+    _idleTimer.dispose();
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Listener(
+      onPointerDown: (_) => _onUserInteraction(),
+      behavior: HitTestBehavior.translucent,
+      child: MaterialApp(
+        navigatorKey: _navigatorKey,
+        home: HomePage(title: "",),
       ),
-      home: const HomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
