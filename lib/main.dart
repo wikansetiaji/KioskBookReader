@@ -37,7 +37,6 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   }
 
   void _onIdleTimeout() {
-    print("TIMEOUT");
     final context = _navigatorKey.currentContext;
     if (context != null) {
       Navigator.popUntil(
@@ -48,7 +47,6 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   }
 
   void _onUserInteraction() {
-    print("USER INTERACTION");
     _idleTimer.reset();
   }
 
