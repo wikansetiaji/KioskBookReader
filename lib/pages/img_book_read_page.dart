@@ -31,6 +31,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
   double _bookHeight = 0;
   double _bookWidth = 0;
   double _mediaWidth = 0;
+  double _mediaHeight = 0;
   bool _isShowHighlight = false;
   bool _isNavigating = false; // cater bookfx bug
 
@@ -194,7 +195,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
             ..scale(scale)
             ..translate(
               _bookWidth * -(widget.book.highlight!.centerX - (0.5 / scale)) - ((_mediaWidth - _bookWidth) / scale),
-              _bookHeight * -(widget.book.highlight!.centerY - (0.5 / scale) ),
+              _bookHeight * -(widget.book.highlight!.centerY - (0.5 / scale)) - ((_mediaHeight - _bookHeight) / scale),
             );
       _animateTo(zoomed);
       setState(() {
@@ -311,6 +312,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                                   _bookHeight = bookHeight;
                                   _bookWidth = bookWidth;
                                   _mediaWidth = screenSize.width;
+                                  _mediaHeight = screenSize.height;
                               
                                   return Stack(
                                     children: [
@@ -466,8 +468,8 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                           final zoomed =
                               Matrix4.identity()
                                 ..translate(
-                                  _bookWidth / 2 * -1,
-                                  _bookHeight / 2 * -1,
+                                  _mediaWidth / 2 * -1,
+                                  _mediaHeight / 2 * -1,
                                 )
                                 ..scale(scale);
                           _animateTo(zoomed);
