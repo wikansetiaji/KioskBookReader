@@ -21,8 +21,8 @@ class _BookListWidgetState extends State<BookListWidget> {
         double spacing = 40;
         double imageSize = (screenSize.width - spacing * 3) / 2;
     
-        return SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: spacing, vertical: 0),
+        return Padding(
+          padding: EdgeInsets.symmetric(horizontal: spacing),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

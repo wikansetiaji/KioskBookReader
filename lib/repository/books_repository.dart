@@ -18,7 +18,7 @@ class BooksRepository {
       content:
           'Dalam artikelnya, Maria Walanda Maramis menekankan pentingnya peran perempuan sebagai ibu dan guru pertama bagi anak-anak. Ia mengajak para perempuan Minahasa untuk menyadari tanggung jawab mereka dalam membentuk generasi yang bermoral dan berpengetahuan. Ia menyoroti ketertinggalan perempuan dalam pendidikan serta pentingnya mendidik anak sejak dini, baik secara fisik maupun spiritual. Maria juga menekankan bahwa kemajuan bangsa bergantung pada kualitas perempuan sebagai pendidik utama dalam keluarga, dan menyerukan agar kaum perempuan Minahasa ikut aktif dalam pembangunan masyarakat melalui pendidikan dan kesadaran akan peran strategis mereka. Artikel ini mencerminkan semangat emansipasi dan cita-cita kesetaraan yang ia perjuangkan.',
       numberOfPage: 4,
-      authorId: "maria_walanda_maramis",
+      authorId: "maramis",
       collection: "Koleksi PERPUSNAS",
       edition: "Edisi 1 tahun 1917",
       highlight: BookHighlight(
@@ -39,7 +39,7 @@ class BooksRepository {
       content:
           'Dalam artikelnya, Maria Walanda Maramis menekankan pentingnya peran perempuan sebagai ibu dan guru pertama bagi anak-anak. Ia mengajak para perempuan Minahasa untuk menyadari tanggung jawab mereka dalam membentuk generasi yang bermoral dan berpengetahuan. Ia menyoroti ketertinggalan perempuan dalam pendidikan serta pentingnya mendidik anak sejak dini, baik secara fisik maupun spiritual. Maria juga menekankan bahwa kemajuan bangsa bergantung pada kualitas perempuan sebagai pendidik utama dalam keluarga, dan menyerukan agar kaum perempuan Minahasa ikut aktif dalam pembangunan masyarakat melalui pendidikan dan kesadaran akan peran strategis mereka. Artikel ini mencerminkan semangat emansipasi dan cita-cita kesetaraan yang ia perjuangkan.',
       numberOfPage: 4,
-      authorId: "maria_walanda_maramis",
+      authorId: "maramis",
       collection: "Koleksi PERPUSNAS",
       edition: "Edisi 2 tahun 1917",
       highlight: BookHighlight(
@@ -61,7 +61,7 @@ class BooksRepository {
       content:
           'Dalam artikelnya, Maria Walanda Maramis menekankan pentingnya peran perempuan sebagai ibu dan guru pertama bagi anak-anak. Ia mengajak para perempuan Minahasa untuk menyadari tanggung jawab mereka dalam membentuk generasi yang bermoral dan berpengetahuan. Ia menyoroti ketertinggalan perempuan dalam pendidikan serta pentingnya mendidik anak sejak dini, baik secara fisik maupun spiritual. Maria juga menekankan bahwa kemajuan bangsa bergantung pada kualitas perempuan sebagai pendidik utama dalam keluarga, dan menyerukan agar kaum perempuan Minahasa ikut aktif dalam pembangunan masyarakat melalui pendidikan dan kesadaran akan peran strategis mereka. Artikel ini mencerminkan semangat emansipasi dan cita-cita kesetaraan yang ia perjuangkan.',
       numberOfPage: 4,
-      authorId: "maria_walanda_maramis",
+      authorId: "maramis",
       collection: "Koleksi PERPUSNAS",
       edition: "Edisi 3 tahun 1917",
       highlight: BookHighlight(
@@ -96,12 +96,12 @@ class BooksRepository {
 
   final List<Author> allAuthors = [
     Author(
-      id: "maria_walanda_maramis",
+      id: "maramis",
       name: "Maria Walanda Maramis",
       birthDeathDate: "15 Juni 1917 - 28 Desember 1945",
       background:
           "Maria Walanda Maramis adalah seorang penulis dan jurnalis asal Indonesia. Ia dikenal sebagai salah satu penulis perempuan pertama di Indonesia.",
-      image: "assets/images/maria_walanda_maramis.jpg"
+      image: "assets/images/maramis.jpg"
     ),
   ];
 
