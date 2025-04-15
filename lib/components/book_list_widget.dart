@@ -3,99 +3,15 @@ import 'package:kiosk_book_reader/components/book_list_item_widget.dart';
 import 'package:kiosk_book_reader/models/book.dart';
 
 class BookListWidget extends StatefulWidget {
-  const BookListWidget({super.key});
+  final List<Book> books;
+
+  const BookListWidget({super.key, required this.books});
 
   @override
   State<BookListWidget> createState() => _BookListWidgetState();
 }
 
 class _BookListWidgetState extends State<BookListWidget> {
-  final List<Book> books = [
-    Book(
-      id: "tjahaja_siang",
-      title: "Tjahaja Siang",
-      author: "Maria Walanda Maramis",
-      date: "15 Juni 1917",
-      numberOfPage: 4,
-      highlight: BookHighlight(
-        page: 1,
-        centerX: 0.79,
-        centerY: 0.73,
-        width: 0.3,
-        height: 0.38,
-      ),
-    ),
-    Book(
-      id: "pahesan",
-      title: "Pahesan",
-      author: "Wikan Setiadji",
-      date: "15 Juni 1917",
-      numberOfPage: 12,
-      highlight: BookHighlight(
-        page: 3,
-        centerX: 0.72,
-        centerY: 0.76,
-        width: 0.39,
-        height: 0.20,
-      ),
-    ),
-    Book(
-      id: "tjahaja_siang",
-      title: "Tjahaja Siang",
-      author: "Maria Walanda Maramis",
-      date: "15 Juni 1917",
-      numberOfPage: 4,
-      highlight: BookHighlight(
-        page: 1,
-        centerX: 0.79,
-        centerY: 0.73,
-        width: 0.3,
-        height: 0.38,
-      ),
-    ),
-    Book(
-      id: "pahesan",
-      title: "Pahesan",
-      author: "Wikan Setiadji",
-      date: "15 Juni 1917",
-      numberOfPage: 12,
-      highlight: BookHighlight(
-        page: 3,
-        centerX: 0.72,
-        centerY: 0.76,
-        width: 0.39,
-        height: 0.20,
-      ),
-    ),
-    Book(
-      id: "tjahaja_siang",
-      title: "Tjahaja Siang",
-      author: "Maria Walanda Maramis",
-      date: "15 Juni 1917",
-      numberOfPage: 4,
-      highlight: BookHighlight(
-        page: 1,
-        centerX: 0.79,
-        centerY: 0.73,
-        width: 0.3,
-        height: 0.38,
-      ),
-    ),
-    Book(
-      id: "pahesan",
-      title: "Pahesan",
-      author: "Wikan Setiadji",
-      date: "15 Juni 1917",
-      numberOfPage: 12,
-      highlight: BookHighlight(
-        page: 3,
-        centerX: 0.72,
-        centerY: 0.76,
-        width: 0.39,
-        height: 0.20,
-      ),
-    ),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -114,9 +30,9 @@ class _BookListWidgetState extends State<BookListWidget> {
                 padding: const EdgeInsets.only(top: 100),
                 child: Column(
                   children: [
-                    for (int i = 0; i < books.length; i += 2)
+                    for (int i = 0; i < widget.books.length; i += 2)
                       BookListItemWidget(
-                        book: books[i],
+                        book: widget.books[i],
                         width: imageSize,
                         spacing: spacing,
                       ),
@@ -126,9 +42,9 @@ class _BookListWidgetState extends State<BookListWidget> {
               SizedBox(width: spacing),
               Column(
                 children: [
-                  for (int i = 1; i < books.length; i += 2)
+                  for (int i = 1; i < widget.books.length; i += 2)
                     BookListItemWidget(
-                      book: books[i],
+                      book: widget.books[i],
                       width: imageSize,
                       spacing: spacing,
                     ),

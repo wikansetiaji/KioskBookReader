@@ -1,18 +1,28 @@
 class Book {
   final String id;
+  final String type;
   final String title;
-  final String author;
   final String date;
+  final String contentTitle;
+  final String content;
   final int numberOfPage;
   final BookHighlight? highlight;
+  final String? collection;
+  final String? edition;
+  final List<Book> otherEdition;
 
   Book({
     required this.id,
+    required this.type,
     required this.title,
-    required this.author,
     required this.date,
+    required this.contentTitle,
+    required this.content,
     required this.numberOfPage,
+    this.collection,
+    this.edition,
     this.highlight,
+    this.otherEdition = const [],
   });
 }
 

@@ -197,7 +197,8 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
               _bookWidth * -(widget.book.highlight!.centerX - (0.5 / scale)) -
                   ((_mediaWidth - _bookWidth) / scale),
               _bookHeight * -(widget.book.highlight!.centerY - (0.5 / scale)) -
-                  ((_mediaHeight - _bookHeight) / scale) - ((120) / scale),
+                  ((_mediaHeight - _bookHeight) / scale) -
+                  ((120) / scale),
             );
       _animateTo(zoomed);
       setState(() {
@@ -301,35 +302,52 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                                   opacity: _isZoomed ? 0.0 : 1.0,
                                   child: Row(
                                     children: [
-                                      SizedBox(width: 20,),
+                                      SizedBox(width: 20),
                                       Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            'KORAN TJEHAJA SJIANG',
+                                            '${widget.book.type.toUpperCase()} ${widget.book.title.toUpperCase()}',
                                             style: TextStyle(
                                               fontFamily: 'Archivo',
                                               fontWeight: FontWeight.bold,
                                               fontSize: 18,
-                                              color: Color.fromARGB(255, 85, 85, 85),
+                                              color: Color.fromARGB(
+                                                255,
+                                                85,
+                                                85,
+                                                85,
+                                              ),
                                             ),
                                             textAlign: TextAlign.start,
                                           ),
-                                          Text(
-                                            'EDISI NO. 12 TAHUN 45',
-                                            style: TextStyle(
-                                              fontFamily: 'Archivo',
-                                              fontSize: 16,
-                                              color: Color.fromARGB(255, 85, 85, 85),
+                                          if (widget.book.edition != null)
+                                            Text(
+                                              widget.book.edition!,
+                                              style: TextStyle(
+                                                fontFamily: 'Archivo',
+                                                fontSize: 16,
+                                                color: Color.fromARGB(
+                                                  255,
+                                                  85,
+                                                  85,
+                                                  85,
+                                                ),
+                                              ),
+                                              textAlign: TextAlign.start,
                                             ),
-                                            textAlign: TextAlign.start,
-                                          ),
                                           Text(
-                                            '15 JUNI 1917',
+                                            widget.book.date,
                                             style: TextStyle(
                                               fontFamily: 'Archivo',
                                               fontSize: 16,
-                                              color: Color.fromARGB(255, 162, 29, 58),
+                                              color: Color.fromARGB(
+                                                255,
+                                                162,
+                                                29,
+                                                58,
+                                              ),
                                             ),
                                             textAlign: TextAlign.start,
                                           ),
@@ -341,7 +359,10 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                                 ),
                                 Expanded(
                                   child: Padding(
-                                    padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 40.0,
+                                      vertical: 20.0,
+                                    ),
                                     child: LayoutBuilder(
                                       builder: (context, constraints) {
                                         final screenSize = constraints.biggest;

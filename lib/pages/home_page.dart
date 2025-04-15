@@ -4,6 +4,7 @@ import 'package:kiosk_book_reader/models/book.dart';
 import 'package:kiosk_book_reader/pages/img_book_read_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kiosk_book_reader/pages/book_filter_page.dart';
+import 'package:kiosk_book_reader/repository/books_repository.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.title});
@@ -14,41 +15,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<Book> books = [
-    Book(
-      id: "tjahaja_siang",
-      title: "Tjahaja Siang",
-      author: "Maria Walanda Maramis",
-      date: "15 Juni 1917",
-      numberOfPage: 4,
-      highlight: BookHighlight(
-        page: 1,
-        centerX: 0.79,
-        centerY: 0.73,
-        width: 0.3,
-        height: 0.38,
-      ),
-    ),
-    Book(
-      id: "pahesan",
-      title: "Pahesan",
-      author: "Wikan Setiadji",
-      date: "15 Juni 1917",
-      numberOfPage: 12,
-      highlight: BookHighlight(
-        page: 3,
-        centerX: 0.72,
-        centerY: 0.76,
-        width: 0.39,
-        height: 0.20,
-      ),
-    ),
-  ];
-
   final CarouselSliderController booksCarouselController =
       CarouselSliderController();
   double _carouselOffset = 0.0;
   int _selectedIndex = 0;
+  final BooksRepository repository = BooksRepository();
 
   @override
   Widget build(BuildContext context) {
@@ -137,7 +108,7 @@ class _HomePageState extends State<HomePage> {
                         alignment: Alignment.center,
                         children: [
                           CarouselSlider.builder(
-                            itemCount: books.length,
+                            itemCount: repository.getAllBooks().length,
                             carouselController: booksCarouselController,
                             options: CarouselOptions(
                               aspectRatio: 1.8,
@@ -163,9 +134,9 @@ class _HomePageState extends State<HomePage> {
                               },
                             ),
                             itemBuilder: (context, index, realIndex) {
-                              final book = books[index];
+                              final book = repository.getAllBooks()[index];
                               double distanceFromCenter =
-                                  ((_carouselOffset % books.length) - index);
+                                  ((_carouselOffset % repository.getAllBooks().length) - index);
                               double rotationY =
                                   (distanceFromCenter * -1).clamp(-1.0, 1.0) *
                                   0.5; // radians
@@ -213,7 +184,7 @@ class _HomePageState extends State<HomePage> {
                                 onPressed: () {
                                   if (_selectedIndex == 0) {
                                     booksCarouselController.animateToPage(
-                                      books.length - 1,
+                                      repository.getAllBooks().length - 1,
                                     );
                                   } else {
                                     booksCarouselController.previousPage();
@@ -237,7 +208,7 @@ class _HomePageState extends State<HomePage> {
                               Expanded(child: Container()),
                               ElevatedButton(
                                 onPressed: () {
-                                  if (_selectedIndex == books.length - 1) {
+                                  if (_selectedIndex == repository.getAllBooks().length - 1) {
                                     booksCarouselController.animateToPage(0);
                                   } else {
                                     booksCarouselController.nextPage();
@@ -265,7 +236,9 @@ class _HomePageState extends State<HomePage> {
                       ),
                       SizedBox(height: 25),
                       Text(
-                        books[_selectedIndex].author.toUpperCase(),
+                        repository.getAuthor(book: repository.getAllBooks()[_selectedIndex])?.name
+                                .toUpperCase() ??
+                            '',
                         style: TextStyle(
                           fontFamily: 'Archivo',
                           fontWeight: FontWeight.bold,
@@ -276,7 +249,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       SizedBox(height: 10),
                       Text(
-                        books[_selectedIndex].title.toUpperCase(),
+                        repository.getAllBooks()[_selectedIndex].title.toUpperCase(),
                         style: TextStyle(
                           fontFamily: 'Archivo',
                           fontWeight: FontWeight.bold,
@@ -296,7 +269,7 @@ class _HomePageState extends State<HomePage> {
                       MaterialPageRoute(
                         builder:
                             (context) =>
-                                ImgBookReadPage(book: books[_selectedIndex]),
+                                ImgBookReadPage(book: repository.getAllBooks()[_selectedIndex]),
                       ),
                     );
                   },
@@ -322,7 +295,7 @@ class _HomePageState extends State<HomePage> {
                       MaterialPageRoute(
                         builder:
                             (context) =>
-                                BookFilterPage(book: books[_selectedIndex]),
+                                BookFilterPage(),
                       ),
                     );
                   },

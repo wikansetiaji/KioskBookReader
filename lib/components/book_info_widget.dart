@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:kiosk_book_reader/components/other_book_edition_item_widget.dart';
 import 'package:kiosk_book_reader/models/book.dart';
+import 'package:kiosk_book_reader/repository/books_repository.dart';
 
 class BookInfoWidget extends StatelessWidget {
   final Book book;
@@ -32,7 +34,7 @@ class BookInfoWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '“DJEMPOETAN BAGI BANGSA PEREMPUAN”',
+                        book.contentTitle.toUpperCase(),
                         style: const TextStyle(
                           fontFamily: 'Archivo',
                           fontWeight: FontWeight.bold,
@@ -71,7 +73,7 @@ class BookInfoWidget extends StatelessWidget {
                         child: SingleChildScrollView(
                           scrollDirection: Axis.vertical,
                           child: Text(
-                            'Dalam artikelnya, Maria Walanda Maramis menekankan pentingnya peran perempuan sebagai ibu dan guru pertama bagi anak-anak. Ia mengajak para perempuan Minahasa untuk menyadari tanggung jawab mereka dalam membentuk generasi yang bermoral dan berpengetahuan. Ia menyoroti ketertinggalan perempuan dalam pendidikan serta pentingnya mendidik anak sejak dini, baik secara fisik maupun spiritual. Maria juga menekankan bahwa kemajuan bangsa bergantung pada kualitas perempuan sebagai pendidik utama dalam keluarga, dan menyerukan agar kaum perempuan Minahasa ikut aktif dalam pembangunan masyarakat melalui pendidikan dan kesadaran akan peran strategis mereka. Artikel ini mencerminkan semangat emansipasi dan cita-cita kesetaraan yang ia perjuangkan.',
+                            book.content,
                             style: const TextStyle(
                               fontFamily: 'PublicSans',
                               color: Colors.black,
@@ -99,7 +101,7 @@ class BookInfoWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'BACA EDISI LAINNYA,',
+                        book.otherEdition.isNotEmpty ? 'BACA EDISI LAINNYA,' : 'BUKU LAINNYA,',
                         style: const TextStyle(
                           fontFamily: 'Archivo',
                           fontWeight: FontWeight.bold,
@@ -116,105 +118,8 @@ class BookInfoWidget extends StatelessWidget {
                               child: ListView(
                                 scrollDirection: Axis.vertical,
                                 children: [
-                                  for (var i = 0; i < 10; i++)
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        spacing: 15,
-                                        children: [
-                                          Expanded(
-                                            flex: 50,
-                                            child: ClipRRect(
-                                              borderRadius: BorderRadius.all(
-                                                Radius.circular(10),
-                                              ),
-                                              child: Stack(
-                                                children: [
-                                                  Image.asset(
-                                                    'assets/pahesan/cover.jpg',
-                                                    fit: BoxFit.fitHeight,
-                                                  ),
-                                                  Positioned.fill(
-                                                    child: Image.asset(
-                                                      'assets/gradient-rect.png',
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                                  ),
-                                                  Positioned.fill(
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                            8.0,
-                                                          ),
-                                                      child: Column(
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Expanded(
-                                                            child: Container(),
-                                                          ),
-                                                          Text(
-                                                            'Edisi No. 12 Tahun 48',
-                                                            style: TextStyle(
-                                                              fontFamily:
-                                                                  'Archivo',
-                                                              fontSize: 16,
-                                                              color:
-                                                                  Colors.white,
-                                                            ),
-                                                            textAlign:
-                                                                TextAlign.start,
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                          Expanded(
-                                            flex: 50,
-                                            child: Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  'Tjahaja Sjiang',
-                                                  style: const TextStyle(
-                                                    fontFamily: 'Archivo',
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.black,
-                                                    fontSize: 16,
-                                                  ),
-                                                ),
-                                                Text(
-                                                  'Edisi No 12',
-                                                  style: const TextStyle(
-                                                    fontFamily: 'Archivo',
-                                                    color: Colors.black,
-                                                    fontSize: 16,
-                                                  ),
-                                                ),
-                                                Text(
-                                                  'Tahun 1948',
-                                                  style: const TextStyle(
-                                                    fontFamily: 'Archivo',
-                                                    color: Colors.black,
-                                                    fontSize: 16,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
+                                  for (var otherEdition in book.otherEdition.isNotEmpty ? book.otherEdition : BooksRepository().getAllBooks())
+                                    OtherBookEditionItemWidget(book: otherEdition,),
                                 ],
                               ),
                             ),

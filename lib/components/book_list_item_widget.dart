@@ -52,7 +52,7 @@ class BookListItemWidget extends StatelessWidget {
                         children: [
                           Expanded(child: Container()),
                           Text(
-                            'SURAT KABAR',
+                            book.type.toUpperCase(),
                             style: TextStyle(
                               fontFamily: 'Archivo',
                               fontSize: 16,
@@ -61,7 +61,7 @@ class BookListItemWidget extends StatelessWidget {
                             textAlign: TextAlign.center,
                           ),
                           Text(
-                            'TJAHAJA SJIANG',
+                            book.title.toUpperCase(),
                             style: TextStyle(
                               fontFamily: 'Archivo',
                               fontSize: 16,
@@ -71,15 +71,16 @@ class BookListItemWidget extends StatelessWidget {
                             textAlign: TextAlign.center,
                           ),
                           SizedBox(height: 5),
-                          Text(
-                            'Edisi No. 12 Tahun 48',
-                            style: TextStyle(
-                              fontFamily: 'Archivo',
-                              fontSize: 14,
-                              color: Colors.white,
+                          if (book.edition != null)
+                            Text(
+                              book.edition!,
+                              style: TextStyle(
+                                fontFamily: 'Archivo',
+                                fontSize: 14,
+                                color: Colors.white,
+                              ),
+                              textAlign: TextAlign.center,
                             ),
-                            textAlign: TextAlign.center,
-                          ),
                           SizedBox(height: 10),
                           ClipRRect(
                             borderRadius: BorderRadius.circular(10),
@@ -87,7 +88,7 @@ class BookListItemWidget extends StatelessWidget {
                               padding: EdgeInsets.all(5),
                               color: Color.fromARGB(255, 162, 29, 58),
                               child: Text(
-                                '15 JUNI 1917',
+                                book.date,
                                 style: TextStyle(
                                   fontFamily: 'Archivo',
                                   fontSize: 14,
@@ -99,15 +100,16 @@ class BookListItemWidget extends StatelessWidget {
                             ),
                           ),
                           SizedBox(height: 10),
-                          Text(
-                            'Koleksi PERPUSNAS',
-                            style: TextStyle(
-                              fontFamily: 'Archivo',
-                              fontSize: 14,
-                              color: Colors.white,
+                          if (book.collection != null)
+                            Text(
+                              book.collection!,
+                              style: TextStyle(
+                                fontFamily: 'Archivo',
+                                fontSize: 14,
+                                color: Colors.white,
+                              ),
+                              textAlign: TextAlign.center,
                             ),
-                            textAlign: TextAlign.center,
-                          ),
                         ],
                       ),
                     ),

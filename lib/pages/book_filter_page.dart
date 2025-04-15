@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:kiosk_book_reader/components/book_list_widget.dart';
 import 'package:kiosk_book_reader/models/book.dart';
+import 'package:kiosk_book_reader/repository/books_repository.dart';
 
 class BookFilterPage extends StatefulWidget {
-  const BookFilterPage({super.key, required this.book});
-
-  final Book book;
+  const BookFilterPage({super.key});
 
   @override
   State<BookFilterPage> createState() => _BookFilterPageState();
@@ -14,6 +13,8 @@ class BookFilterPage extends StatefulWidget {
 class _BookFilterPageState extends State<BookFilterPage> {
   bool _isDrawerOpened = false;
   bool _isDrawerVisible = false;
+
+  final BooksRepository booksRepository = BooksRepository();
 
   @override
   Widget build(BuildContext context) {
@@ -177,7 +178,7 @@ class _BookFilterPageState extends State<BookFilterPage> {
                     ),
                   ),
 
-                  Expanded(flex: 70, child: BookListWidget()),
+                  Expanded(flex: 70, child: BookListWidget(books: booksRepository.getAllBooks(),)),
                 ],
               ),
               if (_isDrawerOpened)
