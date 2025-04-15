@@ -141,14 +141,6 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
     _animationController.forward(from: 0);
   }
 
-  @override
-  void dispose() {
-    bookController.dispose();
-    _animationController.dispose();
-    _transformationController.dispose();
-    super.dispose();
-  }
-
   void goToNextPage() {
     if (_isNavigating) return; // cater bookfx bug
     if (currentPageIndex + 1 < widget.book.numberOfPage) {
@@ -225,10 +217,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
           alignment: Alignment.center,
           children: [
             Positioned.fill(
-              child: Image.asset(
-                'assets/bg-texture.png',
-                fit: BoxFit.cover,
-              ),
+              child: Image.asset('assets/bg-texture.png', fit: BoxFit.cover),
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -279,175 +268,175 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Container(
-                        color: const Color.fromARGB(43, 0, 0, 0),
-                        padding: EdgeInsets.all(20),
-                        child: LayoutBuilder(
-                          builder: (context, constraints) {
-                            final screenSize = constraints.biggest;
-                            final maxHeight = screenSize.height;
-                            final maxWidth = screenSize.width;
-
-                            double bookWidth = min(
-                              maxWidth,
-                              maxHeight * imgAspectRatio!,
-                            );
-                            double bookHeight = bookWidth / imgAspectRatio!;
-
-                            if (bookHeight > maxHeight) {
-                              bookHeight = maxHeight;
-                              bookWidth = bookHeight * imgAspectRatio!;
-                            }
-
-                            _bookHeight = bookHeight;
-                            _bookWidth = bookWidth;
-
-                            return Stack(
-                              children: [
-                                Center(
-                                  child: GestureDetector(
-                                    onDoubleTapDown:
-                                        (details) =>
-                                            _handleDoubleTap(context, details),
-                                    child: InteractiveViewer(
-                                      transformationController:
-                                          _transformationController,
-                                      minScale: 1.0,
-                                      maxScale: 3.0,
-                                      panEnabled: _isZoomed,
-                                      scaleEnabled: true,
-                                      boundaryMargin: const EdgeInsets.all(20),
-                                      onInteractionUpdate: (details) {
-                                        final newScale =
-                                            _transformationController.value
-                                                .getMaxScaleOnAxis();
-                                        setState(() {
-                                          _scale = newScale;
-                                          _isZoomed = newScale != 1.0;
-                                        });
-                                      },
-                                      child: GestureDetector(
-                                        onTapDown: (TapDownDetails details) {
-                                          print(
-                                            'Tapped at relative: (${details.localPosition.dx / bookWidth},${details.localPosition.dy / bookHeight})',
-                                          );
-                                        },
-                                        child: Stack(
-                                          alignment: Alignment.center,
-                                          children: [
-                                            SizedBox(
-                                              width: bookWidth,
-                                              height: bookHeight,
-                                              child: AbsorbPointer(
-                                                absorbing: _isZoomed,
-                                                child: BookFx(
-                                                  currentBgColor:
-                                                      const Color.fromARGB(
-                                                        255,
-                                                        214,
-                                                        187,
-                                                        135,
-                                                      ),
-                                                  size: Size(
-                                                    bookWidth,
-                                                    bookHeight,
-                                                  ),
-                                                  pageCount:
-                                                      widget.book.numberOfPage,
-                                                  currentPage:
-                                                      (index) => _buildBookPage(
-                                                        index,
-                                                        bookWidth,
-                                                        bookHeight,
-                                                      ),
-                                                  nextPage:
-                                                      (index) => _buildBookPage(
-                                                        index,
-                                                        bookWidth,
-                                                        bookHeight,
-                                                      ),
-                                                  controller: bookController,
-                                                  nextCallBack: (index) {
-                                                    setState(() {
-                                                      _isShowHighlight = false;
-                                                      currentPageIndex =
-                                                          index - 1;
-                                                    });
-                                                  },
-                                                  lastCallBack: (index) {
-                                                    if (index > 0) {
+                        color: _isZoomed ? const Color.fromARGB(43, 0, 0, 0) : null,
+                        child: GestureDetector(
+                          onDoubleTapDown:
+                              (details) => _handleDoubleTap(context, details),
+                          child: InteractiveViewer(
+                            transformationController: _transformationController,
+                            minScale: 1.0,
+                            maxScale: 3.0,
+                            panEnabled: _isZoomed,
+                            scaleEnabled: true,
+                            boundaryMargin: const EdgeInsets.all(20),
+                            onInteractionUpdate: (details) {
+                              final newScale =
+                                  _transformationController.value
+                                      .getMaxScaleOnAxis();
+                              setState(() {
+                                _scale = newScale;
+                                _isZoomed = newScale != 1.0;
+                              });
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.all(40.0),
+                              child: LayoutBuilder(
+                                builder: (context, constraints) {
+                                  final screenSize = constraints.biggest;
+                                  final maxHeight = screenSize.height;
+                                  final maxWidth = screenSize.width;
+                              
+                                  double bookWidth = min(
+                                    maxWidth,
+                                    maxHeight * imgAspectRatio!,
+                                  );
+                                  double bookHeight = bookWidth / imgAspectRatio!;
+                              
+                                  if (bookHeight > maxHeight) {
+                                    bookHeight = maxHeight;
+                                    bookWidth = bookHeight * imgAspectRatio!;
+                                  }
+                              
+                                  _bookHeight = bookHeight;
+                                  _bookWidth = bookWidth;
+                              
+                                  return Stack(
+                                    children: [
+                                      Center(
+                                        child: GestureDetector(
+                                          onTapDown: (TapDownDetails details) {
+                                            print(
+                                              'Tapped at relative: (${details.localPosition.dx / bookWidth},${details.localPosition.dy / bookHeight})',
+                                            );
+                                          },
+                                          child: Stack(
+                                            alignment: Alignment.center,
+                                            children: [
+                                              SizedBox(
+                                                width: bookWidth,
+                                                height: bookHeight,
+                                                child: AbsorbPointer(
+                                                  absorbing: _isZoomed,
+                                                  child: BookFx(
+                                                    currentBgColor:
+                                                        const Color.fromARGB(
+                                                          255,
+                                                          214,
+                                                          187,
+                                                          135,
+                                                        ),
+                                                    size: Size(
+                                                      bookWidth,
+                                                      bookHeight,
+                                                    ),
+                                                    pageCount:
+                                                        widget.book.numberOfPage,
+                                                    currentPage:
+                                                        (index) => _buildBookPage(
+                                                          index,
+                                                          bookWidth,
+                                                          bookHeight,
+                                                        ),
+                                                    nextPage:
+                                                        (index) => _buildBookPage(
+                                                          index,
+                                                          bookWidth,
+                                                          bookHeight,
+                                                        ),
+                                                    controller: bookController,
+                                                    nextCallBack: (index) {
                                                       setState(() {
-                                                        _isShowHighlight =
-                                                            false;
+                                                        _isShowHighlight = false;
                                                         currentPageIndex =
                                                             index - 1;
                                                       });
-                                                    }
-                                                  },
-                                                ),
-                                              ),
-                                            ),
-                                            if (_isShowHighlight)
-                                              Positioned(
-                                                left:
-                                                    widget
-                                                            .book
-                                                            .highlight!
-                                                            .centerX *
-                                                        bookWidth -
-                                                    ((widget
-                                                                .book
-                                                                .highlight!
-                                                                .width /
-                                                            2) *
-                                                        bookWidth),
-                                                top:
-                                                    widget
-                                                            .book
-                                                            .highlight!
-                                                            .centerY *
-                                                        bookHeight -
-                                                    ((widget
-                                                                .book
-                                                                .highlight!
-                                                                .height /
-                                                            2) *
-                                                        bookHeight),
-                                                child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.all(
-                                                        Radius.circular(10),
-                                                      ),
-                                                  child: Container(
-                                                    color: Color.fromARGB(
-                                                      80,
-                                                      238,
-                                                      245,
-                                                      145,
-                                                    ),
-                                                    width:
-                                                        widget
-                                                            .book
-                                                            .highlight!
-                                                            .width *
-                                                        bookWidth,
-                                                    height:
-                                                        widget
-                                                            .book
-                                                            .highlight!
-                                                            .height *
-                                                        bookHeight,
+                                                    },
+                                                    lastCallBack: (index) {
+                                                      if (index > 0) {
+                                                        setState(() {
+                                                          _isShowHighlight =
+                                                              false;
+                                                          currentPageIndex =
+                                                              index - 1;
+                                                        });
+                                                      }
+                                                    },
                                                   ),
                                                 ),
                                               ),
-                                          ],
+                                              if (_isShowHighlight)
+                                                Positioned(
+                                                  left:
+                                                      widget
+                                                              .book
+                                                              .highlight!
+                                                              .centerX *
+                                                          bookWidth -
+                                                      ((widget
+                                                                  .book
+                                                                  .highlight!
+                                                                  .width /
+                                                              2) *
+                                                          bookWidth),
+                                                  top:
+                                                      widget
+                                                              .book
+                                                              .highlight!
+                                                              .centerY *
+                                                          bookHeight -
+                                                      ((widget
+                                                                  .book
+                                                                  .highlight!
+                                                                  .height /
+                                                              2) *
+                                                          bookHeight),
+                                                  child: ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.all(
+                                                          Radius.circular(10),
+                                                        ),
+                                                    child: Container(
+                                                      color: Color.fromARGB(
+                                                        80,
+                                                        238,
+                                                        245,
+                                                        145,
+                                                      ),
+                                                      width:
+                                                          widget
+                                                              .book
+                                                              .highlight!
+                                                              .width *
+                                                          bookWidth,
+                                                      height:
+                                                          widget
+                                                              .book
+                                                              .highlight!
+                                                              .height *
+                                                          bookHeight,
+                                                    ),
+                                                  ),
+                                                ),
+                                            ],
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            );
-                          },
+                                    ],
+                                  );
+                                },
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                     ),
@@ -556,6 +545,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
 
   Widget _buildBookPage(int index, double width, double height) {
     return SizedBox(
+      key: ValueKey(index),
       width: width,
       height: height,
       child: Image.asset(

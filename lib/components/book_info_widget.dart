@@ -109,18 +109,141 @@ class BookInfoWidget extends StatelessWidget {
                       ),
                       SizedBox(height: 10),
                       Expanded(
-                        child: ListView(
-                          scrollDirection: Axis.vertical,
+                        child: Column(
+                          spacing: 10,
                           children: [
-                            for (var i = 0; i < 10; i++)
-                              Container(
-                                padding: EdgeInsets.all(8),
-                                height: 130,
-                                child: Image.asset(
-                                  'assets/pahesan/cover.jpg',
-                                  fit: BoxFit.fitHeight,
+                            Expanded(
+                              child: ListView(
+                                scrollDirection: Axis.vertical,
+                                children: [
+                                  for (var i = 0; i < 10; i++)
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        spacing: 15,
+                                        children: [
+                                          Expanded(
+                                            flex: 50,
+                                            child: ClipRRect(
+                                              borderRadius: BorderRadius.all(
+                                                Radius.circular(10),
+                                              ),
+                                              child: Stack(
+                                                children: [
+                                                  Image.asset(
+                                                    'assets/pahesan/cover.jpg',
+                                                    fit: BoxFit.fitHeight,
+                                                  ),
+                                                  Positioned.fill(
+                                                    child: Image.asset(
+                                                      'assets/gradient-rect.png',
+                                                      fit: BoxFit.cover,
+                                                    ),
+                                                  ),
+                                                  Positioned.fill(
+                                                    child: Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                            8.0,
+                                                          ),
+                                                      child: Column(
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Expanded(
+                                                            child: Container(),
+                                                          ),
+                                                          Text(
+                                                            'Edisi No. 12 Tahun 48',
+                                                            style: TextStyle(
+                                                              fontFamily:
+                                                                  'Archivo',
+                                                              fontSize: 16,
+                                                              color:
+                                                                  Colors.white,
+                                                            ),
+                                                            textAlign:
+                                                                TextAlign.start,
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          Expanded(
+                                            flex: 50,
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  'Tjahaja Sjiang',
+                                                  style: const TextStyle(
+                                                    fontFamily: 'Archivo',
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.black,
+                                                    fontSize: 16,
+                                                  ),
+                                                ),
+                                                Text(
+                                                  'Edisi No 12',
+                                                  style: const TextStyle(
+                                                    fontFamily: 'Archivo',
+                                                    color: Colors.black,
+                                                    fontSize: 16,
+                                                  ),
+                                                ),
+                                                Text(
+                                                  'Tahun 1948',
+                                                  style: const TextStyle(
+                                                    fontFamily: 'Archivo',
+                                                    color: Colors.black,
+                                                    fontSize: 16,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                ],
+                              ),
+                            ),
+                            ElevatedButton(
+                              onPressed: () {
+                                
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Color.fromARGB(
+                                  255,
+                                  239,
+                                  233,
+                                  209,
+                                ),
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 20,
+                                  vertical: 20,
                                 ),
                               ),
+                              child: Text(
+                                'LIHAT GALERI ARSIP',
+                                style: TextStyle(
+                                  fontFamily: 'Archivo',
+                                  fontWeight: FontWeight.bold,
+                                  color: Color.fromARGB(255, 85, 85, 85),
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ),
