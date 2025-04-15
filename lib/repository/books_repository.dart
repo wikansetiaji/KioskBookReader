@@ -122,8 +122,8 @@ class BooksRepository {
     return allBooks.where((b) => b.authorId == author.id).toList();
   }
 
-  List<Book> getBookEditions({required String editionId}) {
-    return allBooks.where((b) => b.editionId == editionId).toList();
+  List<Book> getBookEditions({required Book book}) {
+    return allBooks.where((b) => b.editionId == book.editionId && b != book).toList();
   }
 
   BooksRepository._internal();

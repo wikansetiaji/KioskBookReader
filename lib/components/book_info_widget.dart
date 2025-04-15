@@ -124,7 +124,7 @@ class BookInfoWidget extends StatelessWidget {
                                   for (var otherEdition
                                       in book.editionId != null
                                           ? BooksRepository().getBookEditions(
-                                            editionId: book.editionId!,
+                                            book: book,
                                           )
                                           : BooksRepository().getAllBooks())
                                     OtherBookEditionItemWidget(
