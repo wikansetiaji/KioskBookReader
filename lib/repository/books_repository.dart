@@ -30,7 +30,8 @@ class BooksRepository {
       ),
       editionId: "tjehaja_sijang",
     ),
-    Book( // TODO: This book is a mock
+    Book(
+      // TODO: This book is a mock
       id: "tjehaja_sijang",
       type: "Surat Kabar",
       title: "Tjehaja Sijang",
@@ -52,7 +53,8 @@ class BooksRepository {
       isOtherEdition: true,
       editionId: "tjehaja_sijang",
     ),
-    Book( // TODO: This book is a mock
+    Book(
+      // TODO: This book is a mock
       id: "tjehaja_sijang",
       type: "Surat Kabar",
       title: "Tjehaja Sijang",
@@ -101,7 +103,7 @@ class BooksRepository {
       birthDeathDate: "15 Juni 1917 - 28 Desember 1945",
       background:
           "Maria Walanda Maramis adalah seorang penulis dan jurnalis asal Indonesia. Ia dikenal sebagai salah satu penulis perempuan pertama di Indonesia.",
-      image: "assets/images/maramis.jpg"
+      image: "assets/images/maramis.jpg",
     ),
   ];
 
@@ -118,12 +120,24 @@ class BooksRepository {
     return null;
   }
 
-  List<Book> getBooks({required Author author}) {
-    return allBooks.where((b) => b.authorId == author.id).toList();
+  List<Book> getBooksFromAuthor({required Author author}) {
+    return allBooks
+        .where((b) => b.authorId == author.id && !b.isOtherEdition)
+        .toList();
   }
 
   List<Book> getBookEditions({required Book book}) {
-    return allBooks.where((b) => b.editionId == book.editionId && b != book).toList();
+    return allBooks
+        .where((b) => b.editionId == book.editionId && b != book)
+        .toList();
+  }
+
+  List<Author> getAllAuthors() {
+    return allAuthors;
+  }
+
+  List<Book> getBooksWithoutAuthor() {
+    return allBooks.where((b) => b.authorId == null).toList();
   }
 
   BooksRepository._internal();

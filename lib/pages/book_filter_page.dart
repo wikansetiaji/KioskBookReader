@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kiosk_book_reader/components/author_info_widget.dart';
 import 'package:kiosk_book_reader/components/book_list_widget.dart';
 import 'package:kiosk_book_reader/components/filter_drawer_widget.dart';
+import 'package:kiosk_book_reader/models/author.dart';
 import 'package:kiosk_book_reader/repository/books_repository.dart';
 
 class BookFilterPage extends StatefulWidget {
@@ -14,6 +15,7 @@ class BookFilterPage extends StatefulWidget {
 class _BookFilterPageState extends State<BookFilterPage> {
   bool _isDrawerOpened = false;
   bool _isDrawerVisible = false;
+  Author? _selectedAuthor;
 
   final BooksRepository booksRepository = BooksRepository();
 
@@ -90,21 +92,26 @@ class _BookFilterPageState extends State<BookFilterPage> {
                           Row(
                             children: [
                               Expanded(child: Container()),
-                              Text(
-                                'TULISAN KARYA',
-                                style: TextStyle(
-                                  fontFamily: 'Archivo',
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color.fromARGB(255, 85, 85, 85),
-                                  letterSpacing: -1.5,
-                                  height: 0.8,
+                              if (_selectedAuthor == null)
+                                Row(
+                                  children: [
+                                    Text(
+                                      'TULISAN KARYA',
+                                      style: TextStyle(
+                                        fontFamily: 'Archivo',
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.bold,
+                                        color: Color.fromARGB(255, 85, 85, 85),
+                                        letterSpacing: -1.5,
+                                        height: 0.8,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    SizedBox(width: 20),
+                                  ],
                                 ),
-                                textAlign: TextAlign.center,
-                              ),
-                              SizedBox(width: 20),
                               Text(
-                                'SEMUA PENULIS WANITA',
+                                _selectedAuthor == null ? 'SEMUA PENULIS WANITA' : _selectedAuthor!.name.toUpperCase(),
                                 style: TextStyle(
                                   fontFamily: 'Archivo',
                                   fontSize: 24,
@@ -119,13 +126,15 @@ class _BookFilterPageState extends State<BookFilterPage> {
                             ],
                           ),
 
-                          SizedBox(height: 20),
+                          SizedBox(height: 40),
 
-                          AuthorInfoWidget(author: BooksRepository().allAuthors[0],),
+                          if (_selectedAuthor != null)
+                            AuthorInfoWidget(author: _selectedAuthor!),
 
                           SizedBox(
                             child: BookListWidget(
-                                books: booksRepository.getAllBooks()),
+                              books: _selectedAuthor == null ? booksRepository.getAllBooks() : booksRepository.getBooksFromAuthor(author: _selectedAuthor!),
+                            ),
                           ),
                           // until here
                         ],
@@ -173,7 +182,15 @@ class _BookFilterPageState extends State<BookFilterPage> {
             maintainAnimation: true,
             maintainSize: true,
             visible: _isDrawerVisible,
-            child: FilterDrawerWidget(context: context),
+            child: FilterDrawerWidget(
+              context: context,
+              onSelectAuthor: (author) {
+                setState(() {
+                  _selectedAuthor = author;
+                  _isDrawerOpened = false;
+                });
+              },
+            ),
           ),
           Column(
             children: [
