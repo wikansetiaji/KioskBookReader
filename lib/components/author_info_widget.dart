@@ -12,10 +12,10 @@ class AuthorInfoWidget extends StatelessWidget {
     return SizedBox(
       height: 300.sc,
       child: Padding(
-        padding: EdgeInsets.only(bottom: 40.0.sc, left: 40.0.sc, right: 40.0.sc),
+        padding: EdgeInsets.only(bottom: 40.0.sc, left: 80.0.sc, right: 80.0.sc),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
-          spacing: 15,
+          spacing: 40.sc,
           children: [
             Expanded(
               flex: 40,

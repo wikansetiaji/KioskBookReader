@@ -24,7 +24,7 @@ void main() async {
 
   runApp(
     Transform.scale(
-      scale: !Platform.isWindows ? 0.72 : 1, // Show at 50% size
+      scale: !Platform.isWindows ? 0.48 : 1, // Show at 50% size
       alignment: Alignment.topLeft,
       child: const KioskBookReaderApp(),
     ),
