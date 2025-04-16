@@ -6,8 +6,9 @@ import 'package:kiosk_book_reader/pages/home_page.dart';
 import 'package:kiosk_book_reader/service/idle_timer.dart';
 import 'package:kiosk_book_reader/service/size_config.dart';
 import 'package:window_size/window_size.dart';
+import 'package:window_manager/window_manager.dart';
 
-void main() {
+void main() async {
   final double width = 1080;
   final double height = 1920;
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,6 +29,18 @@ void main() {
       child: const KioskBookReaderApp(),
     ),
   );
+
+  if (Platform.isWindows) {
+    WidgetsFlutterBinding.ensureInitialized();
+    await windowManager.ensureInitialized();
+
+    windowManager.waitUntilReadyToShow().then((_) async {
+      await windowManager.setFullScreen(true);
+      await windowManager.center();
+      await windowManager.show();
+      await windowManager.setSkipTaskbar(false);
+    });
+  }
 }
 
 class KioskBookReaderApp extends StatelessWidget {
