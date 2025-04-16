@@ -6,7 +6,6 @@ import 'package:kiosk_book_reader/pages/home_page.dart';
 import 'package:kiosk_book_reader/service/idle_timer.dart';
 import 'package:kiosk_book_reader/service/size_config.dart';
 import 'package:window_size/window_size.dart';
-import 'package:fullscreen_window/fullscreen_window.dart';
 
 void main() {
   final double width = 1080;
