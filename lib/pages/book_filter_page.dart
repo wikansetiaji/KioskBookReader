@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kiosk_book_reader/components/author_info_widget.dart';
 import 'package:kiosk_book_reader/components/book_list_widget.dart';
 import 'package:kiosk_book_reader/components/filter_drawer_widget.dart';
+import 'package:kiosk_book_reader/components/language_toggle_switch.dart';
 import 'package:kiosk_book_reader/models/author.dart';
 import 'package:kiosk_book_reader/repository/books_repository.dart';
 import 'package:kiosk_book_reader/service/size_config.dart';
@@ -71,10 +72,12 @@ class _BookFilterPageState extends State<BookFilterPage> {
                         ),
                       ),
                       Expanded(child: Container()),
+                      LanguageToggleSwitch(),
+                      SizedBox(width: 40.sc),
                     ],
                   ),
-                  
-                  SizedBox(height: 40.sc,),
+
+                  SizedBox(height: 40.sc),
 
                   // Start scroll from here
                   Expanded(
@@ -114,7 +117,9 @@ class _BookFilterPageState extends State<BookFilterPage> {
                                   ],
                                 ),
                               Text(
-                                _selectedAuthor == null ? 'SEMUA PENULIS WANITA' : _selectedAuthor!.name.toUpperCase(),
+                                _selectedAuthor == null
+                                    ? 'SEMUA PENULIS WANITA'
+                                    : _selectedAuthor!.name.toUpperCase(),
                                 style: TextStyle(
                                   fontFamily: 'Archivo',
                                   fontSize: 42.sc,
@@ -136,7 +141,12 @@ class _BookFilterPageState extends State<BookFilterPage> {
 
                           SizedBox(
                             child: BookListWidget(
-                              books: _selectedAuthor == null ? booksRepository.getAllBooks() : booksRepository.getBooksFromAuthor(author: _selectedAuthor!),
+                              books:
+                                  _selectedAuthor == null
+                                      ? booksRepository.getAllBooks()
+                                      : booksRepository.getBooksFromAuthor(
+                                        author: _selectedAuthor!,
+                                      ),
                             ),
                           ),
                           // until here

@@ -4,29 +4,24 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:kiosk_book_reader/pages/home_page.dart';
 import 'package:kiosk_book_reader/service/idle_timer.dart';
+import 'package:kiosk_book_reader/service/language_provider.dart';
 import 'package:kiosk_book_reader/service/size_config.dart';
+import 'package:provider/provider.dart';
 import 'package:window_size/window_size.dart';
 import 'package:window_manager/window_manager.dart';
 
 void main() async {
-  final double width = 1080;
-  final double height = 1920;
   WidgetsFlutterBinding.ensureInitialized();
   setWindowTitle('Muara Kiosk Book Reader');
 
-  if (!Platform.isWindows) {
-    setWindowMinSize(Size(width, height));
-    setWindowMaxSize(Size(width, height));
-    setWindowFrame(
-      Rect.fromLTWH(100, 100, width, height),
-    ); // <== Simulated resolution
-  }
-
   runApp(
-    Transform.scale(
-      scale: !Platform.isWindows ? 0.48 : 1, // Show at 50% size
-      alignment: Alignment.topLeft,
-      child: const KioskBookReaderApp(),
+    ChangeNotifierProvider(
+      create: (_) => LanguageProvider(),
+      child: Transform.scale(
+        scale: 1, // Show at 50% size
+        alignment: Alignment.topLeft,
+        child: const KioskBookReaderApp(),
+      ),
     ),
   );
 

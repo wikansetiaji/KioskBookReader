@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:bookfx/bookfx.dart';
 import 'package:kiosk_book_reader/components/book_info_widget.dart';
+import 'package:kiosk_book_reader/components/language_toggle_switch.dart';
 import 'package:kiosk_book_reader/models/book.dart';
 import 'package:kiosk_book_reader/service/size_config.dart';
 
@@ -264,6 +265,8 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                       ),
                     ),
                     Expanded(child: Container()),
+                    LanguageToggleSwitch(),
+                    SizedBox(width: 40.sc,)
                   ],
                 ),
                 SizedBox(height: 40.sc),
