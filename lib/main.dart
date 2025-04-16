@@ -12,7 +12,7 @@ import 'package:window_manager/window_manager.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  setWindowTitle('Muara Kiosk Book Reader');
+  setWindowTitle('Kartini Kiosk Book Reader');
 
   runApp(
     ChangeNotifierProvider(
