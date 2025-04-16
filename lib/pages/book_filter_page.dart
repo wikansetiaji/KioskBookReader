@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kiosk_book_reader/components/author_info_content_widget.dart';
 import 'package:kiosk_book_reader/components/author_info_widget.dart';
 import 'package:kiosk_book_reader/components/book_list_widget.dart';
 import 'package:kiosk_book_reader/components/filter_drawer_widget.dart';
@@ -64,7 +65,9 @@ class _BookFilterPageState extends State<BookFilterPage> {
                           ),
                         ),
                         child: Text(
-                          context.watch<LanguageProvider>().isEnglish ? '< BACK' : '< KEMBALI',
+                          context.watch<LanguageProvider>().isEnglish
+                              ? '< BACK'
+                              : '< KEMBALI',
                           style: TextStyle(
                             fontFamily: 'Archivo',
                             fontWeight: FontWeight.bold,
@@ -87,7 +90,9 @@ class _BookFilterPageState extends State<BookFilterPage> {
                       child: Column(
                         children: [
                           Text(
-                            context.watch<LanguageProvider>().isEnglish ? 'DIGITAL ARCHIVE' : 'ARSIP DIGITAL',
+                            context.watch<LanguageProvider>().isEnglish
+                                ? 'DIGITAL ARCHIVE'
+                                : 'ARSIP DIGITAL',
                             style: TextStyle(
                               fontFamily: 'Archivo',
                               fontSize: 28.sc,
@@ -104,7 +109,11 @@ class _BookFilterPageState extends State<BookFilterPage> {
                                 Row(
                                   children: [
                                     Text(
-                                      context.watch<LanguageProvider>().isEnglish ? 'WRITINGS OF' : 'TULISAN KARYA',
+                                      context
+                                              .watch<LanguageProvider>()
+                                              .isEnglish
+                                          ? 'WRITINGS OF'
+                                          : 'TULISAN KARYA',
                                       style: TextStyle(
                                         fontFamily: 'Archivo',
                                         fontSize: 42.sc,
@@ -120,7 +129,11 @@ class _BookFilterPageState extends State<BookFilterPage> {
                                 ),
                               Text(
                                 _selectedAuthor == null
-                                    ? context.watch<LanguageProvider>().isEnglish ? 'ALL WOMEN WRITERS' : 'SEMUA PENULIS WANITA'
+                                    ? context
+                                            .watch<LanguageProvider>()
+                                            .isEnglish
+                                        ? 'ALL WOMEN WRITERS'
+                                        : 'SEMUA PENULIS WANITA'
                                     : _selectedAuthor!.name.toUpperCase(),
                                 style: TextStyle(
                                   fontFamily: 'Archivo',
@@ -140,6 +153,9 @@ class _BookFilterPageState extends State<BookFilterPage> {
 
                           if (_selectedAuthor != null)
                             AuthorInfoWidget(author: _selectedAuthor!),
+
+                          if (_selectedAuthor?.contentType != null)
+                            AuthorInfoContentWidget(author: _selectedAuthor!,),
 
                           SizedBox(
                             child: BookListWidget(

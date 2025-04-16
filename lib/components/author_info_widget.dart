@@ -12,7 +12,7 @@ class AuthorInfoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 300.sc,
+      height: 400.sc,
       child: Padding(
         padding: EdgeInsets.only(bottom: 40.0.sc, left: 80.0.sc, right: 80.0.sc),
         child: Row(
@@ -110,9 +110,10 @@ class AuthorInfoWidget extends StatelessWidget {
                           scrollDirection: Axis.vertical,
                           child: Text(
                             author.getBackgrond(context),
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontFamily: 'PublicSans',
                               color: Colors.black,
+                              fontSize: 19.sc,
                             ),
                           ),
                         ),

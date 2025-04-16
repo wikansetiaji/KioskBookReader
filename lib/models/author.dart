@@ -9,6 +9,9 @@ class Author {
   final String birthDeathDate;
   final Map<AppLanguage, String> background; // Translatable
   final String image;
+  final Map<AppLanguage, String>? contentType; // Translatable
+  final String? contentTitle; // Translatable
+  final Map<AppLanguage, String>? contentDescription; // Translatable
 
   Author({
     required this.id,
@@ -16,6 +19,9 @@ class Author {
     required this.birthDeathDate,
     required this.background,
     required this.image,
+    this.contentType,
+    this.contentTitle,
+    this.contentDescription
   });
 
   String getTranslated(BuildContext context, Map<AppLanguage, String>? field) {
@@ -26,4 +32,6 @@ class Author {
   }
 
   String getBackgrond(BuildContext context) => getTranslated(context, background);
+  String getContentType(BuildContext context) => getTranslated(context, contentType);
+  String getContentDescription(BuildContext context) => getTranslated(context, contentDescription);
 }

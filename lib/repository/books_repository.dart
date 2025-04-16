@@ -71,13 +71,16 @@ class BooksRepository {
         height: 0.38,
       ),
       editionId: "tjehaja_sijang",
-      isOtherEdition: true
+      isOtherEdition: true,
     ),
     Book(
       id: "tjehaja_sijang",
       type: {AppLanguage.id: "Surat Kabar", AppLanguage.en: "Newspaper"},
       title: "Tjehaja Sijang",
-      date: {AppLanguage.id: "15 Agustus 1917", AppLanguage.en: "15 August 1917"},
+      date: {
+        AppLanguage.id: "15 Agustus 1917",
+        AppLanguage.en: "15 August 1917",
+      },
       contentTitle: {AppLanguage.id: '“Djempoetan bagi bangsa perempuan”'},
       content: {
         AppLanguage.id:
@@ -103,16 +106,22 @@ class BooksRepository {
         height: 0.38,
       ),
       editionId: "tjehaja_sijang",
-      isOtherEdition: true
+      isOtherEdition: true,
     ),
     Book(
       id: "pahesan",
       title: "Pahesan",
       type: {AppLanguage.id: "Buku", AppLanguage.en: "Book"},
       date: {AppLanguage.id: "1940"},
-      contentTitle: {AppLanguage.id: '"Ini mock bahasa indonesia', AppLanguage.en: '“This is a mock”'},
-      content:
-          {AppLanguage.id : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s", AppLanguage.en: "English lorem ipsum"},
+      contentTitle: {
+        AppLanguage.id: '"Ini mock bahasa indonesia',
+        AppLanguage.en: '“This is a mock”',
+      },
+      content: {
+        AppLanguage.id:
+            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+        AppLanguage.en: "English lorem ipsum",
+      },
       numberOfPage: 12,
       collection: {
         AppLanguage.id: "Koleksi PERPUSNAS",
@@ -133,9 +142,21 @@ class BooksRepository {
       id: "maramis",
       name: "Maria Walanda Maramis",
       birthDeathDate: "15 Juni 1917 - 28 Desember 1945",
-      background: {AppLanguage.id:
-          "Maria Walanda Maramis adalah seorang penulis dan jurnalis asal Indonesia. Ia dikenal sebagai salah satu penulis perempuan pertama di Indonesia.", AppLanguage.en: "Maria Walanda Maramis was a writer and journalist from Indonesia. She is known as one of the first female writers in the country."},
+      background: {
+        AppLanguage.id:
+            "Maria Walanda Maramis adalah seorang penulis dan jurnalis asal Indonesia. Ia dikenal sebagai salah satu penulis perempuan pertama di Indonesia.",
+        AppLanguage.en:
+            "Maria Walanda Maramis was a writer and journalist from Indonesia. She is known as one of the first female writers in the country.",
+      },
       image: "assets/images/maramis.jpg",
+      contentType: {AppLanguage.id: "Surat Kabar", AppLanguage.en: "Newspaper"},
+      contentTitle: "Tjehaja Sjiang",
+      contentDescription: {
+        AppLanguage.id:
+            "Tjahaja Siang adalah salah satu surat kabar berbahasa Melayu yang terbit di awal abad ke-20 di Hindia Belanda (sekarang Indonesia). Surat kabar ini menjadi wadah penting bagi kaum intelektual dan tokoh pergerakan nasional, termasuk perempuan seperti Maria Walanda Maramis, untuk menyuarakan gagasan tentang pendidikan, kesetaraan gender, dan emansipasi perempuan. Tjahaja Siang memiliki peran dalam membentuk opini publik dan menyebarkan semangat kebangsaan serta kesadaran sosial-politik di kalangan masyarakat pribumi.",
+        AppLanguage.en:
+            "Tjahaja Siang was one of the Malay-language newspapers published in the early 20th century in the Dutch East Indies (now Indonesia). This newspaper served as an important platform for intellectuals and national movement figures, including women such as Maria Walanda Maramis, to voice ideas on education, gender equality, and women's emancipation. Tjahaja Siang played a role in shaping public opinion and spreading the spirit of nationalism as well as socio-political awareness among the indigenous population.",
+      },
     ),
   ];
 
