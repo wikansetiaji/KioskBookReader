@@ -109,7 +109,7 @@ class BookInfoWidget extends StatelessWidget {
                       Text(
                         book.editionId != null
                             ? context.watch<LanguageProvider>().isEnglish ? 'SEE OTHER EDITIONS,' : 'BACA EDISI LAINNYA,'
-                            : context.watch<LanguageProvider>().isEnglish ? 'SEE OTHER BOOKS' : 'BACA BUKU LAINNYA,',
+                            : context.watch<LanguageProvider>().isEnglish ? 'SEE OTHER BOOKS,' : 'BACA BUKU LAINNYA,',
                         style: TextStyle(
                           fontFamily: 'Archivo',
                           fontWeight: FontWeight.bold,
