@@ -3,6 +3,7 @@ import 'package:kiosk_book_reader/components/other_book_edition_item_widget.dart
 import 'package:kiosk_book_reader/models/book.dart';
 import 'package:kiosk_book_reader/pages/book_filter_page.dart';
 import 'package:kiosk_book_reader/repository/books_repository.dart';
+import 'package:kiosk_book_reader/service/size_config.dart';
 
 class BookInfoWidget extends StatelessWidget {
   final Book book;
@@ -19,7 +20,7 @@ class BookInfoWidget extends StatelessWidget {
     return Expanded(
       flex: 30,
       child: Container(
-        padding: EdgeInsets.all(20),
+        padding: EdgeInsets.all(20.sc),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -27,22 +28,22 @@ class BookInfoWidget extends StatelessWidget {
             Expanded(
               flex: 60,
               child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
+                borderRadius: BorderRadius.all(Radius.circular(10.sc)),
                 child: Container(
-                  padding: EdgeInsets.all(16),
+                  padding: EdgeInsets.all(16.sc),
                   color: Color.fromARGB(255, 255, 239, 212),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         book.contentTitle.toUpperCase(),
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontFamily: 'Archivo',
                           fontWeight: FontWeight.bold,
-                          fontSize: 24,
+                          fontSize: 24.sc,
                         ),
                       ),
-                      SizedBox(height: 16),
+                      SizedBox(height: 16.sc),
                       Row(
                         children: [
                           if (book.highlight != null)
@@ -63,23 +64,23 @@ class BookInfoWidget extends StatelessWidget {
                                 style: TextStyle(
                                   fontFamily: 'Archivo',
                                   color: Color.fromARGB(255, 162, 29, 58),
-                                  fontSize: 16
+                                  fontSize: 16.sc
                                 ),
                               ),
                             ),
                           Expanded(child: Container()),
                         ],
                       ),
-                      SizedBox(height: 20),
+                      SizedBox(height: 20.sc),
                       Expanded(
                         child: SingleChildScrollView(
                           scrollDirection: Axis.vertical,
                           child: Text(
                             book.content,
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontFamily: 'PublicSans',
                               color: Colors.black,
-                              fontSize: 16
+                              fontSize: 16.sc
                             ),
                           ),
                         ),
@@ -90,15 +91,15 @@ class BookInfoWidget extends StatelessWidget {
               ),
             ),
 
-            SizedBox(width: 15),
+            SizedBox(width: 15.sc),
 
             // Right side - Other editions
             Expanded(
               flex: 40,
               child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
+                borderRadius: BorderRadius.all(Radius.circular(10.sc)),
                 child: Container(
-                  padding: EdgeInsets.all(16),
+                  padding: EdgeInsets.all(16.sc),
                   color: Colors.white,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -107,14 +108,14 @@ class BookInfoWidget extends StatelessWidget {
                         book.editionId != null
                             ? 'BACA EDISI LAINNYA,'
                             : 'BACA BUKU LAINNYA,',
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontFamily: 'Archivo',
                           fontWeight: FontWeight.bold,
                           color: Color.fromARGB(255, 119, 24, 45),
-                          fontSize: 23,
+                          fontSize: 23.sc,
                         ),
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 10.sc),
                       Expanded(
                         child: Column(
                           spacing: 10,
@@ -156,8 +157,8 @@ class BookInfoWidget extends StatelessWidget {
                                   209,
                                 ),
                                 padding: EdgeInsets.symmetric(
-                                  horizontal: 20,
-                                  vertical: 20,
+                                  horizontal: 20.sc,
+                                  vertical: 20.sc,
                                 ),
                               ),
                               child: Text(
@@ -166,7 +167,7 @@ class BookInfoWidget extends StatelessWidget {
                                   fontFamily: 'Archivo',
                                   fontWeight: FontWeight.bold,
                                   color: Color.fromARGB(255, 85, 85, 85),
-                                  fontSize: 20,
+                                  fontSize: 20.sc,
                                 ),
                               ),
                             ),

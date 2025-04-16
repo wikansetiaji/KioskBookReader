@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:bookfx/bookfx.dart';
 import 'package:kiosk_book_reader/components/book_info_widget.dart';
 import 'package:kiosk_book_reader/models/book.dart';
+import 'package:kiosk_book_reader/service/size_config.dart';
 
 class ImgBookReadPage extends StatefulWidget {
   final Book book;
@@ -230,11 +231,11 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                 Image.asset(
                   'assets/header.png',
                   fit: BoxFit.fitHeight,
-                  height: 200,
+                  height: 200.sc,
                 ),
                 Row(
                   children: [
-                    SizedBox(width: 40),
+                    SizedBox(width: 40.sc),
                     ElevatedButton(
                       onPressed: () {
                         Navigator.pop(context);
@@ -248,8 +249,8 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                           width: 2,
                         ),
                         padding: EdgeInsets.symmetric(
-                          horizontal: 24,
-                          vertical: 12,
+                          horizontal: 24.sc,
+                          vertical: 12.sc,
                         ),
                       ),
                       child: Text(
@@ -258,20 +259,20 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                           fontFamily: 'Archivo',
                           fontWeight: FontWeight.bold,
                           color: Color.fromARGB(255, 162, 29, 58),
-                          fontSize: 32,
+                          fontSize: 32.sc,
                         ),
                       ),
                     ),
                     Expanded(child: Container()),
                   ],
                 ),
-                SizedBox(height: 40),
+                SizedBox(height: 40.sc),
                 Expanded(
                   flex: 43,
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20.0),
+                    padding: EdgeInsets.symmetric(horizontal: 20.0.sc),
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(10.sc),
                       child: Container(
                         color:
                             _isZoomed
@@ -286,7 +287,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                             maxScale: 3.0,
                             panEnabled: _isZoomed,
                             scaleEnabled: true,
-                            boundaryMargin: const EdgeInsets.all(20),
+                            boundaryMargin: EdgeInsets.all(20.sc),
                             onInteractionUpdate: (details) {
                               final newScale =
                                   _transformationController.value
@@ -302,7 +303,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                                   opacity: _isZoomed ? 0.0 : 1.0,
                                   child: Row(
                                     children: [
-                                      SizedBox(width: 60),
+                                      SizedBox(width: 60.sc),
                                       Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
@@ -312,7 +313,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                                             style: TextStyle(
                                               fontFamily: 'Archivo',
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 24,
+                                              fontSize: 24.sc,
                                               color: Color.fromARGB(
                                                 255,
                                                 85,
@@ -327,7 +328,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                                               widget.book.edition!,
                                               style: TextStyle(
                                                 fontFamily: 'Archivo',
-                                                fontSize: 16,
+                                                fontSize: 16.sc,
                                                 color: Color.fromARGB(
                                                   255,
                                                   85,
@@ -341,7 +342,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                                             widget.book.date,
                                             style: TextStyle(
                                               fontFamily: 'Archivo',
-                                              fontSize: 16,
+                                              fontSize: 16.sc,
                                               color: Color.fromARGB(
                                                 255,
                                                 162,
@@ -359,9 +360,9 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                                 ),
                                 Expanded(
                                   child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 40.0,
-                                      vertical: 20.0,
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 40.0.sc,
+                                      vertical: 20.0.sc,
                                     ),
                                     child: LayoutBuilder(
                                       builder: (context, constraints) {
@@ -493,7 +494,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                                                           borderRadius:
                                                               BorderRadius.all(
                                                                 Radius.circular(
-                                                                  10,
+                                                                  10.sc,
                                                                 ),
                                                               ),
                                                           child: Container(
@@ -537,20 +538,20 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                     ),
                   ),
                 ),
-                SizedBox(height: 16),
+                SizedBox(height: 16.sc),
                 Row(
                   children: [
-                    SizedBox(width: 16),
+                    SizedBox(width: 16.sc),
                     if (_isZoomed)
                       ElevatedButton(
                         onPressed: _handleZoomReset,
                         style: ElevatedButton.styleFrom(
                           shape: const CircleBorder(),
-                          padding: const EdgeInsets.all(14),
+                          padding: EdgeInsets.all(14.sc),
                           backgroundColor: Color.fromARGB(255, 85, 85, 85),
                           foregroundColor: Colors.white,
                         ),
-                        child: Icon(Icons.zoom_out, size: 48),
+                        child: Icon(Icons.zoom_out, size: 48.sc),
                       ),
                     if (!_isZoomed)
                       ElevatedButton(
@@ -571,18 +572,18 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                         },
                         style: ElevatedButton.styleFrom(
                           shape: const CircleBorder(),
-                          padding: const EdgeInsets.all(14),
+                          padding: EdgeInsets.all(14.sc),
                           backgroundColor: Color.fromARGB(255, 85, 85, 85),
                           foregroundColor: Colors.white,
                         ),
-                        child: Icon(Icons.zoom_in, size: 48),
+                        child: Icon(Icons.zoom_in, size: 48.sc),
                       ),
                     Text(
                       '${(_scale * 100).toStringAsFixed(0)}%',
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontFamily: 'PublicSans',
                         color: Color.fromARGB(255, 85, 85, 85),
-                        fontSize: 20
+                        fontSize: 20.sc
                       ),
                     ),
                     Expanded(child: Container()),
@@ -592,26 +593,26 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                       onPressed: goToPreviousPage,
                       enabled: currentPageIndex > 0 && !_isNavigating,
                     ),
-                    const SizedBox(width: 20),
+                    SizedBox(width: 20.sc),
                     ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(10.sc),
                       child: Container(
                         color: Color.fromARGB(255, 85, 85, 85),
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 10,
-                          vertical: 10,
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 10.sc,
+                          vertical: 10.sc,
                         ),
                         child: Text(
                           '${currentPageIndex + 1} / ${widget.book.numberOfPage}',
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontFamily: 'PublicSans',
                             color: Color.fromARGB(255, 255, 255, 255),
-                            fontSize: 20
+                            fontSize: 20.sc
                           ),
                         ),
                       ),
                     ),
-                    const SizedBox(width: 20),
+                    SizedBox(width: 20.sc),
                     _buildNavButton(
                       context,
                       icon: Icons.chevron_right,
@@ -619,10 +620,10 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                       enabled: currentPageIndex + 1 < widget.book.numberOfPage,
                     ),
                     Expanded(child: Container()),
-                    SizedBox(width: 72),
+                    SizedBox(width: 72.sc),
                   ],
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 20.sc),
                 BookInfoWidget(
                   book: widget.book,
                   onShowHighlight: () {
@@ -631,7 +632,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                     }
                   },
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 20.sc),
               ],
             ),
           ],
@@ -662,11 +663,11 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
       onPressed: enabled ? onPressed : null,
       style: ElevatedButton.styleFrom(
         shape: const CircleBorder(),
-        padding: const EdgeInsets.all(14),
+        padding: EdgeInsets.all(14.sc),
         backgroundColor: Color.fromARGB(255, 85, 85, 85),
         foregroundColor: Colors.white,
       ),
-      child: Icon(icon, size: 48),
+      child: Icon(icon, size: 48.sc),
     );
   }
 }

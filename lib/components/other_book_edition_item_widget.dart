@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kiosk_book_reader/models/book.dart';
 import 'package:kiosk_book_reader/pages/img_book_read_page.dart';
+import 'package:kiosk_book_reader/service/size_config.dart';
 
 class OtherBookEditionItemWidget extends StatelessWidget {
   final Book book;
@@ -16,7 +17,7 @@ class OtherBookEditionItemWidget extends StatelessWidget {
         }));
       },
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(8.0.sc),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           spacing: 15,
@@ -24,7 +25,7 @@ class OtherBookEditionItemWidget extends StatelessWidget {
             Expanded(
               flex: 50,
               child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
+                borderRadius: BorderRadius.all(Radius.circular(10.sc)),
                 child: Stack(
                   children: [
                     Image.asset(
@@ -39,7 +40,7 @@ class OtherBookEditionItemWidget extends StatelessWidget {
                     ),
                     Positioned.fill(
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: EdgeInsets.all(8.0.sc),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -48,7 +49,7 @@ class OtherBookEditionItemWidget extends StatelessWidget {
                               book.edition ?? book.title,
                               style: TextStyle(
                                 fontFamily: 'Archivo',
-                                fontSize: 16,
+                                fontSize: 16.sc,
                                 color: Colors.white,
                               ),
                               textAlign: TextAlign.start,
@@ -69,28 +70,28 @@ class OtherBookEditionItemWidget extends StatelessWidget {
                 children: [
                   Text(
                     book.title,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontFamily: 'Archivo',
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
-                      fontSize: 18,
+                      fontSize: 18.sc,
                     ),
                   ),
                   if (book.edition != null)
                     Text(
                       book.edition!,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontFamily: 'Archivo',
                         color: Colors.black,
-                        fontSize: 18,
+                        fontSize: 18.sc,
                       ),
                     ),
                   Text(
                     book.date,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontFamily: 'Archivo',
                       color: Colors.black,
-                      fontSize: 18,
+                      fontSize: 18.sc,
                     ),
                   ),
                 ],

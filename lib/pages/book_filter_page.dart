@@ -4,6 +4,7 @@ import 'package:kiosk_book_reader/components/book_list_widget.dart';
 import 'package:kiosk_book_reader/components/filter_drawer_widget.dart';
 import 'package:kiosk_book_reader/models/author.dart';
 import 'package:kiosk_book_reader/repository/books_repository.dart';
+import 'package:kiosk_book_reader/service/size_config.dart';
 
 class BookFilterPage extends StatefulWidget {
   const BookFilterPage({super.key});
@@ -37,11 +38,11 @@ class _BookFilterPageState extends State<BookFilterPage> {
                   Image.asset(
                     'assets/header.png',
                     fit: BoxFit.fitHeight,
-                    height: 200,
+                    height: 200.sc,
                   ),
                   Row(
                     children: [
-                      SizedBox(width: 40),
+                      SizedBox(width: 40.sc),
                       ElevatedButton(
                         onPressed: () {
                           Navigator.pop(context);
@@ -55,8 +56,8 @@ class _BookFilterPageState extends State<BookFilterPage> {
                             width: 2,
                           ),
                           padding: EdgeInsets.symmetric(
-                            horizontal: 24,
-                            vertical: 12,
+                            horizontal: 24.sc,
+                            vertical: 12.sc,
                           ),
                         ),
                         child: Text(
@@ -65,7 +66,7 @@ class _BookFilterPageState extends State<BookFilterPage> {
                             fontFamily: 'Archivo',
                             fontWeight: FontWeight.bold,
                             color: Color.fromARGB(255, 162, 29, 58),
-                            fontSize: 32,
+                            fontSize: 32.sc,
                           ),
                         ),
                       ),
@@ -73,7 +74,7 @@ class _BookFilterPageState extends State<BookFilterPage> {
                     ],
                   ),
                   
-                  SizedBox(height: 40,),
+                  SizedBox(height: 40.sc,),
 
                   // Start scroll from here
                   Expanded(
@@ -84,13 +85,13 @@ class _BookFilterPageState extends State<BookFilterPage> {
                             'ARSIP DIGITAL',
                             style: TextStyle(
                               fontFamily: 'Archivo',
-                              fontSize: 28,
+                              fontSize: 28.sc,
                               color: Color.fromARGB(255, 85, 85, 85),
                               letterSpacing: -0.2,
                             ),
                             textAlign: TextAlign.center,
                           ),
-                          SizedBox(height: 20),
+                          SizedBox(height: 20.sc),
                           Row(
                             children: [
                               Expanded(child: Container()),
@@ -101,7 +102,7 @@ class _BookFilterPageState extends State<BookFilterPage> {
                                       'TULISAN KARYA',
                                       style: TextStyle(
                                         fontFamily: 'Archivo',
-                                        fontSize: 42,
+                                        fontSize: 42.sc,
                                         fontWeight: FontWeight.bold,
                                         color: Color.fromARGB(255, 85, 85, 85),
                                         letterSpacing: -1.5,
@@ -109,14 +110,14 @@ class _BookFilterPageState extends State<BookFilterPage> {
                                       ),
                                       textAlign: TextAlign.center,
                                     ),
-                                    SizedBox(width: 20),
+                                    SizedBox(width: 20.sc),
                                   ],
                                 ),
                               Text(
                                 _selectedAuthor == null ? 'SEMUA PENULIS WANITA' : _selectedAuthor!.name.toUpperCase(),
                                 style: TextStyle(
                                   fontFamily: 'Archivo',
-                                  fontSize: 42,
+                                  fontSize: 42.sc,
                                   fontWeight: FontWeight.bold,
                                   color: Color.fromARGB(255, 119, 24, 45),
                                   letterSpacing: -1.5,
@@ -128,7 +129,7 @@ class _BookFilterPageState extends State<BookFilterPage> {
                             ],
                           ),
 
-                          SizedBox(height: 40),
+                          SizedBox(height: 40.sc),
 
                           if (_selectedAuthor != null)
                             AuthorInfoWidget(author: _selectedAuthor!),
@@ -199,8 +200,8 @@ class _BookFilterPageState extends State<BookFilterPage> {
               Expanded(flex: 30, child: Container()),
               ClipRRect(
                 borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(10),
-                  bottomRight: Radius.circular(10),
+                  topRight: Radius.circular(10.sc),
+                  bottomRight: Radius.circular(10.sc),
                 ),
                 child: GestureDetector(
                   onTap: () {
@@ -214,8 +215,8 @@ class _BookFilterPageState extends State<BookFilterPage> {
                   child: Material(
                     child: Container(
                       padding: EdgeInsets.symmetric(
-                        vertical: 20,
-                        horizontal: 2,
+                        vertical: 20.sc,
+                        horizontal: 2.sc,
                       ),
                       color: Color.fromARGB(255, 162, 29, 58),
                       child: Icon(
@@ -223,7 +224,7 @@ class _BookFilterPageState extends State<BookFilterPage> {
                             ? Icons.chevron_left
                             : Icons.chevron_right,
                         color: Colors.white,
-                        size: 40,
+                        size: 40.sc,
                       ),
                     ),
                   ),

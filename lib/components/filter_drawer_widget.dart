@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kiosk_book_reader/models/author.dart';
 import 'package:kiosk_book_reader/pages/img_book_read_page.dart';
 import 'package:kiosk_book_reader/repository/books_repository.dart';
+import 'package:kiosk_book_reader/service/size_config.dart';
 
 class FilterDrawerWidget extends StatelessWidget {
   const FilterDrawerWidget({
@@ -19,9 +20,9 @@ class FilterDrawerWidget extends StatelessWidget {
       height: double.infinity,
       width: MediaQuery.of(context).size.width * 1 / 2,
       color: Color.fromARGB(255, 162, 29, 58),
-      padding: EdgeInsets.all(16),
+      padding: EdgeInsets.all(16.sc),
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(16.0.sc),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           spacing: 16.0,
@@ -30,14 +31,14 @@ class FilterDrawerWidget extends StatelessWidget {
               'KARYA TULISAN',
               style: TextStyle(
                 fontFamily: 'Archivo',
-                fontSize: 40,
+                fontSize: 40.sc,
                 fontWeight: FontWeight.bold,
                 color: Color.fromARGB(255, 239, 233, 209),
               ),
             ),
 
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              padding: EdgeInsets.symmetric(horizontal: 16.0.sc),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 spacing: 16,
@@ -52,7 +53,7 @@ class FilterDrawerWidget extends StatelessWidget {
                         'Semua Tulisan',
                         style: TextStyle(
                           fontFamily: 'Archivo',
-                          fontSize: 36,
+                          fontSize: 36.sc,
                           fontWeight: FontWeight.w500,
                           color: Color.fromARGB(255, 255, 255, 255),
                         ),
@@ -73,7 +74,7 @@ class FilterDrawerWidget extends StatelessWidget {
                               author.name,
                               style: TextStyle(
                                 fontFamily: 'Archivo',
-                                fontSize: 36,
+                                fontSize: 36.sc,
                                 fontWeight: FontWeight.w500,
                                 color: Color.fromARGB(255, 255, 255, 255),
                               ),
@@ -82,7 +83,7 @@ class FilterDrawerWidget extends StatelessWidget {
                         ),
 
                         Padding(
-                          padding: EdgeInsets.all(16.0),
+                          padding: EdgeInsets.all(16.0.sc),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             spacing: 16,
@@ -106,7 +107,7 @@ class FilterDrawerWidget extends StatelessWidget {
                                       book.title,
                                       style: TextStyle(
                                         fontFamily: 'Archivo',
-                                        fontSize: 32,
+                                        fontSize: 32.sc,
                                         fontWeight: FontWeight.w400,
                                         color: Color.fromARGB(
                                           255,
@@ -127,18 +128,18 @@ class FilterDrawerWidget extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: 20,),
+            SizedBox(height: 20.sc,),
             Text(
               'MEDIA',
               style: TextStyle(
                 fontFamily: 'Archivo',
-                fontSize: 40,
+                fontSize: 40.sc,
                 fontWeight: FontWeight.bold,
                 color: Color.fromARGB(255, 239, 233, 209),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              padding: EdgeInsets.symmetric(horizontal: 16.0.sc),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -158,7 +159,7 @@ class FilterDrawerWidget extends StatelessWidget {
                           book.title,
                           style: TextStyle(
                             fontFamily: 'Archivo',
-                            fontSize: 36,
+                            fontSize: 36.sc,
                             fontWeight: FontWeight.w500,
                             color: Color.fromARGB(255, 255, 255, 255),
                           ),

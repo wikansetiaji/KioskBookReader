@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kiosk_book_reader/models/book.dart';
 import 'package:kiosk_book_reader/pages/img_book_read_page.dart';
+import 'package:kiosk_book_reader/service/size_config.dart';
 
 class BookListItemWidget extends StatelessWidget {
   const BookListItemWidget({
@@ -30,7 +31,7 @@ class BookListItemWidget extends StatelessWidget {
           child: SizedBox(
             width: width,
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(10.sc),
               child: Stack(
                 children: [
                   Image.asset(
@@ -46,7 +47,7 @@ class BookListItemWidget extends StatelessWidget {
                   ),
                   Positioned.fill(
                     child: Padding(
-                      padding: const EdgeInsets.all(20),
+                      padding: EdgeInsets.all(20.sc),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -55,7 +56,7 @@ class BookListItemWidget extends StatelessWidget {
                             book.type.toUpperCase(),
                             style: TextStyle(
                               fontFamily: 'Archivo',
-                              fontSize: 25,
+                              fontSize: 25.sc,
                               color: Colors.white,
                             ),
                             textAlign: TextAlign.center,
@@ -64,13 +65,13 @@ class BookListItemWidget extends StatelessWidget {
                             book.title.toUpperCase(),
                             style: TextStyle(
                               fontFamily: 'Archivo',
-                              fontSize: 25,
+                              fontSize: 25.sc,
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
                             ),
                             textAlign: TextAlign.center,
                           ),
-                          SizedBox(height: 10),
+                          SizedBox(height: 10.sc),
                           if (book.edition != null)
                             Column(
                               children: [
@@ -78,24 +79,24 @@ class BookListItemWidget extends StatelessWidget {
                                   book.edition!,
                                   style: TextStyle(
                                     fontFamily: 'Archivo',
-                                    fontSize: 18,
+                                    fontSize: 18.sc,
                                     color: Colors.white,
                                   ),
                                   textAlign: TextAlign.center,
                                 ),
-                                SizedBox(height: 16),
+                                SizedBox(height: 16.sc),
                               ],
                             ),
                           ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(10.sc),
                             child: Container(
-                              padding: EdgeInsets.all(5),
+                              padding: EdgeInsets.all(5.sc),
                               color: Color.fromARGB(255, 162, 29, 58),
                               child: Text(
                                 book.date,
                                 style: TextStyle(
                                   fontFamily: 'Archivo',
-                                  fontSize: 16,
+                                  fontSize: 16.sc,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
                                 ),
@@ -103,13 +104,13 @@ class BookListItemWidget extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SizedBox(height: 20),
+                          SizedBox(height: 20.sc),
                           if (book.collection != null)
                             Text(
                               book.collection!,
                               style: TextStyle(
                                 fontFamily: 'Archivo',
-                                fontSize: 16,
+                                fontSize: 16.sc,
                                 color: Colors.white,
                               ),
                               textAlign: TextAlign.center,

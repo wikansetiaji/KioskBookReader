@@ -5,6 +5,7 @@ import 'package:kiosk_book_reader/pages/img_book_read_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kiosk_book_reader/pages/book_filter_page.dart';
 import 'package:kiosk_book_reader/repository/books_repository.dart';
+import 'package:kiosk_book_reader/service/size_config.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.title});
@@ -47,10 +48,10 @@ class _HomePageState extends State<HomePage> {
                 Image.asset(
                   'assets/header.png',
                   fit: BoxFit.fitHeight,
-                  height: 200,
+                  height: 200.sc,
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  padding: EdgeInsets.symmetric(horizontal: 20.sc),
                   child: Column(
                     children: [
                       Text(
@@ -58,7 +59,7 @@ class _HomePageState extends State<HomePage> {
                         style: TextStyle(
                           fontFamily: 'Archivo',
                           fontWeight: FontWeight.bold,
-                          fontSize: 40,
+                          fontSize: 40.sc,
                           color: Color.fromARGB(255, 85, 85, 85),
                           letterSpacing: -0.2,
                         ),
@@ -68,7 +69,7 @@ class _HomePageState extends State<HomePage> {
                         'JEJAK TULISAN',
                         style: TextStyle(
                           fontFamily: 'ArchivoBlack',
-                          fontSize: 68,
+                          fontSize: 68.sc,
                           color: Color.fromARGB(255, 119, 24, 45),
                           letterSpacing: -3.2,
                         ),
@@ -78,20 +79,20 @@ class _HomePageState extends State<HomePage> {
                         'PEREMPUAN',
                         style: TextStyle(
                           fontFamily: 'ArchivoBlack',
-                          fontSize: 155,
+                          fontSize: 155.sc,
                           color: Color.fromARGB(255, 119, 24, 45),
                           letterSpacing: -10,
                           height: 0.8,
                         ),
                         textAlign: TextAlign.center,
                       ),
-                      SizedBox(height: 20),
+                      SizedBox(height: 20.sc),
                       Text(
                         'DI MASA PERGERAKAN NASIONAL',
                         style: TextStyle(
                           fontFamily: 'Archivo',
                           fontWeight: FontWeight.bold,
-                          fontSize: 40,
+                          fontSize: 40.sc,
                           color: Color.fromARGB(255, 0, 0, 0),
                           letterSpacing: -0.2,
                         ),
@@ -159,7 +160,7 @@ class _HomePageState extends State<HomePage> {
                                   child: Card(
                                     elevation: 3,
                                     child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(10),
+                                      borderRadius: BorderRadius.circular(10.sc),
                                       child: SizedBox(
                                         width:
                                             double.infinity, // Takes full width
@@ -179,7 +180,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                           Row(
                             children: [
-                              SizedBox(width: 20),
+                              SizedBox(width: 20.sc),
                               ElevatedButton(
                                 onPressed: () {
                                   if (_selectedIndex == 0) {
@@ -192,7 +193,7 @@ class _HomePageState extends State<HomePage> {
                                 },
                                 style: ElevatedButton.styleFrom(
                                   shape: CircleBorder(),
-                                  padding: EdgeInsets.all(16),
+                                  padding: EdgeInsets.all(16.sc),
                                   backgroundColor: Color.fromARGB(
                                     255,
                                     162,
@@ -203,7 +204,7 @@ class _HomePageState extends State<HomePage> {
                                 child: Icon(
                                   Icons.chevron_left,
                                   color: Colors.white,
-                                  size: 60,
+                                  size: 60.sc,
                                 ),
                               ),
                               Expanded(child: Container()),
@@ -217,7 +218,7 @@ class _HomePageState extends State<HomePage> {
                                 },
                                 style: ElevatedButton.styleFrom(
                                   shape: CircleBorder(),
-                                  padding: EdgeInsets.all(16),
+                                  padding: EdgeInsets.all(16.sc),
                                   backgroundColor: Color.fromARGB(
                                     255,
                                     162,
@@ -228,15 +229,15 @@ class _HomePageState extends State<HomePage> {
                                 child: Icon(
                                   Icons.chevron_right,
                                   color: Colors.white,
-                                  size: 60
+                                  size: 60.sc
                                 ),
                               ),
-                              SizedBox(width: 20),
+                              SizedBox(width: 20.sc),
                             ],
                           ),
                         ],
                       ),
-                      SizedBox(height: 25),
+                      SizedBox(height: 25.sc),
                       Text(
                         repository.getAuthor(book: repository.getAllBooks()[_selectedIndex])?.name
                                 .toUpperCase() ??
@@ -245,25 +246,25 @@ class _HomePageState extends State<HomePage> {
                           fontFamily: 'Archivo',
                           fontWeight: FontWeight.bold,
                           color: Color.fromARGB(255, 119, 24, 45),
-                          fontSize: 32,
+                          fontSize: 32.sc,
                         ),
                         textAlign: TextAlign.center,
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 10.sc),
                       Text(
                         repository.getAllBooks()[_selectedIndex].title.toUpperCase(),
                         style: TextStyle(
                           fontFamily: 'Archivo',
                           fontWeight: FontWeight.bold,
                           color: Color.fromARGB(255, 85, 85, 85),
-                          fontSize: 27,
+                          fontSize: 27.sc,
                         ),
                         textAlign: TextAlign.center,
                       ),
                     ],
                   ),
                 ),
-                SizedBox(height: 30),
+                SizedBox(height: 30.sc),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -277,7 +278,7 @@ class _HomePageState extends State<HomePage> {
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color.fromARGB(255, 162, 29, 58),
-                    padding: EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+                    padding: EdgeInsets.symmetric(horizontal: 24.sc, vertical: 24.sc),
                   ),
                   child: Text(
                     'BACA TULISAN',
@@ -285,11 +286,11 @@ class _HomePageState extends State<HomePage> {
                       fontFamily: 'Archivo',
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
-                      fontSize: 40,
+                      fontSize: 40.sc,
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 20.sc),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -308,7 +309,7 @@ class _HomePageState extends State<HomePage> {
                       color: Color.fromARGB(255, 162, 29, 58),
                       width: 2,
                     ),
-                    padding: EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+                    padding: EdgeInsets.symmetric(horizontal: 24.sc, vertical: 24.sc),
                   ),
                   child: Text(
                     'LIHAT GALERI ARSIP LAINNYA',
@@ -316,11 +317,11 @@ class _HomePageState extends State<HomePage> {
                       fontFamily: 'Archivo',
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 162, 29, 58),
-                      fontSize: 27,
+                      fontSize: 27.sc,
                     ),
                   ),
                 ),
-                SizedBox(height: 40),
+                SizedBox(height: 40.sc),
               ],
             ),
           ],

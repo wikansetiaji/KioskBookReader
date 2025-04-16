@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kiosk_book_reader/components/book_list_item_widget.dart';
 import 'package:kiosk_book_reader/models/book.dart';
+import 'package:kiosk_book_reader/service/size_config.dart';
 
 class BookListWidget extends StatefulWidget {
   final List<Book> books;
@@ -18,7 +19,7 @@ class _BookListWidgetState extends State<BookListWidget> {
     return LayoutBuilder(
       builder: (context, constraints) {
         final screenSize = constraints.biggest;
-        double spacing = 80;
+        double spacing = 80.sc;
         double imageSize = (screenSize.width - spacing * 3) / 2;
     
         return Padding(
@@ -27,7 +28,7 @@ class _BookListWidgetState extends State<BookListWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 100),
+                padding: EdgeInsets.only(top: 100.sc),
                 child: Column(
                   children: [
                     for (int i = 0; i < widget.books.length; i += 2)
@@ -39,7 +40,7 @@ class _BookListWidgetState extends State<BookListWidget> {
                   ],
                 ),
               ),
-              SizedBox(width: spacing),
+              SizedBox(width: spacing.sc),
               Column(
                 children: [
                   for (int i = 1; i < widget.books.length; i += 2)

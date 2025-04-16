@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kiosk_book_reader/models/author.dart';
+import 'package:kiosk_book_reader/service/size_config.dart';
 
 class AuthorInfoWidget extends StatelessWidget {
   final Author author;
@@ -9,9 +10,9 @@ class AuthorInfoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 300,
+      height: 300.sc,
       child: Padding(
-        padding: const EdgeInsets.only(bottom: 40.0, left: 40.0, right: 40.0),
+        padding: EdgeInsets.only(bottom: 40.0.sc, left: 40.0.sc, right: 40.0.sc),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           spacing: 15,
@@ -22,10 +23,10 @@ class AuthorInfoWidget extends StatelessWidget {
                 children: [
                   Positioned.fill(
                     child: ClipRRect(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      borderRadius: BorderRadius.all(Radius.circular(10.sc)),
                       child: Container(
                         width: double.infinity,
-                        padding: EdgeInsets.all(16),
+                        padding: EdgeInsets.all(16.sc),
                         color: Color.fromARGB(255, 254, 250, 242),
                         child: Image.asset(
                           'assets/authors/${author.id}.png',
@@ -35,7 +36,7 @@ class AuthorInfoWidget extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: EdgeInsets.all(16.0.sc),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -51,7 +52,7 @@ class AuthorInfoWidget extends StatelessWidget {
                                       FontWeight
                                           .normal, // Playball is script, bold might not look good
                                   color: Color.fromARGB(255, 119, 24, 45),
-                                  fontSize: 24,
+                                  fontSize: 24.sc,
                                 ),
                               ),
                               TextSpan(
@@ -60,19 +61,19 @@ class AuthorInfoWidget extends StatelessWidget {
                                   fontFamily: 'Archivo',
                                   fontWeight: FontWeight.bold,
                                   color: Color.fromARGB(255, 119, 24, 45),
-                                  fontSize: 16,
+                                  fontSize: 16.sc,
                                 ),
                               ),
                             ],
                           ),
                         ),
-                        SizedBox(height: 5),
+                        SizedBox(height: 5.sc),
                         Text(
                           author.birthDeathDate,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontFamily: 'Archivo',
                             color: Color.fromARGB(255, 85, 85, 85),
-                            fontSize: 14,
+                            fontSize: 14.sc,
                           ),
                           textAlign: TextAlign.center,
                         ),
@@ -85,23 +86,23 @@ class AuthorInfoWidget extends StatelessWidget {
             Expanded(
               flex: 60,
               child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
+                borderRadius: BorderRadius.all(Radius.circular(10.sc)),
                 child: Container(
-                  padding: EdgeInsets.all(16),
+                  padding: EdgeInsets.all(16.sc),
                   color: Color.fromARGB(255, 255, 239, 212),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         'LATAR BELAKANG',
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontFamily: 'Archivo',
                           fontWeight: FontWeight.bold,
                           color: Color.fromARGB(255, 119, 24, 45),
-                          fontSize: 16,
+                          fontSize: 16.sc,
                         ),
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 10.sc),
                       Expanded(
                         child: SingleChildScrollView(
                           scrollDirection: Axis.vertical,
