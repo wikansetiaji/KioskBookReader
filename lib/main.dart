@@ -11,11 +11,14 @@ void main() {
     setWindowTitle('My Flutter Desktop App');
     setWindowMinSize(const Size(1080, 1920));
     setWindowMaxSize(const Size(1080, 1920));
+    setWindowFrame(
+      const Rect.fromLTWH(100, 100, 1080, 1920),
+    ); // <== Simulated resolution
   }
 
   runApp(
     Transform.scale(
-      scale: 0.72, // Show at 50% size
+      scale: 0.5, // Show at 50% size
       alignment: Alignment.topLeft,
       child: const KioskBookReaderApp(),
     ),
