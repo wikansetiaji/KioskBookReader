@@ -109,7 +109,7 @@ class AuthorInfoWidget extends StatelessWidget {
                         child: SingleChildScrollView(
                           scrollDirection: Axis.vertical,
                           child: Text(
-                            author.background,
+                            author.getBackgrond(context),
                             style: const TextStyle(
                               fontFamily: 'PublicSans',
                               color: Colors.black,

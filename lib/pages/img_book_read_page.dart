@@ -314,7 +314,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            '${widget.book.type.toUpperCase()} ${widget.book.title.toUpperCase()}',
+                                            '${widget.book.getType(context).toUpperCase()} ${widget.book.title.toUpperCase()}',
                                             style: TextStyle(
                                               fontFamily: 'Archivo',
                                               fontWeight: FontWeight.bold,
@@ -330,7 +330,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                                           ),
                                           if (widget.book.edition != null)
                                             Text(
-                                              widget.book.edition!,
+                                              widget.book.getEdition(context)!,
                                               style: TextStyle(
                                                 fontFamily: 'Archivo',
                                                 fontSize: 16.sc,
@@ -344,7 +344,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                                               textAlign: TextAlign.start,
                                             ),
                                           Text(
-                                            widget.book.date,
+                                            widget.book.getDate(context),
                                             style: TextStyle(
                                               fontFamily: 'Archivo',
                                               fontSize: 16.sc,

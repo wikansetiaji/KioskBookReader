@@ -46,7 +46,7 @@ class OtherBookEditionItemWidget extends StatelessWidget {
                           children: [
                             Expanded(child: Container()),
                             Text(
-                              book.edition ?? book.title,
+                              book.edition != null ? book.getEdition(context)! : book.title,
                               style: TextStyle(
                                 fontFamily: 'Archivo',
                                 fontSize: 16.sc,
@@ -79,7 +79,7 @@ class OtherBookEditionItemWidget extends StatelessWidget {
                   ),
                   if (book.edition != null)
                     Text(
-                      book.edition!,
+                      book.getEdition(context)!,
                       style: TextStyle(
                         fontFamily: 'Archivo',
                         color: Colors.black,
@@ -87,7 +87,7 @@ class OtherBookEditionItemWidget extends StatelessWidget {
                       ),
                     ),
                   Text(
-                    book.date,
+                    book.getDate(context),
                     style: TextStyle(
                       fontFamily: 'Archivo',
                       color: Colors.black,

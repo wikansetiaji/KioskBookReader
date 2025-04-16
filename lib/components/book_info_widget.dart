@@ -38,7 +38,7 @@ class BookInfoWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        book.contentTitle.toUpperCase(),
+                        book.getContentTitle(context).toUpperCase(),
                         style: TextStyle(
                           fontFamily: 'Archivo',
                           fontWeight: FontWeight.bold,
@@ -78,7 +78,7 @@ class BookInfoWidget extends StatelessWidget {
                         child: SingleChildScrollView(
                           scrollDirection: Axis.vertical,
                           child: Text(
-                            book.content,
+                            book.getContent(context),
                             style: TextStyle(
                               fontFamily: 'PublicSans',
                               color: Colors.black,

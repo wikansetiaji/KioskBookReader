@@ -53,7 +53,7 @@ class BookListItemWidget extends StatelessWidget {
                         children: [
                           Expanded(child: Container()),
                           Text(
-                            book.type.toUpperCase(),
+                            book.getType(context).toUpperCase(),
                             style: TextStyle(
                               fontFamily: 'Archivo',
                               fontSize: 25.sc,
@@ -76,7 +76,7 @@ class BookListItemWidget extends StatelessWidget {
                             Column(
                               children: [
                                 Text(
-                                  book.edition!,
+                                  book.getEdition(context)!,
                                   style: TextStyle(
                                     fontFamily: 'Archivo',
                                     fontSize: 18.sc,
@@ -93,7 +93,7 @@ class BookListItemWidget extends StatelessWidget {
                               padding: EdgeInsets.all(5.sc),
                               color: Color.fromARGB(255, 162, 29, 58),
                               child: Text(
-                                book.date,
+                                book.getDate(context),
                                 style: TextStyle(
                                   fontFamily: 'Archivo',
                                   fontSize: 16.sc,
@@ -107,7 +107,7 @@ class BookListItemWidget extends StatelessWidget {
                           SizedBox(height: 20.sc),
                           if (book.collection != null)
                             Text(
-                              book.collection!,
+                              book.getCollection(context)!,
                               style: TextStyle(
                                 fontFamily: 'Archivo',
                                 fontSize: 16.sc,
