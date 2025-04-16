@@ -22,7 +22,7 @@ class FilterDrawerWidget extends StatelessWidget {
       color: Color.fromARGB(255, 162, 29, 58),
       padding: EdgeInsets.all(16.sc),
       child: Padding(
-        padding: EdgeInsets.all(16.0.sc),
+        padding: EdgeInsets.only(left: 20.0.sc, right: 20.sc, bottom: 20.sc, top: 120.sc),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           spacing: 16.0,
