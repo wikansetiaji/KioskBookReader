@@ -5,23 +5,8 @@ import 'package:kiosk_book_reader/service/idle_timer.dart';
 import 'package:window_size/window_size.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-
-  if (Platform.isMacOS || Platform.isWindows || Platform.isLinux) {
-    setWindowTitle('My Flutter Desktop App');
-    setWindowMinSize(const Size(1080, 1920));
-    setWindowMaxSize(const Size(1080, 1920));
-    setWindowFrame(
-      const Rect.fromLTWH(100, 100, 1080, 1920),
-    ); // <== Simulated resolution
-  }
-
   runApp(
-    Transform.scale(
-      scale: 0.5, // Show at 50% size
-      alignment: Alignment.topLeft,
-      child: const KioskBookReaderApp(),
-    ),
+    const KioskBookReaderApp()
   );
 }
 
