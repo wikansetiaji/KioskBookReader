@@ -41,7 +41,7 @@ class _BookFilterPageState extends State<BookFilterPage> {
                   ),
                   Row(
                     children: [
-                      SizedBox(width: 20),
+                      SizedBox(width: 40),
                       ElevatedButton(
                         onPressed: () {
                           Navigator.pop(context);
@@ -72,6 +72,8 @@ class _BookFilterPageState extends State<BookFilterPage> {
                       Expanded(child: Container()),
                     ],
                   ),
+                  
+                  SizedBox(height: 40,),
 
                   // Start scroll from here
                   Expanded(

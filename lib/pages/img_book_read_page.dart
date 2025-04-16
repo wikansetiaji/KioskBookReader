@@ -234,7 +234,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                 ),
                 Row(
                   children: [
-                    SizedBox(width: 20),
+                    SizedBox(width: 40),
                     ElevatedButton(
                       onPressed: () {
                         Navigator.pop(context);
@@ -265,7 +265,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                     Expanded(child: Container()),
                   ],
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 40),
                 Expanded(
                   flex: 43,
                   child: Padding(
