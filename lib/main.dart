@@ -20,8 +20,6 @@ void main() {
     setWindowFrame(
       Rect.fromLTWH(100, 100, width, height),
     ); // <== Simulated resolution
-  } else {
-    FullScreenWindow.setFullScreen(true);
   }
 
   runApp(
