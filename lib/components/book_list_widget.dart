@@ -18,7 +18,7 @@ class _BookListWidgetState extends State<BookListWidget> {
     return LayoutBuilder(
       builder: (context, constraints) {
         final screenSize = constraints.biggest;
-        double spacing = 40;
+        double spacing = 80;
         double imageSize = (screenSize.width - spacing * 3) / 2;
     
         return Padding(

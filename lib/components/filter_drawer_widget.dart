@@ -30,7 +30,7 @@ class FilterDrawerWidget extends StatelessWidget {
               'KARYA TULISAN',
               style: TextStyle(
                 fontFamily: 'Archivo',
-                fontSize: 24,
+                fontSize: 40,
                 fontWeight: FontWeight.bold,
                 color: Color.fromARGB(255, 239, 233, 209),
               ),
@@ -52,7 +52,7 @@ class FilterDrawerWidget extends StatelessWidget {
                         'Semua Tulisan',
                         style: TextStyle(
                           fontFamily: 'Archivo',
-                          fontSize: 22,
+                          fontSize: 36,
                           fontWeight: FontWeight.w500,
                           color: Color.fromARGB(255, 255, 255, 255),
                         ),
@@ -73,7 +73,7 @@ class FilterDrawerWidget extends StatelessWidget {
                               author.name,
                               style: TextStyle(
                                 fontFamily: 'Archivo',
-                                fontSize: 22,
+                                fontSize: 36,
                                 fontWeight: FontWeight.w500,
                                 color: Color.fromARGB(255, 255, 255, 255),
                               ),
@@ -106,7 +106,7 @@ class FilterDrawerWidget extends StatelessWidget {
                                       book.title,
                                       style: TextStyle(
                                         fontFamily: 'Archivo',
-                                        fontSize: 20,
+                                        fontSize: 32,
                                         fontWeight: FontWeight.w400,
                                         color: Color.fromARGB(
                                           255,
@@ -127,11 +127,12 @@ class FilterDrawerWidget extends StatelessWidget {
               ),
             ),
 
+            SizedBox(height: 20,),
             Text(
               'MEDIA',
               style: TextStyle(
                 fontFamily: 'Archivo',
-                fontSize: 24,
+                fontSize: 40,
                 fontWeight: FontWeight.bold,
                 color: Color.fromARGB(255, 239, 233, 209),
               ),
@@ -157,7 +158,7 @@ class FilterDrawerWidget extends StatelessWidget {
                           book.title,
                           style: TextStyle(
                             fontFamily: 'Archivo',
-                            fontSize: 22,
+                            fontSize: 36,
                             fontWeight: FontWeight.w500,
                             color: Color.fromARGB(255, 255, 255, 255),
                           ),

@@ -39,10 +39,10 @@ class BookInfoWidget extends StatelessWidget {
                         style: const TextStyle(
                           fontFamily: 'Archivo',
                           fontWeight: FontWeight.bold,
-                          fontSize: 20,
+                          fontSize: 24,
                         ),
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 16),
                       Row(
                         children: [
                           if (book.highlight != null)
@@ -63,13 +63,14 @@ class BookInfoWidget extends StatelessWidget {
                                 style: TextStyle(
                                   fontFamily: 'Archivo',
                                   color: Color.fromARGB(255, 162, 29, 58),
+                                  fontSize: 16
                                 ),
                               ),
                             ),
                           Expanded(child: Container()),
                         ],
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 20),
                       Expanded(
                         child: SingleChildScrollView(
                           scrollDirection: Axis.vertical,
@@ -78,6 +79,7 @@ class BookInfoWidget extends StatelessWidget {
                             style: const TextStyle(
                               fontFamily: 'PublicSans',
                               color: Colors.black,
+                              fontSize: 16
                             ),
                           ),
                         ),
@@ -109,7 +111,7 @@ class BookInfoWidget extends StatelessWidget {
                           fontFamily: 'Archivo',
                           fontWeight: FontWeight.bold,
                           color: Color.fromARGB(255, 119, 24, 45),
-                          fontSize: 16,
+                          fontSize: 23,
                         ),
                       ),
                       SizedBox(height: 10),
@@ -164,7 +166,7 @@ class BookInfoWidget extends StatelessWidget {
                                   fontFamily: 'Archivo',
                                   fontWeight: FontWeight.bold,
                                   color: Color.fromARGB(255, 85, 85, 85),
-                                  fontSize: 16,
+                                  fontSize: 20,
                                 ),
                               ),
                             ),

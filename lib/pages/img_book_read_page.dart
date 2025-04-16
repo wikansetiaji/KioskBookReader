@@ -230,7 +230,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                 Image.asset(
                   'assets/header.png',
                   fit: BoxFit.fitHeight,
-                  height: 80,
+                  height: 200,
                 ),
                 Row(
                   children: [
@@ -258,7 +258,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                           fontFamily: 'Archivo',
                           fontWeight: FontWeight.bold,
                           color: Color.fromARGB(255, 162, 29, 58),
-                          fontSize: 16,
+                          fontSize: 32,
                         ),
                       ),
                     ),
@@ -302,7 +302,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                                   opacity: _isZoomed ? 0.0 : 1.0,
                                   child: Row(
                                     children: [
-                                      SizedBox(width: 20),
+                                      SizedBox(width: 60),
                                       Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
@@ -312,7 +312,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                                             style: TextStyle(
                                               fontFamily: 'Archivo',
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                              fontSize: 24,
                                               color: Color.fromARGB(
                                                 255,
                                                 85,
@@ -550,7 +550,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                           backgroundColor: Color.fromARGB(255, 85, 85, 85),
                           foregroundColor: Colors.white,
                         ),
-                        child: Icon(Icons.zoom_out, size: 28),
+                        child: Icon(Icons.zoom_out, size: 48),
                       ),
                     if (!_isZoomed)
                       ElevatedButton(
@@ -575,13 +575,14 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                           backgroundColor: Color.fromARGB(255, 85, 85, 85),
                           foregroundColor: Colors.white,
                         ),
-                        child: Icon(Icons.zoom_in, size: 28),
+                        child: Icon(Icons.zoom_in, size: 48),
                       ),
                     Text(
                       '${(_scale * 100).toStringAsFixed(0)}%',
                       style: const TextStyle(
                         fontFamily: 'PublicSans',
                         color: Color.fromARGB(255, 85, 85, 85),
+                        fontSize: 20
                       ),
                     ),
                     Expanded(child: Container()),
@@ -605,6 +606,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                           style: const TextStyle(
                             fontFamily: 'PublicSans',
                             color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 20
                           ),
                         ),
                       ),
@@ -664,7 +666,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
         backgroundColor: Color.fromARGB(255, 85, 85, 85),
         foregroundColor: Colors.white,
       ),
-      child: Icon(icon, size: 28),
+      child: Icon(icon, size: 48),
     );
   }
 }

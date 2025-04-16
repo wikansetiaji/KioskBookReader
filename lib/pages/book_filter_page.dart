@@ -37,7 +37,7 @@ class _BookFilterPageState extends State<BookFilterPage> {
                   Image.asset(
                     'assets/header.png',
                     fit: BoxFit.fitHeight,
-                    height: 80,
+                    height: 200,
                   ),
                   Row(
                     children: [
@@ -65,7 +65,7 @@ class _BookFilterPageState extends State<BookFilterPage> {
                             fontFamily: 'Archivo',
                             fontWeight: FontWeight.bold,
                             color: Color.fromARGB(255, 162, 29, 58),
-                            fontSize: 16,
+                            fontSize: 32,
                           ),
                         ),
                       ),
@@ -82,7 +82,7 @@ class _BookFilterPageState extends State<BookFilterPage> {
                             'ARSIP DIGITAL',
                             style: TextStyle(
                               fontFamily: 'Archivo',
-                              fontSize: 18,
+                              fontSize: 28,
                               color: Color.fromARGB(255, 85, 85, 85),
                               letterSpacing: -0.2,
                             ),
@@ -99,7 +99,7 @@ class _BookFilterPageState extends State<BookFilterPage> {
                                       'TULISAN KARYA',
                                       style: TextStyle(
                                         fontFamily: 'Archivo',
-                                        fontSize: 24,
+                                        fontSize: 42,
                                         fontWeight: FontWeight.bold,
                                         color: Color.fromARGB(255, 85, 85, 85),
                                         letterSpacing: -1.5,
@@ -114,7 +114,7 @@ class _BookFilterPageState extends State<BookFilterPage> {
                                 _selectedAuthor == null ? 'SEMUA PENULIS WANITA' : _selectedAuthor!.name.toUpperCase(),
                                 style: TextStyle(
                                   fontFamily: 'Archivo',
-                                  fontSize: 24,
+                                  fontSize: 42,
                                   fontWeight: FontWeight.bold,
                                   color: Color.fromARGB(255, 119, 24, 45),
                                   letterSpacing: -1.5,

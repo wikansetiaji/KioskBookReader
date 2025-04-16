@@ -46,7 +46,7 @@ class BookListItemWidget extends StatelessWidget {
                   ),
                   Positioned.fill(
                     child: Padding(
-                      padding: const EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(20),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -55,7 +55,7 @@ class BookListItemWidget extends StatelessWidget {
                             book.type.toUpperCase(),
                             style: TextStyle(
                               fontFamily: 'Archivo',
-                              fontSize: 16,
+                              fontSize: 25,
                               color: Colors.white,
                             ),
                             textAlign: TextAlign.center,
@@ -64,24 +64,28 @@ class BookListItemWidget extends StatelessWidget {
                             book.title.toUpperCase(),
                             style: TextStyle(
                               fontFamily: 'Archivo',
-                              fontSize: 16,
+                              fontSize: 25,
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
                             ),
                             textAlign: TextAlign.center,
                           ),
-                          SizedBox(height: 5),
-                          if (book.edition != null)
-                            Text(
-                              book.edition!,
-                              style: TextStyle(
-                                fontFamily: 'Archivo',
-                                fontSize: 14,
-                                color: Colors.white,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
                           SizedBox(height: 10),
+                          if (book.edition != null)
+                            Column(
+                              children: [
+                                Text(
+                                  book.edition!,
+                                  style: TextStyle(
+                                    fontFamily: 'Archivo',
+                                    fontSize: 18,
+                                    color: Colors.white,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                                SizedBox(height: 16),
+                              ],
+                            ),
                           ClipRRect(
                             borderRadius: BorderRadius.circular(10),
                             child: Container(
@@ -91,7 +95,7 @@ class BookListItemWidget extends StatelessWidget {
                                 book.date,
                                 style: TextStyle(
                                   fontFamily: 'Archivo',
-                                  fontSize: 14,
+                                  fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
                                 ),
@@ -99,13 +103,13 @@ class BookListItemWidget extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SizedBox(height: 10),
+                          SizedBox(height: 20),
                           if (book.collection != null)
                             Text(
                               book.collection!,
                               style: TextStyle(
                                 fontFamily: 'Archivo',
-                                fontSize: 14,
+                                fontSize: 16,
                                 color: Colors.white,
                               ),
                               textAlign: TextAlign.center,

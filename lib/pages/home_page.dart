@@ -47,7 +47,7 @@ class _HomePageState extends State<HomePage> {
                 Image.asset(
                   'assets/header.png',
                   fit: BoxFit.fitHeight,
-                  height: 80,
+                  height: 200,
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20),
@@ -58,7 +58,7 @@ class _HomePageState extends State<HomePage> {
                         style: TextStyle(
                           fontFamily: 'Archivo',
                           fontWeight: FontWeight.bold,
-                          fontSize: 20,
+                          fontSize: 40,
                           color: Color.fromARGB(255, 85, 85, 85),
                           letterSpacing: -0.2,
                         ),
@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                         'JEJAK TULISAN',
                         style: TextStyle(
                           fontFamily: 'ArchivoBlack',
-                          fontSize: 35,
+                          fontSize: 68,
                           color: Color.fromARGB(255, 119, 24, 45),
                           letterSpacing: -3.2,
                         ),
@@ -78,9 +78,9 @@ class _HomePageState extends State<HomePage> {
                         'PEREMPUAN',
                         style: TextStyle(
                           fontFamily: 'ArchivoBlack',
-                          fontSize: 70,
+                          fontSize: 155,
                           color: Color.fromARGB(255, 119, 24, 45),
-                          letterSpacing: -3.2,
+                          letterSpacing: -10,
                           height: 0.8,
                         ),
                         textAlign: TextAlign.center,
@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> {
                         style: TextStyle(
                           fontFamily: 'Archivo',
                           fontWeight: FontWeight.bold,
-                          fontSize: 20,
+                          fontSize: 40,
                           color: Color.fromARGB(255, 0, 0, 0),
                           letterSpacing: -0.2,
                         ),
@@ -203,6 +203,7 @@ class _HomePageState extends State<HomePage> {
                                 child: Icon(
                                   Icons.chevron_left,
                                   color: Colors.white,
+                                  size: 60,
                                 ),
                               ),
                               Expanded(child: Container()),
@@ -227,6 +228,7 @@ class _HomePageState extends State<HomePage> {
                                 child: Icon(
                                   Icons.chevron_right,
                                   color: Colors.white,
+                                  size: 60
                                 ),
                               ),
                               SizedBox(width: 20),
@@ -243,7 +245,7 @@ class _HomePageState extends State<HomePage> {
                           fontFamily: 'Archivo',
                           fontWeight: FontWeight.bold,
                           color: Color.fromARGB(255, 119, 24, 45),
-                          fontSize: 20,
+                          fontSize: 32,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -254,7 +256,7 @@ class _HomePageState extends State<HomePage> {
                           fontFamily: 'Archivo',
                           fontWeight: FontWeight.bold,
                           color: Color.fromARGB(255, 85, 85, 85),
-                          fontSize: 16,
+                          fontSize: 27,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -283,7 +285,7 @@ class _HomePageState extends State<HomePage> {
                       fontFamily: 'Archivo',
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
-                      fontSize: 18,
+                      fontSize: 40,
                     ),
                   ),
                 ),
@@ -314,7 +316,7 @@ class _HomePageState extends State<HomePage> {
                       fontFamily: 'Archivo',
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 162, 29, 58),
-                      fontSize: 18,
+                      fontSize: 27,
                     ),
                   ),
                 ),

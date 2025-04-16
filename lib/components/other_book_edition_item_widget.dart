@@ -73,7 +73,7 @@ class OtherBookEditionItemWidget extends StatelessWidget {
                       fontFamily: 'Archivo',
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
-                      fontSize: 16,
+                      fontSize: 18,
                     ),
                   ),
                   if (book.edition != null)
@@ -82,7 +82,7 @@ class OtherBookEditionItemWidget extends StatelessWidget {
                       style: const TextStyle(
                         fontFamily: 'Archivo',
                         color: Colors.black,
-                        fontSize: 16,
+                        fontSize: 18,
                       ),
                     ),
                   Text(
@@ -90,7 +90,7 @@ class OtherBookEditionItemWidget extends StatelessWidget {
                     style: const TextStyle(
                       fontFamily: 'Archivo',
                       color: Colors.black,
-                      fontSize: 16,
+                      fontSize: 18,
                     ),
                   ),
                 ],

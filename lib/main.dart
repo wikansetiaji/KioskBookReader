@@ -1,9 +1,25 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:kiosk_book_reader/pages/home_page.dart';
 import 'package:kiosk_book_reader/service/idle_timer.dart';
+import 'package:window_size/window_size.dart';
 
 void main() {
-  runApp(const KioskBookReaderApp());
+  WidgetsFlutterBinding.ensureInitialized();
+
+  if (Platform.isMacOS || Platform.isWindows || Platform.isLinux) {
+    setWindowTitle('My Flutter Desktop App');
+    setWindowMinSize(const Size(1080, 1920));
+    setWindowMaxSize(const Size(1080, 1920));
+  }
+
+  runApp(
+    Transform.scale(
+      scale: 0.72, // Show at 50% size
+      alignment: Alignment.topLeft,
+      child: const KioskBookReaderApp(),
+    ),
+  );
 }
 
 class KioskBookReaderApp extends StatelessWidget {
@@ -39,10 +55,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   void _onIdleTimeout() {
     final context = _navigatorKey.currentContext;
     if (context != null) {
-      Navigator.popUntil(
-        context,
-        (route) => route.isFirst,
-      );
+      Navigator.popUntil(context, (route) => route.isFirst);
     }
   }
 
@@ -64,7 +77,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       behavior: HitTestBehavior.translucent,
       child: MaterialApp(
         navigatorKey: _navigatorKey,
-        home: HomePage(title: "",),
+        home: HomePage(title: ""),
       ),
     );
   }
