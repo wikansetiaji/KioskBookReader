@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:kiosk_book_reader/pages/home_page.dart';
@@ -10,9 +12,9 @@ void main() {
   final double width = 1080;
   final double height = 1920;
   WidgetsFlutterBinding.ensureInitialized();
+  setWindowTitle('Muara Kiosk Book Reader');
 
-  if (kDebugMode) {
-    setWindowTitle('Muara Kiosk Book Reader');
+  if (!Platform.isWindows) {
     setWindowMinSize(Size(width, height));
     setWindowMaxSize(Size(width, height));
     setWindowFrame(
@@ -24,7 +26,7 @@ void main() {
 
   runApp(
     Transform.scale(
-      scale: 0.72, // Show at 50% size
+      scale: !Platform.isWindows ? 0.72 : 1, // Show at 50% size
       alignment: Alignment.topLeft,
       child: const KioskBookReaderApp(),
     ),
