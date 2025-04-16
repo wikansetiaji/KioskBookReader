@@ -3,10 +3,31 @@ import 'package:flutter/material.dart';
 import 'package:kiosk_book_reader/pages/home_page.dart';
 import 'package:kiosk_book_reader/service/idle_timer.dart';
 import 'package:window_size/window_size.dart';
+import 'package:fullscreen_window/fullscreen_window.dart';
+
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  if (!Platform.isWindows) {
+    final double width = 1080;
+    final double height = 1920;
+    setWindowTitle('Muara Kiosk Book Reader');
+    setWindowMinSize(Size(width, height));
+    setWindowMaxSize(Size(width, height));
+    setWindowFrame(
+      Rect.fromLTWH(100, 100, width, height),
+    ); // <== Simulated resolution
+  } else {
+    FullScreenWindow.setFullScreen(true);
+  }
+
   runApp(
-    const KioskBookReaderApp()
+    Transform.scale(
+      scale: Platform.isWindows ? 1 : 0.72, // Show at 50% size
+      alignment: Alignment.topLeft,
+      child: const KioskBookReaderApp(),
+    ),
   );
 }
 
