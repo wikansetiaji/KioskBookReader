@@ -6,7 +6,9 @@ import 'package:bookfx/bookfx.dart';
 import 'package:kiosk_book_reader/components/book_info_widget.dart';
 import 'package:kiosk_book_reader/components/language_toggle_switch.dart';
 import 'package:kiosk_book_reader/models/book.dart';
+import 'package:kiosk_book_reader/service/language_provider.dart';
 import 'package:kiosk_book_reader/service/size_config.dart';
+import 'package:provider/provider.dart';
 
 class ImgBookReadPage extends StatefulWidget {
   final Book book;
@@ -255,7 +257,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                         ),
                       ),
                       child: Text(
-                        '< KEMBALI',
+                        context.watch<LanguageProvider>().isEnglish ? '< BACK' : '< KEMBALI',
                         style: TextStyle(
                           fontFamily: 'Archivo',
                           fontWeight: FontWeight.bold,

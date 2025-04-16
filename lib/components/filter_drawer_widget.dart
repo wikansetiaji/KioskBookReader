@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:kiosk_book_reader/models/author.dart';
 import 'package:kiosk_book_reader/pages/img_book_read_page.dart';
 import 'package:kiosk_book_reader/repository/books_repository.dart';
+import 'package:kiosk_book_reader/service/language_provider.dart';
 import 'package:kiosk_book_reader/service/size_config.dart';
+import 'package:provider/provider.dart';
 
 class FilterDrawerWidget extends StatelessWidget {
   const FilterDrawerWidget({
@@ -28,7 +30,7 @@ class FilterDrawerWidget extends StatelessWidget {
           spacing: 16.0,
           children: [
             Text(
-              'KARYA TULISAN',
+              context.watch<LanguageProvider>().isEnglish ? 'WRITTEN WORK' : 'KARYA TULISAN',
               style: TextStyle(
                 fontFamily: 'Archivo',
                 fontSize: 40.sc,
@@ -50,7 +52,7 @@ class FilterDrawerWidget extends StatelessWidget {
                         onSelectAuthor?.call(null);
                       },
                       child: Text(
-                        'Semua Tulisan',
+                        context.watch<LanguageProvider>().isEnglish ? 'All' : 'Semua Tulisan',
                         style: TextStyle(
                           fontFamily: 'Archivo',
                           fontSize: 36.sc,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kiosk_book_reader/models/author.dart';
+import 'package:kiosk_book_reader/service/language_provider.dart';
 import 'package:kiosk_book_reader/service/size_config.dart';
+import 'package:provider/provider.dart';
 
 class AuthorInfoWidget extends StatelessWidget {
   final Author author;
@@ -94,7 +96,7 @@ class AuthorInfoWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'LATAR BELAKANG',
+                        context.watch<LanguageProvider>().isEnglish ? 'BACKGROUND' : 'LATAR BELAKANG',
                         style: TextStyle(
                           fontFamily: 'Archivo',
                           fontWeight: FontWeight.bold,

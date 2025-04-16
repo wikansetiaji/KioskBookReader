@@ -5,7 +5,9 @@ import 'package:kiosk_book_reader/components/filter_drawer_widget.dart';
 import 'package:kiosk_book_reader/components/language_toggle_switch.dart';
 import 'package:kiosk_book_reader/models/author.dart';
 import 'package:kiosk_book_reader/repository/books_repository.dart';
+import 'package:kiosk_book_reader/service/language_provider.dart';
 import 'package:kiosk_book_reader/service/size_config.dart';
+import 'package:provider/provider.dart';
 
 class BookFilterPage extends StatefulWidget {
   const BookFilterPage({super.key});
@@ -62,7 +64,7 @@ class _BookFilterPageState extends State<BookFilterPage> {
                           ),
                         ),
                         child: Text(
-                          '< KEMBALI',
+                          context.watch<LanguageProvider>().isEnglish ? '< BACK' : '< KEMBALI',
                           style: TextStyle(
                             fontFamily: 'Archivo',
                             fontWeight: FontWeight.bold,
@@ -85,7 +87,7 @@ class _BookFilterPageState extends State<BookFilterPage> {
                       child: Column(
                         children: [
                           Text(
-                            'ARSIP DIGITAL',
+                            context.watch<LanguageProvider>().isEnglish ? 'DIGITAL ARCHIVE' : 'ARSIP DIGITAL',
                             style: TextStyle(
                               fontFamily: 'Archivo',
                               fontSize: 28.sc,
@@ -102,7 +104,7 @@ class _BookFilterPageState extends State<BookFilterPage> {
                                 Row(
                                   children: [
                                     Text(
-                                      'TULISAN KARYA',
+                                      context.watch<LanguageProvider>().isEnglish ? 'WRITINGS OF' : 'TULISAN KARYA',
                                       style: TextStyle(
                                         fontFamily: 'Archivo',
                                         fontSize: 42.sc,
@@ -118,7 +120,7 @@ class _BookFilterPageState extends State<BookFilterPage> {
                                 ),
                               Text(
                                 _selectedAuthor == null
-                                    ? 'SEMUA PENULIS WANITA'
+                                    ? context.watch<LanguageProvider>().isEnglish ? 'ALL WOMEN WRITERS' : 'SEMUA PENULIS WANITA'
                                     : _selectedAuthor!.name.toUpperCase(),
                                 style: TextStyle(
                                   fontFamily: 'Archivo',

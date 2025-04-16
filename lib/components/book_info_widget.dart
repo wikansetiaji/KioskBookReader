@@ -3,7 +3,9 @@ import 'package:kiosk_book_reader/components/other_book_edition_item_widget.dart
 import 'package:kiosk_book_reader/models/book.dart';
 import 'package:kiosk_book_reader/pages/book_filter_page.dart';
 import 'package:kiosk_book_reader/repository/books_repository.dart';
+import 'package:kiosk_book_reader/service/language_provider.dart';
 import 'package:kiosk_book_reader/service/size_config.dart';
+import 'package:provider/provider.dart';
 
 class BookInfoWidget extends StatelessWidget {
   final Book book;
@@ -60,7 +62,7 @@ class BookInfoWidget extends StatelessWidget {
                                 ),
                               ),
                               child: Text(
-                                'LIHAT TAJUK TULISAN ASLI >',
+                                context.watch<LanguageProvider>().isEnglish ? 'VIEW ORIGINAL WRITING >' : 'LIHAT TAJUK TULISAN ASLI >',
                                 style: TextStyle(
                                   fontFamily: 'Archivo',
                                   color: Color.fromARGB(255, 162, 29, 58),
@@ -106,8 +108,8 @@ class BookInfoWidget extends StatelessWidget {
                     children: [
                       Text(
                         book.editionId != null
-                            ? 'BACA EDISI LAINNYA,'
-                            : 'BACA BUKU LAINNYA,',
+                            ? context.watch<LanguageProvider>().isEnglish ? 'SEE OTHER EDITIONS,' : 'BACA EDISI LAINNYA,'
+                            : context.watch<LanguageProvider>().isEnglish ? 'SEE OTHER BOOKS' : 'BACA BUKU LAINNYA,',
                         style: TextStyle(
                           fontFamily: 'Archivo',
                           fontWeight: FontWeight.bold,
@@ -162,7 +164,7 @@ class BookInfoWidget extends StatelessWidget {
                                 ),
                               ),
                               child: Text(
-                                'LIHAT GALERI ARSIP',
+                                context.watch<LanguageProvider>().isEnglish ? 'VIEW ARCHIVE GALLERY' : 'LIHAT GALERI ARSIP',
                                 style: TextStyle(
                                   fontFamily: 'Archivo',
                                   fontWeight: FontWeight.bold,

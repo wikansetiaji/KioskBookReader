@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 enum AppLanguage { en, id }
 
 class LanguageProvider extends ChangeNotifier {
-  AppLanguage _language = AppLanguage.en;
+  AppLanguage _language = AppLanguage.id;
 
   AppLanguage get language => _language;
 
