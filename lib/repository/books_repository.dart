@@ -128,7 +128,7 @@ class BooksRepository {
       id: 'sedar',
       type: {AppLanguage.id: 'Majalah'},
       title: 'Sedar',
-      date: {AppLanguage.id: 'Sejak 1930'},
+      date: {AppLanguage.id: '1930'},
       contentTitle: {AppLanguage.id: '“Tentang Hak dan Kewajiban Perempoean Indonesia” '},
       content: {
         AppLanguage.id:
@@ -138,6 +138,25 @@ class BooksRepository {
       authorId: 'sedar',
       highlight: null,
       edition: {AppLanguage.id: 'Edisi November 1930'},
+      isOtherEdition: false,
+      isMedia: true
+    ),
+
+    // Soeara Iboe
+    Book(
+      id: 'soeara_iboe',
+      type: {AppLanguage.id: 'Surat Kabar'},
+      title: 'Soeara Iboe',
+      date: {AppLanguage.id: '1932'},
+      contentTitle: {AppLanguage.id: '“Perloenja Perempoean Disekolahkan”'},
+      content: {
+        AppLanguage.id:
+            'Artikel ini menyoroti pentingnya pendidikan bagi perempuan. Pada masa itu, masyarakat masih memegang teguh pandangan tradisional yang menyatakan bahwa “Bukankah perempuan pada akhirnya akan kembali ke dapur juga?” Pandangan semacam ini, menurut penulis, menjadi hambatan serius bagi perempuan dalam mengakses pendidikan. Dalam tulisan yang ditulis oleh V. Diaviance, ditegaskan bahwa seorang ibu yang berpendidikan akan mampu mengelola rumah tangga dengan lebih baik dibandingkan perempuan yang tidak pernah mengenyam pendidikan formal. Penulis juga mengajak pembaca untuk merenung melalui pertanyaan retoris: “Tidakkah hati kita merasa bangga apabila anak atau cucu perempuan kita mampu berkembang dan sejajar dengan saudara laki-lakinya?” Menurut penulis, siapa pun yang ingin menjadi ibu yang baik harus terlebih dahulu memiliki kemampuan untuk memberikan teladan yang baik bagi anak-anaknya.',
+      },
+      numberOfPage: 4,
+      authorId: 'soeara_iboe',
+      highlight: null,
+      edition: {AppLanguage.id: 'Edisi 2 Mei 1932'},
       isOtherEdition: false,
       isMedia: true
     )
@@ -192,6 +211,13 @@ class BooksRepository {
       name: 'Sedar',
       birthDeathDate: 'Sejak Agustus 1930',
       background: {AppLanguage.id: 'Organisasi Persatuan Wanita Sedar didirikan di Bandung pada tahun 1930 sebagai ruang perjuangan bagi perempuan kelas pekerja. Salah satu media yang diterbitkan organisasi ini adalah Majalah Sedar, yang memuat tulisan-tulisan tentang pendidikan, perjuangan perempuan, serta pemikiran-pemikiran progresif. Banyak di antaranya menyuarakan keresahan terhadap kondisi perempuan, termasuk penolakan terhadap praktik poligami yang dianggap merugikan perempuan. Majalah ini juga berfungsi sebagai sarana pendidikan rakyat.'},
+      isMediaAuthor: true
+    ),
+    Author(
+      id: 'soeara_iboe',
+      name: 'Soeara Iboe',
+      birthDeathDate: '2 Mei 1932',
+      background: {AppLanguage.id: 'Soeara Iboe adalah surat kabar yang terbit di Sibolga pada 2 Mei 1932, lahir dari semangat kolektif organisasi kaum ibu bernama Comite Kaoem Iboe yang berdiri pada 8 November 1931. Surat kabar ini hadir untuk mempererat hubungan antar ibu, menyebarkan informasi dari luar wilayah, serta menjadi alat perlawanan terhadap kekuasaan adat. Isinya mencakup berbagai topik seperti masakan, kesehatan ibu dan anak, pendidikan, iklan, berita umum, hingga karya sastra berupa puisi dan cerita.'},
       isMediaAuthor: true
     )
   ];
