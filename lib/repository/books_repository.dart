@@ -159,7 +159,27 @@ class BooksRepository {
       edition: {AppLanguage.id: 'Edisi 2 Mei 1932'},
       isOtherEdition: false,
       isMedia: true
-    )
+    ),
+
+    // Doenia Kita
+    Book(
+      id: 'doenia_kita',
+      type: {AppLanguage.id: 'Majalah'},
+      title: 'Doenia Kita',
+      date: {AppLanguage.id: 'Sejak 1932'},
+      contentTitle: {AppLanguage.id: '“Ilmoe Penjoeloeh Djalan” '},
+      content: {
+        AppLanguage.id:
+            'Artikel berjudul “Ilmoe Penjoeloeh Djalan” yang ditulis oleh Siti Salimah dan dimuat dalam majalah Doenia Kita edisi Agustus 1938 membahas pentingnya kaum ibu memiliki aktivitas di luar urusan domestik. Dalam tulisannya, Salimah menekankan bahwa para ibu sebaiknya meluangkan waktu untuk membaca buku-buku yang bermanfaat bagi pengembangan diri. Selain itu, ia juga menganjurkan agar kaum ibu memperluas jaringan pergaulan di luar rumah tangga. Menurutnya, pergaulan yang luas memungkinkan perempuan untuk senantiasa mengikuti perkembangan zaman dan memperoleh informasi baru. Meskipun tugas utama perempuan terletak pada pengasuhan anak, peran sebagai istri, dan pengelolaan rumah tangga, penulis meyakini bahwa semakin luas pengetahuan dan keterampilan yang dimiliki seorang ibu, maka akan semakin baik pula kemampuannya dalam menjalankan peran domestik dan mendidik anak-anaknya.',
+      },
+      numberOfPage: 67,
+      authorId: 'doenia_kita',
+      highlight: null,
+      edition: {AppLanguage.id: 'Edisi Agustus 1938'},
+      isOtherEdition: false,
+      isMedia: true
+    ),
+
   ];
 
   final List<Author> allAuthors = [
@@ -219,7 +239,14 @@ class BooksRepository {
       birthDeathDate: '2 Mei 1932',
       background: {AppLanguage.id: 'Soeara Iboe adalah surat kabar yang terbit di Sibolga pada 2 Mei 1932, lahir dari semangat kolektif organisasi kaum ibu bernama Comite Kaoem Iboe yang berdiri pada 8 November 1931. Surat kabar ini hadir untuk mempererat hubungan antar ibu, menyebarkan informasi dari luar wilayah, serta menjadi alat perlawanan terhadap kekuasaan adat. Isinya mencakup berbagai topik seperti masakan, kesehatan ibu dan anak, pendidikan, iklan, berita umum, hingga karya sastra berupa puisi dan cerita.'},
       isMediaAuthor: true
-    )
+    ),
+    Author(
+      id: 'doenia_kita',
+      name: 'Doenia Kita',
+      birthDeathDate: 'Sejak 1937',
+      background: {AppLanguage.id: 'Majalah Doenia Kita (DK) adalah majalah bulanan yang pertama kali terbit pada tahun 1937. Majalah ini didirikan oleh Siti Alimah untuk memenuhi aspirasi kaum perempuan yang mengalami kesulitan akibat zaman baru. Istilah Doenia Kita mengandung makna dunia kelahiran dan kebatinannya kaum putri. Haluan dari majalah ini adalah kemajuan seluruh perempuan Indonesia.'},
+      isMediaAuthor: true
+    ),
   ];
 
   List<Book> getAllBooks() {
