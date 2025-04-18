@@ -103,6 +103,23 @@ class BooksRepository {
       editionId: 'soenting',
       isOtherEdition: true,
     ),
+
+    // Pahesan
+    Book(
+      id: 'pahesan',
+      type: {AppLanguage.id: 'Majalah'},
+      title: 'Pahesan',
+      date: {AppLanguage.id: '1937 - 1941'},
+      contentTitle: {AppLanguage.id: 'Majalah Pahésan, Edisi 15 April 1941'},
+      content: {
+        AppLanguage.id:
+            'Edisi ini memuat tulisan untuk mengenang R.A. Kartini, pandangan tentang pentingnya pendidikan campuran antara perempuan dan laki-laki, perkembangan seni rupa Bali, serta pembahasan seputar gaya busana dan ekspresi diri perempuan. Disertai puisi dan prosa, Pahésan menghadirkan perspektif perempuan muda terhadap isu sosial, budaya, dan gaya hidup pada masanya.',
+      },
+      numberOfPage: 12,
+      highlight: null,
+      edition: {AppLanguage.id: 'Edisi 15 April 1941'},
+      isOtherEdition: false,
+    ),
   ];
 
   final List<Author> allAuthors = [

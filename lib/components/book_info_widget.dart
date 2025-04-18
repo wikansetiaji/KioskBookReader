@@ -46,34 +46,40 @@ class BookInfoWidget extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 16.sc),
-                      Row(
-                        children: [
-                          if (book.highlight != null)
-                            ElevatedButton(
-                              onPressed: () {
-                                onShowHighlight();
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.transparent,
-                                shadowColor: Colors.transparent,
-                                side: BorderSide(
-                                  color: Color.fromARGB(255, 162, 29, 58),
-                                  width: 2,
+                      if (book.highlight != null)
+                        Column(
+                          children: [
+                            Row(
+                              children: [
+                                ElevatedButton(
+                                  onPressed: () {
+                                    onShowHighlight();
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.transparent,
+                                    shadowColor: Colors.transparent,
+                                    side: BorderSide(
+                                      color: Color.fromARGB(255, 162, 29, 58),
+                                      width: 2,
+                                    ),
+                                  ),
+                                  child: Text(
+                                    context.watch<LanguageProvider>().isEnglish
+                                        ? 'VIEW ORIGINAL WRITING >'
+                                        : 'LIHAT TAJUK TULISAN ASLI >',
+                                    style: TextStyle(
+                                      fontFamily: 'Archivo',
+                                      color: Color.fromARGB(255, 162, 29, 58),
+                                      fontSize: 16.sc,
+                                    ),
+                                  ),
                                 ),
-                              ),
-                              child: Text(
-                                context.watch<LanguageProvider>().isEnglish ? 'VIEW ORIGINAL WRITING >' : 'LIHAT TAJUK TULISAN ASLI >',
-                                style: TextStyle(
-                                  fontFamily: 'Archivo',
-                                  color: Color.fromARGB(255, 162, 29, 58),
-                                  fontSize: 16.sc
-                                ),
-                              ),
+                                Expanded(child: Container()),
+                              ],
                             ),
-                          Expanded(child: Container()),
-                        ],
-                      ),
-                      SizedBox(height: 20.sc),
+                            SizedBox(height: 20.sc),
+                          ],
+                        ),
                       Expanded(
                         child: SingleChildScrollView(
                           scrollDirection: Axis.vertical,
@@ -82,7 +88,7 @@ class BookInfoWidget extends StatelessWidget {
                             style: TextStyle(
                               fontFamily: 'PublicSans',
                               color: Colors.black,
-                              fontSize: 16.sc
+                              fontSize: 16.sc,
                             ),
                           ),
                         ),
@@ -108,8 +114,12 @@ class BookInfoWidget extends StatelessWidget {
                     children: [
                       Text(
                         book.editionId != null
-                            ? context.watch<LanguageProvider>().isEnglish ? 'SEE OTHER EDITIONS,' : 'BACA EDISI LAINNYA,'
-                            : context.watch<LanguageProvider>().isEnglish ? 'SEE OTHER BOOKS,' : 'BACA BUKU LAINNYA,',
+                            ? context.watch<LanguageProvider>().isEnglish
+                                ? 'SEE OTHER EDITIONS,'
+                                : 'BACA EDISI LAINNYA,'
+                            : context.watch<LanguageProvider>().isEnglish
+                            ? 'SEE OTHER BOOKS,'
+                            : 'BACA BUKU LAINNYA,',
                         style: TextStyle(
                           fontFamily: 'Archivo',
                           fontWeight: FontWeight.bold,
@@ -164,7 +174,9 @@ class BookInfoWidget extends StatelessWidget {
                                 ),
                               ),
                               child: Text(
-                                context.watch<LanguageProvider>().isEnglish ? 'VIEW ARCHIVE GALLERY' : 'LIHAT GALERI ARSIP',
+                                context.watch<LanguageProvider>().isEnglish
+                                    ? 'VIEW ARCHIVE GALLERY'
+                                    : 'LIHAT GALERI ARSIP',
                                 style: TextStyle(
                                   fontFamily: 'Archivo',
                                   fontWeight: FontWeight.bold,
