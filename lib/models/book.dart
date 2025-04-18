@@ -16,6 +16,7 @@ class Book {
   final Map<AppLanguage, String>? edition; // Translatable
   final String? editionId;
   final bool isOtherEdition;
+  final bool isMedia;
 
   Book({
     required this.id,
@@ -31,6 +32,7 @@ class Book {
     this.edition,
     this.editionId,
     this.isOtherEdition = false,
+    this.isMedia = false,
   });
 
   String getTranslated(BuildContext context, Map<AppLanguage, String>? field) {

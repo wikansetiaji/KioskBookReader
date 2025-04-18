@@ -116,9 +116,11 @@ class BooksRepository {
             'Edisi ini memuat tulisan untuk mengenang R.A. Kartini, pandangan tentang pentingnya pendidikan campuran antara perempuan dan laki-laki, perkembangan seni rupa Bali, serta pembahasan seputar gaya busana dan ekspresi diri perempuan. Disertai puisi dan prosa, Pahésan menghadirkan perspektif perempuan muda terhadap isu sosial, budaya, dan gaya hidup pada masanya.',
       },
       numberOfPage: 12,
+      authorId: 'pahesan',
       highlight: null,
       edition: {AppLanguage.id: 'Edisi 15 April 1941'},
       isOtherEdition: false,
+      isMedia: true
     ),
   ];
 
@@ -153,6 +155,18 @@ class BooksRepository {
             'Tjehaja Sijang adalah salah satu surat kabar berbahasa Melayu yang terbit di awal abad ke-20 di Minahasa. Surat kabar ini menjadi wadah penting bagi kaum intelektual dan tokoh pergerakan nasional, termasuk perempuan seperti Maria Walanda Maramis, untuk menyuarakan gagasan tentang pendidikan, kesetaraan gender, dan emansipasi perempuan. Tjahaja Siang memiliki peran dalam membentuk opini publik dan menyebarkan kesadaran sosial-politik di kalangan masyarakat pribumi.',
       },
     ),
+    Author(
+      id: 'pahesan',
+      name: 'Pahesan',
+      birthDeathDate: '1937 - 1941',
+      background: {AppLanguage.id: 'Utami Suryadarma merupakan tokoh perempuan yang pernah mewakili Indonesia dalam Inter-Asian Women Conference pada Desember 1947. Saat remaja, bersama sang kakak, Utami mendirikan Pahésan. Melalui media ini, ia mendorong perempuan untuk berpikir, bersuara, dan menyuarakan harapan atas masa depan bangsanya.'},
+      contentType: {AppLanguage.id: 'Majalah'},
+      contentTitle: 'Pahesan',
+      contentDescription: {
+        AppLanguage.id:
+            'Majalah Pahésan (berarti “cermin”) didirikan di Solo dan terbit antara tahun 1937 hingga 1941. Mengangkat tema sosial-budaya serta peran perempuan, Pahésan menjadi ruang bagi perempuan muda menyuarakan pandangan dan membangun kesadaran kolektif di tengah perjuangan menuju kemerdekaan. Meski menggunakan bahasa Belanda yang menjadi bahasa pendidikan formal bagi anak-anak priyayi masa itu, suara-suara kritis dan emansipasi terasa pada tiap halamannya.',
+      },
+    )
   ];
 
   List<Book> getAllBooks() {
@@ -168,9 +182,9 @@ class BooksRepository {
     return null;
   }
 
-  List<Book> getBooksFromAuthor({required Author author}) {
+  List<Book> getBooksFromAuthor({required Author author, bool showEditions = false}) {
     return allBooks
-        .where((b) => b.authorId == author.id && !b.isOtherEdition)
+        .where((b) => b.authorId == author.id && (!b.isOtherEdition || showEditions))
         .toList();
   }
 
@@ -184,8 +198,8 @@ class BooksRepository {
     return allAuthors;
   }
 
-  List<Book> getBooksWithoutAuthor() {
-    return allBooks.where((b) => b.authorId == null).toList();
+  List<Book> getMediaBooks() {
+    return allBooks.where((b) => b.isMedia).toList();
   }
 
   BooksRepository._internal();

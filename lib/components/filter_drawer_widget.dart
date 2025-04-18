@@ -24,13 +24,20 @@ class FilterDrawerWidget extends StatelessWidget {
       color: Color.fromARGB(255, 162, 29, 58),
       padding: EdgeInsets.all(16.sc),
       child: Padding(
-        padding: EdgeInsets.only(left: 20.0.sc, right: 20.sc, bottom: 20.sc, top: 120.sc),
+        padding: EdgeInsets.only(
+          left: 20.0.sc,
+          right: 20.sc,
+          bottom: 20.sc,
+          top: 120.sc,
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           spacing: 16.0,
           children: [
             Text(
-              context.watch<LanguageProvider>().isEnglish ? 'WRITTEN WORK' : 'KARYA TULISAN',
+              context.watch<LanguageProvider>().isEnglish
+                  ? 'WRITTEN WORK'
+                  : 'KARYA TULISAN',
               style: TextStyle(
                 fontFamily: 'Archivo',
                 fontSize: 40.sc,
@@ -52,7 +59,9 @@ class FilterDrawerWidget extends StatelessWidget {
                         onSelectAuthor?.call(null);
                       },
                       child: Text(
-                        context.watch<LanguageProvider>().isEnglish ? 'All' : 'Semua Tulisan',
+                        context.watch<LanguageProvider>().isEnglish
+                            ? 'All'
+                            : 'Semua Tulisan',
                         style: TextStyle(
                           fontFamily: 'Archivo',
                           fontSize: 36.sc,
@@ -130,7 +139,7 @@ class FilterDrawerWidget extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: 20.sc,),
+            SizedBox(height: 20.sc),
             Text(
               'MEDIA',
               style: TextStyle(
@@ -145,17 +154,25 @@ class FilterDrawerWidget extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  for (var book in BooksRepository().getBooksWithoutAuthor())
+                  for (var book in BooksRepository().getMediaBooks())
                     Container(
                       width: double.infinity,
                       child: GestureDetector(
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ImgBookReadPage(book: book),
-                            ),
+                          final Author? author = BooksRepository().getAuthor(
+                            book: book,
                           );
+                          if (author != null) {
+                            onSelectAuthor?.call(author);
+                          } else {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder:
+                                    (context) => ImgBookReadPage(book: book),
+                              ),
+                            );
+                          }
                         },
                         child: Text(
                           book.title,

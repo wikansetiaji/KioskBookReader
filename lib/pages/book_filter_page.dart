@@ -164,6 +164,7 @@ class _BookFilterPageState extends State<BookFilterPage> {
                                       ? booksRepository.getAllBooks()
                                       : booksRepository.getBooksFromAuthor(
                                         author: _selectedAuthor!,
+                                        showEditions: true
                                       ),
                             ),
                           ),

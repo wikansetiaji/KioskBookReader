@@ -11,6 +11,7 @@ class Author {
   final Map<AppLanguage, String>? contentType; // Translatable
   final String? contentTitle; // Translatable
   final Map<AppLanguage, String>? contentDescription; // Translatable
+  final bool isMediaAuthor;
 
   Author({
     required this.id,
@@ -19,7 +20,8 @@ class Author {
     required this.background,
     this.contentType,
     this.contentTitle,
-    this.contentDescription
+    this.contentDescription,
+    this.isMediaAuthor = false
   });
 
   String getTranslated(BuildContext context, Map<AppLanguage, String>? field) {
