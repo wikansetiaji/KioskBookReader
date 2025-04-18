@@ -122,6 +122,25 @@ class BooksRepository {
       isOtherEdition: false,
       isMedia: true
     ),
+
+    // Sedar
+    Book(
+      id: 'sedar',
+      type: {AppLanguage.id: 'Majalah'},
+      title: 'Sedar',
+      date: {AppLanguage.id: 'Sejak 1930'},
+      contentTitle: {AppLanguage.id: '“Tentang Hak dan Kewajiban Perempoean Indonesia” '},
+      content: {
+        AppLanguage.id:
+            'Melalui nama pena “Doro Petak”, penulis artikel ini mengkritik anggapan bahwa perempuan adalah makhluk lemah. Ia menekankan pentingnya kesetaraan hak dan kewajiban antara laki-laki dan perempuan, serta perlunya pemahaman tentang dinamika sosial. Penulis membandingkan situasi di Hindia Belanda dengan kondisi di negara-negara di Eropa, di mana perempuan telah memiliki hak untuk menduduki berbagai jenis pekerjaan, termasuk hak untuk memilih dan dipilih dalam pemilihan umum. Di Rusia, bahkan perempuan dapat terlibat dalam upaya mempertahankan kemerdekaan bangsa. Kondisi ini kemudian dikontraskan dengan keadaan di negeri jajahan seperti Hindia Belanda, di mana masih terdapat ketimpangan dalam relasi antara laki-laki dan perempuan. Tulisan ini menyerukan kerja sama antara perempuan dan laki-laki demi menghapus penderitaan bangsa dan membangun masa depan yang lebih setara.',
+      },
+      numberOfPage: 8,
+      authorId: 'sedar',
+      highlight: null,
+      edition: {AppLanguage.id: 'Edisi November 1930'},
+      isOtherEdition: false,
+      isMedia: true
+    )
   ];
 
   final List<Author> allAuthors = [
@@ -167,6 +186,13 @@ class BooksRepository {
             'Majalah Pahésan (berarti “cermin”) didirikan di Solo dan terbit antara tahun 1937 hingga 1941. Mengangkat tema sosial-budaya serta peran perempuan, Pahésan menjadi ruang bagi perempuan muda menyuarakan pandangan dan membangun kesadaran kolektif di tengah perjuangan menuju kemerdekaan. Meski menggunakan bahasa Belanda yang menjadi bahasa pendidikan formal bagi anak-anak priyayi masa itu, suara-suara kritis dan emansipasi terasa pada tiap halamannya.',
       },
       isMediaAuthor: true
+    ),
+    Author(
+      id: 'sedar',
+      name: 'Sedar',
+      birthDeathDate: 'Sejak Agustus 1930',
+      background: {AppLanguage.id: 'Organisasi Persatuan Wanita Sedar didirikan di Bandung pada tahun 1930 sebagai ruang perjuangan bagi perempuan kelas pekerja. Salah satu media yang diterbitkan organisasi ini adalah Majalah Sedar, yang memuat tulisan-tulisan tentang pendidikan, perjuangan perempuan, serta pemikiran-pemikiran progresif. Banyak di antaranya menyuarakan keresahan terhadap kondisi perempuan, termasuk penolakan terhadap praktik poligami yang dianggap merugikan perempuan. Majalah ini juga berfungsi sebagai sarana pendidikan rakyat.'},
+      isMediaAuthor: true
     )
   ];
 
@@ -196,7 +222,7 @@ class BooksRepository {
   }
 
   List<Author> getAllAuthors() {
-    return allAuthors;
+    return allAuthors.where((b) => !b.isMediaAuthor).toList();
   }
 
   List<Book> getMediaBooks() {

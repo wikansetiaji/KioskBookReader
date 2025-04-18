@@ -155,35 +155,40 @@ class FilterDrawerWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   for (var book in BooksRepository().getMediaBooks())
-                    Container(
-                      width: double.infinity,
-                      child: GestureDetector(
-                        onTap: () {
-                          final Author? author = BooksRepository().getAuthor(
-                            book: book,
-                          );
-                          if (author != null) {
-                            onSelectAuthor?.call(author);
-                          } else {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder:
-                                    (context) => ImgBookReadPage(book: book),
+                    Column(
+                      children: [
+                        Container(
+                          width: double.infinity,
+                          child: GestureDetector(
+                            onTap: () {
+                              final Author? author = BooksRepository().getAuthor(
+                                book: book,
+                              );
+                              if (author != null) {
+                                onSelectAuthor?.call(author);
+                              } else {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder:
+                                        (context) => ImgBookReadPage(book: book),
+                                  ),
+                                );
+                              }
+                            },
+                            child: Text(
+                              book.title,
+                              style: TextStyle(
+                                fontFamily: 'Archivo',
+                                fontSize: 36.sc,
+                                fontWeight: FontWeight.w500,
+                                color: Color.fromARGB(255, 255, 255, 255),
                               ),
-                            );
-                          }
-                        },
-                        child: Text(
-                          book.title,
-                          style: TextStyle(
-                            fontFamily: 'Archivo',
-                            fontSize: 36.sc,
-                            fontWeight: FontWeight.w500,
-                            color: Color.fromARGB(255, 255, 255, 255),
+                            ),
                           ),
                         ),
-                      ),
+                        SizedBox(height: 20.sc,)
+                      ],
                     ),
                 ],
               ),
