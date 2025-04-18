@@ -71,7 +71,7 @@ class BooksRepository {
       id: 'soenting_0',
       type: {AppLanguage.id: 'Surat Kabar'},
       title: 'Soenting Melajoe',
-      date: {AppLanguage.id: '7 Agustus 1912'},
+      date: {AppLanguage.id: '1912'},
       contentTitle: {AppLanguage.id: '“Pakaian Perhiasan”'},
       content: {
         AppLanguage.id:
@@ -89,7 +89,7 @@ class BooksRepository {
       id: 'soenting_1',
       type: {AppLanguage.id: 'Surat Kabar'},
       title: 'Soenting Melajoe',
-      date: {AppLanguage.id: '13 Desember 1918'},
+      date: {AppLanguage.id: '1918'},
       contentTitle: {AppLanguage.id: '“Perempoean” '},
       content: {
         AppLanguage.id:
