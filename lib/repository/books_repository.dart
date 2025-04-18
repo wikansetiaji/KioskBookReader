@@ -10,152 +10,130 @@ class BooksRepository {
   }
 
   final List<Book> allBooks = [
+    // Tjehaja Sijang
     Book(
-      id: "tjehaja_sijang",
-      type: {AppLanguage.id: "Surat Kabar", AppLanguage.en: "Newspaper"},
-      title: "Tjehaja Sijang",
-      date: {AppLanguage.id: "15 Juni 1917", AppLanguage.en: "15 June 1917"},
-      contentTitle: {AppLanguage.id: '“Djempoetan bagi bangsa perempuan”'},
+      id: 'tjehaja_sijang_0',
+      type: {AppLanguage.id: 'Surat Kabar'},
+      title: 'Tjahaja Siang',
+      date: {AppLanguage.id: '1917'},
+      contentTitle: {AppLanguage.id: '“Djempoetan Bagi Bangsa Perempoean”'},
       content: {
         AppLanguage.id:
-            'Dalam artikelnya, Maria Walanda Maramis menekankan pentingnya peran perempuan sebagai ibu dan guru pertama bagi anak-anak. Ia mengajak para perempuan Minahasa untuk menyadari tanggung jawab mereka dalam membentuk generasi yang bermoral dan berpengetahuan. Ia menyoroti ketertinggalan perempuan dalam pendidikan serta pentingnya mendidik anak sejak dini, baik secara fisik maupun spiritual. Maria juga menekankan bahwa kemajuan bangsa bergantung pada kualitas perempuan sebagai pendidik utama dalam keluarga, dan menyerukan agar kaum perempuan Minahasa ikut aktif dalam pembangunan masyarakat melalui pendidikan dan kesadaran akan peran strategis mereka. Artikel ini mencerminkan semangat emansipasi dan cita-cita kesetaraan yang ia perjuangkan.',
-        AppLanguage.en:
-            'In her article, Maria Walanda Maramis emphasizes the importance of women’s roles as mothers and the first teachers of their children. She calls on Minahasan women to recognize their responsibility in shaping a moral and knowledgeable generation. She highlights the lag of women in education and the importance of educating children from an early age, both physically and spiritually. Maria also stresses that the progress of a nation depends on the quality of its women as the primary educators within the family, and she urges Minahasan women to take an active role in community development through education and awareness of their strategic role. This article reflects the spirit of emancipation and the ideals of equality that she championed.',
+            'Dalam artikelnya, Maria Walanda Maramis menekankan pentingnya peran perempuan sebagai ibu dan pendidik pertama bagi anak-anak. Ia mengajak perempuan Minahasa untuk sadar akan tanggung jawab mereka dalam membentuk generasi yang bermoral dan cerdas. Maria menyoroti ketimpangan pendidikan bagi perempuan dan pentingnya mendidik anak sejak dini, baik secara fisik maupun spiritual. Ia percaya bahwa kemajuan bangsa dimulai dari perempuan yang berdaya dan terdidik.',
       },
       numberOfPage: 4,
-      authorId: "maramis",
-      collection: {
-        AppLanguage.id: "Koleksi PERPUSNAS",
-        AppLanguage.en: 'PERPUSNAS collection',
-      },
-      edition: {
-        AppLanguage.id: "Edisi 1 tahun 1917",
-        AppLanguage.en: "First edition year 1917",
-      },
-      highlight: BookHighlight(
-        page: 1,
-        centerX: 0.79,
-        centerY: 0.73,
-        width: 0.3,
-        height: 0.38,
-      ),
-      editionId: "tjehaja_sijang",
+      authorId: 'maramis',
+      highlight: null,
+      collection: {AppLanguage.id: 'Tjahaja Sjiang'},
+      edition: {AppLanguage.id: '15 Juni 1917'},
+      editionId: 'tjehaja_sjiang',
+      isOtherEdition: false,
     ),
     Book(
-      id: "tjehaja_sijang",
-      type: {AppLanguage.id: "Surat Kabar", AppLanguage.en: "Newspaper"},
-      title: "Tjehaja Sijang",
-      date: {AppLanguage.id: "15 Juli 1917", AppLanguage.en: "15 July 1917"},
-      contentTitle: {AppLanguage.id: '“Djempoetan bagi bangsa perempuan”'},
+      id: 'tjehaja_sijang_1',
+      type: {AppLanguage.id: 'Surat Kabar'},
+      title: 'Tjahaja Siang',
+      date: {AppLanguage.id: '1918'},
+      contentTitle: {AppLanguage.id: '“Siapa Poenja Salah?”'},
       content: {
         AppLanguage.id:
-            'Dalam artikelnya, Maria Walanda Maramis menekankan pentingnya peran perempuan sebagai ibu dan guru pertama bagi anak-anak. Ia mengajak para perempuan Minahasa untuk menyadari tanggung jawab mereka dalam membentuk generasi yang bermoral dan berpengetahuan. Ia menyoroti ketertinggalan perempuan dalam pendidikan serta pentingnya mendidik anak sejak dini, baik secara fisik maupun spiritual. Maria juga menekankan bahwa kemajuan bangsa bergantung pada kualitas perempuan sebagai pendidik utama dalam keluarga, dan menyerukan agar kaum perempuan Minahasa ikut aktif dalam pembangunan masyarakat melalui pendidikan dan kesadaran akan peran strategis mereka. Artikel ini mencerminkan semangat emansipasi dan cita-cita kesetaraan yang ia perjuangkan.',
-        AppLanguage.en:
-            'In her article, Maria Walanda Maramis emphasizes the importance of women’s roles as mothers and the first teachers of their children. She calls on Minahasan women to recognize their responsibility in shaping a moral and knowledgeable generation. She highlights the lag of women in education and the importance of educating children from an early age, both physically and spiritually. Maria also stresses that the progress of a nation depends on the quality of its women as the primary educators within the family, and she urges Minahasan women to take an active role in community development through education and awareness of their strategic role. This article reflects the spirit of emancipation and the ideals of equality that she championed.',
+            'Dalam tulisan reflektifnya, Maria Walanda Maramis menyamakan perjuangan menjadi ibu dengan “peperangan sembilan bulan”. Ia menekankan bahwa pekerjaan dan pikiran seorang ibu berkaitan langsung dengan masa depan anak dan masyarakat. “Pekerjaan dan pikiran seorang ibu,” tulisnya, “berhubungan erat—seperti telepon—dengan tubuh dan waktu yang akan datang.',
       },
-      numberOfPage: 4,
-      authorId: "maramis",
-      collection: {
-        AppLanguage.id: "Koleksi PERPUSNAS",
-        AppLanguage.en: 'PERPUSNAS collection',
-      },
-      edition: {
-        AppLanguage.id: "Edisi 2 tahun 1917",
-        AppLanguage.en: "Second edition year 1917",
-      },
-      highlight: BookHighlight(
-        page: 1,
-        centerX: 0.79,
-        centerY: 0.73,
-        width: 0.3,
-        height: 0.38,
-      ),
-      editionId: "tjehaja_sijang",
+      numberOfPage: 3,
+      authorId: 'maramis',
+      highlight: null,
+      collection: {AppLanguage.id: 'Tjahaja Sjiang'},
+      edition: {AppLanguage.id: '1 Oktober 1918'},
+      editionId: 'tjehaja_sjiang',
       isOtherEdition: true,
     ),
     Book(
-      id: "tjehaja_sijang",
-      type: {AppLanguage.id: "Surat Kabar", AppLanguage.en: "Newspaper"},
-      title: "Tjehaja Sijang",
-      date: {
-        AppLanguage.id: "15 Agustus 1917",
-        AppLanguage.en: "15 August 1917",
-      },
-      contentTitle: {AppLanguage.id: '“Djempoetan bagi bangsa perempuan”'},
+      id: 'tjehaja_sijang_2',
+      type: {AppLanguage.id: 'Surat Kabar'},
+      title: 'Tjahaja Siang',
+      date: {AppLanguage.id: '1918'},
+      contentTitle: {AppLanguage.id: '“Siapa Poenja Salah? (Sambungan)”'},
       content: {
         AppLanguage.id:
-            'Dalam artikelnya, Maria Walanda Maramis menekankan pentingnya peran perempuan sebagai ibu dan guru pertama bagi anak-anak. Ia mengajak para perempuan Minahasa untuk menyadari tanggung jawab mereka dalam membentuk generasi yang bermoral dan berpengetahuan. Ia menyoroti ketertinggalan perempuan dalam pendidikan serta pentingnya mendidik anak sejak dini, baik secara fisik maupun spiritual. Maria juga menekankan bahwa kemajuan bangsa bergantung pada kualitas perempuan sebagai pendidik utama dalam keluarga, dan menyerukan agar kaum perempuan Minahasa ikut aktif dalam pembangunan masyarakat melalui pendidikan dan kesadaran akan peran strategis mereka. Artikel ini mencerminkan semangat emansipasi dan cita-cita kesetaraan yang ia perjuangkan.',
-        AppLanguage.en:
-            'In her article, Maria Walanda Maramis emphasizes the importance of women’s roles as mothers and the first teachers of their children. She calls on Minahasan women to recognize their responsibility in shaping a moral and knowledgeable generation. She highlights the lag of women in education and the importance of educating children from an early age, both physically and spiritually. Maria also stresses that the progress of a nation depends on the quality of its women as the primary educators within the family, and she urges Minahasan women to take an active role in community development through education and awareness of their strategic role. This article reflects the spirit of emancipation and the ideals of equality that she championed.',
+            'Dalam tulisan sambungan ini, Maria Walanda Maramis mengajak para orang tua—khususnya perempuan Minahasa—untuk lebih sadar terhadap pola asuh yang tanpa disadari dapat menanamkan kebiasaan buruk sejak dini, seperti memberi janji palsu, membenarkan kekerasan, atau membiarkan anak mengambil milik orang lain. Ia menekankan bahwa masa depan anak bergantung pada kesadaran, keteladanan, dan tanggung jawab orang tua hari ini.',
       },
-      numberOfPage: 4,
-      authorId: "maramis",
-      collection: {
-        AppLanguage.id: "Koleksi PERPUSNAS",
-        AppLanguage.en: 'PERPUSNAS collection',
-      },
-      edition: {
-        AppLanguage.id: "Edisi 3 tahun 1917",
-        AppLanguage.en: "Third edition year 1917",
-      },
-      highlight: BookHighlight(
-        page: 1,
-        centerX: 0.79,
-        centerY: 0.73,
-        width: 0.3,
-        height: 0.38,
-      ),
-      editionId: "tjehaja_sijang",
+      numberOfPage: 2,
+      authorId: 'maramis',
+      highlight: null,
+      collection: {AppLanguage.id: 'Tjahaja Sjiang'},
+      edition: {AppLanguage.id: '15 Oktober 1918'},
+      editionId: 'tjehaja_sjiang',
       isOtherEdition: true,
     ),
+
+    // Soenting
     Book(
-      id: "pahesan",
-      title: "Pahesan",
-      type: {AppLanguage.id: "Buku", AppLanguage.en: "Book"},
-      date: {AppLanguage.id: "1940"},
-      contentTitle: {
-        AppLanguage.id: '"Ini mock bahasa indonesia',
-        AppLanguage.en: '“This is a mock”',
-      },
+      id: 'soenting_0',
+      type: {AppLanguage.id: 'Surat Kabar'},
+      title: 'Soenting Melajoe',
+      date: {AppLanguage.id: '7 Agustus 1912'},
+      contentTitle: {AppLanguage.id: '“Pakaian Perhiasan”'},
       content: {
         AppLanguage.id:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-        AppLanguage.en: "English lorem ipsum",
+            'Dalam artikelnya, Ruhanna Kuddus menguraikan beragam keterampilan yang dimiliki oleh para perempuan Minangkabau, khususnya dalam bidang kerajinan tangan berbahan kain. Namun, ia mengemukakan kekhawatirannya terhadap tidak berlanjutnya proses alih pengetahuan dari generasi tua kepada generasi muda, yang dapat menyebabkan terputusnya tradisi keterampilan tersebut. Ruhanna juga menyampaikan bahwa organisasi “Kerajinan Amai Setia” memiliki tujuan utama untuk menghidupkan kembali dan melestarikan keahlian-keahlian tradisional yang dahulu dimiliki oleh para perempuan Melayu. Ia menekankan pentingnya berbagi pengetahuan, dalam konteks ini, ilmu yang diperoleh melalui kegiatan di Kerajinan Amai Setia, karena hal tersebut diyakini dapat mempermudah dan menopang keberlangsungan hidup di masa depan.',
       },
-      numberOfPage: 12,
-      collection: {
-        AppLanguage.id: "Koleksi PERPUSNAS",
-        AppLanguage.en: 'PERPUSNAS collection',
+      numberOfPage: 3,
+      authorId: 'kuddus',
+      highlight: null,
+      collection: {AppLanguage.id: 'Soenting Melajoe'},
+      edition: {AppLanguage.id: 'Djoemat Sabtoe 7 Agustus 1912'},
+      editionId: 'soenting',
+      isOtherEdition: false,
+    ),
+    Book(
+      id: 'soenting_1',
+      type: {AppLanguage.id: 'Surat Kabar'},
+      title: 'Soenting Melajoe',
+      date: {AppLanguage.id: '13 Desember 1918'},
+      contentTitle: {AppLanguage.id: '“Perempoean” '},
+      content: {
+        AppLanguage.id:
+            'Artikel ini membahas tentang kedudukan perempuan Melayu di wilayah Minangkabau. Penulis memulai tulisannya dengan melakukan perbandingan antara kondisi perempuan Melayu di tanah Minang dan perempuan Hindu di Hindustan (India). Dalam tulisannya, Ruhanna Kuddus mengungkapkan situasi perempuan di Hindustan yang bahkan harus menjalani tradisi kematian bersama (sati) ketika suaminya meninggal dunia. Meskipun demikian, ia mencatat bahwa gerakan perempuan di India menunjukkan kemajuan yang signifikan, salah satunya dengan keberhasilan mendirikan institusi pendidikan tinggi khusus perempuan, yaitu Universitas Ja’ni. Melalui artikel ini, penulis mengajak pembaca untuk melakukan refleksi bahwa secara hak dan kedudukan, perempuan Melayu sejatinya telah berada dalam posisi yang lebih maju dibandingkan perempuan di bangsa lain. Hal ini disebabkan oleh pandangan budaya lokal yang menjunjung tinggi kemerdekaan, kehormatan, dan martabat perempuan.',
       },
-      highlight: BookHighlight(
-        page: 3,
-        centerX: 0.72,
-        centerY: 0.76,
-        width: 0.39,
-        height: 0.20,
-      ),
+      numberOfPage: 4,
+      authorId: 'kuddus',
+      highlight: null,
+      collection: {AppLanguage.id: 'Soenting Melajoe'},
+      edition: {AppLanguage.id: 'Djoemat 13 Desember 1918'},
+      editionId: 'soenting',
+      isOtherEdition: true,
     ),
   ];
 
   final List<Author> allAuthors = [
     Author(
-      id: "maramis",
-      name: "Maria Walanda Maramis",
-      birthDeathDate: "15 Juni 1917 - 28 Desember 1945",
+      id: 'kuddus',
+      name: 'Ruhana Kuddus',
+      birthDeathDate: '20 Desember 1884 – 17 Agustus 1972',
       background: {
         AppLanguage.id:
-            "Maria Walanda Maramis adalah seorang penulis dan jurnalis asal Indonesia. Ia dikenal sebagai salah satu penulis perempuan pertama di Indonesia.",
-        AppLanguage.en:
-            "Maria Walanda Maramis was a writer and journalist from Indonesia. She is known as one of the first female writers in the country.",
+            'Ruhana Kuddus atau dikenal dengan Ibu Pers Indonesia, lahir pada 20 Desember 1884 di Koto Gadang, Kabupaten Agam, Sumatera Barat. Roehana memiliki perhatian terhadap nasib perempuan dan memperjuangkan pendidikan bagi kaum perempuan. Ia mendirikan Soenting Melajoe pada 1912, salah satu surat kabar perempuan pertama di Hindia Belanda yang didirikan di Padang. ',
       },
-      image: "assets/images/maramis.jpg",
-      contentType: {AppLanguage.id: "Surat Kabar", AppLanguage.en: "Newspaper"},
-      contentTitle: "Tjehaja Sjiang",
+      contentType: {AppLanguage.id: 'Surat Kabar'},
+      contentTitle: 'Soenting Melajoe',
       contentDescription: {
         AppLanguage.id:
-            "Tjahaja Siang adalah salah satu surat kabar berbahasa Melayu yang terbit di awal abad ke-20 di Hindia Belanda (sekarang Indonesia). Surat kabar ini menjadi wadah penting bagi kaum intelektual dan tokoh pergerakan nasional, termasuk perempuan seperti Maria Walanda Maramis, untuk menyuarakan gagasan tentang pendidikan, kesetaraan gender, dan emansipasi perempuan. Tjahaja Siang memiliki peran dalam membentuk opini publik dan menyebarkan semangat kebangsaan serta kesadaran sosial-politik di kalangan masyarakat pribumi.",
-        AppLanguage.en:
-            "Tjahaja Siang was one of the Malay-language newspapers published in the early 20th century in the Dutch East Indies (now Indonesia). This newspaper served as an important platform for intellectuals and national movement figures, including women such as Maria Walanda Maramis, to voice ideas on education, gender equality, and women's emancipation. Tjahaja Siang played a role in shaping public opinion and spreading the spirit of nationalism as well as socio-political awareness among the indigenous population.",
+            'Soenting Melajoe adalah majalah yang memuat tajuk rencana, puisi, tulisan-tulisan perempuan, serta biografi tokoh-tokoh ternama. Terbit pertama kali pada 10 Juli 1912 dan berhenti pada 28 Januari 1921, majalah ini merekam diskusi perempuan Hindia Belanda seputar pendidikan, kesehatan, agama, dan budaya dalam tiap edisi empat halamannya.',
+      },
+    ),
+    Author(
+      id: 'maramis',
+      name: 'Maria Walanda Maramis',
+      birthDeathDate: '1 Desember 1872 - 22 April 1924',
+      background: {
+        AppLanguage.id:
+            'Maria Walanda Maramis, lahir di Sulawesi Utara pada 1 Desember 1872, adalah pelopor emansipasi perempuan yang menekankan peran ibu dalam keluarga dan pendidikan anak. Ia mengusulkan pendirian organisasi PIKAT, membuka Sekolah Rumah Tangga (Huishold School) untuk pendidikan gratis untuk anak-anak perempuan, menulis di Tjehaja Sijang, dan memperjuangkan hak politik perempuan lewat kampanye surat ke Batavia.',
+      },
+      contentType: {AppLanguage.id: 'Surat Kabar'},
+      contentTitle: 'Tjehaja Sijang',
+      contentDescription: {
+        AppLanguage.id:
+            'Tjehaja Sijang adalah salah satu surat kabar berbahasa Melayu yang terbit di awal abad ke-20 di Minahasa. Surat kabar ini menjadi wadah penting bagi kaum intelektual dan tokoh pergerakan nasional, termasuk perempuan seperti Maria Walanda Maramis, untuk menyuarakan gagasan tentang pendidikan, kesetaraan gender, dan emansipasi perempuan. Tjahaja Siang memiliki peran dalam membentuk opini publik dan menyebarkan kesadaran sosial-politik di kalangan masyarakat pribumi.',
       },
     ),
   ];

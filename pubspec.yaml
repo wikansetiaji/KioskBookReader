@@ -68,7 +68,11 @@ flutter:
   assets:
   - assets/sample.pdf
   - assets/pahesan/
-  - assets/tjehaja_sijang/
+  - assets/tjehaja_sijang_0/
+  - assets/tjehaja_sijang_1/
+  - assets/tjehaja_sijang_2/
+  - assets/soenting_0/
+  - assets/soenting_1/
   - assets/
   - assets/authors/
 
