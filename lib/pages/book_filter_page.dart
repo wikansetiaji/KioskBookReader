@@ -152,10 +152,20 @@ class _BookFilterPageState extends State<BookFilterPage> {
                           SizedBox(height: 40.sc),
 
                           if (_selectedAuthor != null)
-                            AuthorInfoWidget(author: _selectedAuthor!),
+                            Column(
+                              children: [
+                                if (!_selectedAuthor!.isMediaAuthor)
+                                  AuthorInfoWidget(author: _selectedAuthor!),
 
-                          if (_selectedAuthor?.contentType != null)
-                            AuthorInfoContentWidget(author: _selectedAuthor!,),
+                                if (_selectedAuthor?.contentDescription != null)
+                                  AuthorInfoContentWidget(
+                                    author: _selectedAuthor!,
+                                  ),
+
+                                if (_selectedAuthor!.isMediaAuthor)
+                                  AuthorInfoWidget(author: _selectedAuthor!),
+                              ],
+                            ),
 
                           SizedBox(
                             child: BookListWidget(
@@ -164,7 +174,7 @@ class _BookFilterPageState extends State<BookFilterPage> {
                                       ? booksRepository.getAllBooks()
                                       : booksRepository.getBooksFromAuthor(
                                         author: _selectedAuthor!,
-                                        showEditions: true
+                                        showEditions: true,
                                       ),
                             ),
                           ),

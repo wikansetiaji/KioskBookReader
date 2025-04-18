@@ -166,6 +166,7 @@ class BooksRepository {
         AppLanguage.id:
             'Majalah Pahésan (berarti “cermin”) didirikan di Solo dan terbit antara tahun 1937 hingga 1941. Mengangkat tema sosial-budaya serta peran perempuan, Pahésan menjadi ruang bagi perempuan muda menyuarakan pandangan dan membangun kesadaran kolektif di tengah perjuangan menuju kemerdekaan. Meski menggunakan bahasa Belanda yang menjadi bahasa pendidikan formal bagi anak-anak priyayi masa itu, suara-suara kritis dan emansipasi terasa pada tiap halamannya.',
       },
+      isMediaAuthor: true
     )
   ];
 
