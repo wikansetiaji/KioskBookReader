@@ -15,7 +15,7 @@ class BooksRepository {
       id: 'tjehaja_sijang_0',
       type: {AppLanguage.id: 'Surat Kabar'},
       title: 'Tjahaja Siang',
-      date: {AppLanguage.id: '1917'},
+      date: {AppLanguage.id: '15 Juni 1917'},
       contentTitle: {AppLanguage.id: '“Djempoetan Bagi Bangsa Perempoean”'},
       content: {
         AppLanguage.id:
@@ -24,8 +24,8 @@ class BooksRepository {
       numberOfPage: 4,
       authorId: 'maramis',
       highlight: BookHighlight(page: 1, centerX: 0.79, centerY: 0.74, width: 0.27, height: 0.35),
-      collection: {AppLanguage.id: 'Tjahaja Sjiang'},
-      edition: {AppLanguage.id: 'Edisi 15 Juni 1917'},
+      collection: {AppLanguage.id: 'Koleksi PERPUSNAS'},
+      edition: {AppLanguage.id: 'Edisi No. 12 Tahun 48'},
       editionId: 'tjehaja_sjiang',
       isOtherEdition: false,
     ),
@@ -33,7 +33,7 @@ class BooksRepository {
       id: 'tjehaja_sijang_1',
       type: {AppLanguage.id: 'Surat Kabar'},
       title: 'Tjahaja Siang',
-      date: {AppLanguage.id: '1918'},
+      date: {AppLanguage.id: '1 Oktober 1918'},
       contentTitle: {AppLanguage.id: '“Siapa Poenja Salah?”'},
       content: {
         AppLanguage.id:
@@ -41,9 +41,9 @@ class BooksRepository {
       },
       numberOfPage: 3,
       authorId: 'maramis',
-      highlight: null,
-      collection: {AppLanguage.id: 'Tjahaja Sjiang'},
-      edition: {AppLanguage.id: 'Edisi 1 Oktober 1918'},
+      highlight: BookHighlight(page: 1, centerX: 0.8070919247945535, centerY: 0.8816236856458013, width: 0.2785716272457427, height: 0.1406850873856222),
+      collection: {AppLanguage.id: 'Koleksi PERPUSNAS'},
+      edition: {AppLanguage.id: 'Edisi No. 19 Tahun 49'},
       editionId: 'tjehaja_sjiang',
       isOtherEdition: true,
     ),
@@ -51,7 +51,7 @@ class BooksRepository {
       id: 'tjehaja_sijang_2',
       type: {AppLanguage.id: 'Surat Kabar'},
       title: 'Tjahaja Siang',
-      date: {AppLanguage.id: '1918'},
+      date: {AppLanguage.id: '15 Oktober 1918'},
       contentTitle: {AppLanguage.id: '“Siapa Poenja Salah? (Sambungan)”'},
       content: {
         AppLanguage.id:
@@ -59,9 +59,9 @@ class BooksRepository {
       },
       numberOfPage: 2,
       authorId: 'maramis',
-      highlight: null,
-      collection: {AppLanguage.id: 'Tjahaja Sjiang'},
-      edition: {AppLanguage.id: 'Edisi 15 Oktober 1918'},
+      highlight: BookHighlight(page: 2, centerX: 0.21890775584626136, centerY: 0.4938281339561144, width: 0.2896971087706898, height: 0.8616827871297706),
+      collection: {AppLanguage.id: 'Koleksi PERPUSNAS'},
+      edition: {AppLanguage.id: 'Edisi No. 20 Tahun 49'},
       editionId: 'tjehaja_sjiang',
       isOtherEdition: true,
     ),

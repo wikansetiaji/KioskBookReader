@@ -186,7 +186,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
 
   void showHighlight() {
     if (widget.book.highlight!.page >= 0 &&
-        widget.book.highlight!.page < widget.book.numberOfPage) {
+        widget.book.highlight!.page < widget.book.numberOfPage + 1) {
       bookController.goTo(widget.book.highlight!.page);
       setState(() {
         currentPageIndex = widget.book.highlight!.page - 1;

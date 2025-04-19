@@ -76,7 +76,7 @@ class OtherBookEditionItemWidget extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  book.getDate(context).toUpperCase(),
+                  book.getDate(context),
                   style: TextStyle(
                     fontFamily: 'Archivo',
                     color: Colors.black,
