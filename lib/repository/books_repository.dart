@@ -128,7 +128,7 @@ class BooksRepository {
       id: 'sedar',
       type: {AppLanguage.id: 'Majalah'},
       title: 'Sedar',
-      date: {AppLanguage.id: '1930'},
+      date: {AppLanguage.id: 'November 1930'},
       contentTitle: {AppLanguage.id: '“Tentang Hak dan Kewajiban Perempoean Indonesia” '},
       content: {
         AppLanguage.id:
@@ -136,8 +136,8 @@ class BooksRepository {
       },
       numberOfPage: 8,
       authorId: 'sedar',
-      highlight: null,
-      edition: {AppLanguage.id: 'Edisi November 1930'},
+      highlight: BookHighlight(page: 1, centerX: 0.49782504409153174, centerY: 0.6699519553314609, width: 0.8922842922264999, height: 0.6182387442811139),
+      edition: {AppLanguage.id: 'Edisi No. 4 Tahun 1'},
       isOtherEdition: false,
       isMedia: true
     ),
@@ -268,7 +268,12 @@ class BooksRepository {
       id: 'sedar',
       name: 'Sedar',
       birthDeathDate: 'Sejak Agustus 1930',
-      background: {AppLanguage.id: 'Organisasi Persatuan Wanita Sedar didirikan di Bandung pada tahun 1930 sebagai ruang perjuangan bagi perempuan kelas pekerja. Salah satu media yang diterbitkan organisasi ini adalah Majalah Sedar, yang memuat tulisan-tulisan tentang pendidikan, perjuangan perempuan, serta pemikiran-pemikiran progresif. Banyak di antaranya menyuarakan keresahan terhadap kondisi perempuan, termasuk penolakan terhadap praktik poligami yang dianggap merugikan perempuan. Majalah ini juga berfungsi sebagai sarana pendidikan rakyat.'},
+      contentType: {AppLanguage.id: 'Majalah'},
+      contentTitle: 'Sedar',
+      contentDescription: {
+        AppLanguage.id:
+            'Organisasi Persatuan Wanita Sedar didirikan di Bandung pada tahun 1930 sebagai ruang perjuangan bagi perempuan kelas pekerja. Salah satu media yang diterbitkan organisasi ini adalah Majalah Sedar, yang memuat tulisan-tulisan tentang pendidikan, perjuangan perempuan, serta pemikiran-pemikiran progresif. Banyak di antaranya menyuarakan keresahan terhadap kondisi perempuan, termasuk penolakan terhadap praktik poligami yang dianggap merugikan perempuan. Majalah ini juga berfungsi sebagai sarana pendidikan rakyat.',
+      },
       isMediaAuthor: true
     ),
     Author(

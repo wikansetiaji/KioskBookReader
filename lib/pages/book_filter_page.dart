@@ -154,7 +154,7 @@ class _BookFilterPageState extends State<BookFilterPage> {
                           if (_selectedAuthor != null)
                             Column(
                               children: [
-                                if (!_selectedAuthor!.isMediaAuthor)
+                                if (!_selectedAuthor!.isMediaAuthor && _selectedAuthor?.background != null)
                                   AuthorInfoWidget(author: _selectedAuthor!),
 
                                 if (_selectedAuthor?.contentDescription != null)
@@ -162,7 +162,7 @@ class _BookFilterPageState extends State<BookFilterPage> {
                                     author: _selectedAuthor!,
                                   ),
 
-                                if (_selectedAuthor!.isMediaAuthor)
+                                if (!_selectedAuthor!.isMediaAuthor && _selectedAuthor?.background != null)
                                   AuthorInfoWidget(author: _selectedAuthor!),
                               ],
                             ),
@@ -254,8 +254,8 @@ class _BookFilterPageState extends State<BookFilterPage> {
                   child: Material(
                     child: Container(
                       padding: EdgeInsets.symmetric(
-                        vertical: 20.sc,
-                        horizontal: 2.sc,
+                        vertical: 40.sc,
+                        horizontal: 10.sc,
                       ),
                       color: Color.fromARGB(255, 162, 29, 58),
                       child: Icon(
@@ -263,7 +263,7 @@ class _BookFilterPageState extends State<BookFilterPage> {
                             ? Icons.chevron_left
                             : Icons.chevron_right,
                         color: Colors.white,
-                        size: 40.sc,
+                        size: 60.sc,
                       ),
                     ),
                   ),

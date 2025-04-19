@@ -7,7 +7,7 @@ class Author {
   final String id;
   final String name;
   final String birthDeathDate;
-  final Map<AppLanguage, String> background; // Translatable
+  final Map<AppLanguage, String>? background; // Translatable
   final Map<AppLanguage, String>? contentType; // Translatable
   final String? contentTitle; // Translatable
   final Map<AppLanguage, String>? contentDescription; // Translatable
@@ -17,7 +17,7 @@ class Author {
     required this.id,
     required this.name,
     required this.birthDeathDate,
-    required this.background,
+    this.background,
     this.contentType,
     this.contentTitle,
     this.contentDescription,
