@@ -162,7 +162,7 @@ class _BookFilterPageState extends State<BookFilterPage> {
                                     author: _selectedAuthor!,
                                   ),
 
-                                if (!_selectedAuthor!.isMediaAuthor && _selectedAuthor?.background != null)
+                                if (_selectedAuthor!.isMediaAuthor && _selectedAuthor?.background != null)
                                   AuthorInfoWidget(author: _selectedAuthor!),
                               ],
                             ),
