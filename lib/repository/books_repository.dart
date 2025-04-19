@@ -180,6 +180,44 @@ class BooksRepository {
       isMedia: true
     ),
 
+    // Dunia Wanita
+    Book(
+      id: 'dunia_wanita',
+      type: {AppLanguage.id: 'Majalah'},
+      title: 'Dunia Wanita',
+      date: {AppLanguage.id: 'Sejak 1949'},
+      contentTitle: {AppLanguage.id: '“TODO” '},
+      content: {
+        AppLanguage.id:
+            'TODO',
+      },
+      numberOfPage: 25,
+      authorId: 'dunia_wanita',
+      highlight: null,
+      edition: {AppLanguage.id: 'TODO'},
+      isOtherEdition: false,
+      isMedia: true
+    ),
+
+    // KPWI
+    Book(
+      id: 'kpwi',
+      type: {AppLanguage.id: 'Buku'},
+      title: 'Peringatan 30 Tahun Kesatuan Pergerakan Wanita Indonesia',
+      date: {AppLanguage.id: '22 Desember 1958'},
+      contentTitle: {AppLanguage.id: '“TODO” '},
+      content: {
+        AppLanguage.id:
+            'TODO',
+      },
+      numberOfPage: 26,
+      authorId: 'kpwi',
+      highlight: null,
+      edition: {AppLanguage.id: 'TODO'},
+      isOtherEdition: false,
+      isMedia: true
+    ),
+
   ];
 
   final List<Author> allAuthors = [
@@ -245,6 +283,20 @@ class BooksRepository {
       name: 'Doenia Kita',
       birthDeathDate: 'Sejak 1937',
       background: {AppLanguage.id: 'Majalah Doenia Kita (DK) adalah majalah bulanan yang pertama kali terbit pada tahun 1937. Majalah ini didirikan oleh Siti Alimah untuk memenuhi aspirasi kaum perempuan yang mengalami kesulitan akibat zaman baru. Istilah Doenia Kita mengandung makna dunia kelahiran dan kebatinannya kaum putri. Haluan dari majalah ini adalah kemajuan seluruh perempuan Indonesia.'},
+      isMediaAuthor: true
+    ),
+    Author(
+      id: 'dunia_wanita',
+      name: 'Dunia Wanita',
+      birthDeathDate: 'Sejak 1949',
+      background: {AppLanguage.id: 'Ani Idrus, tokoh pers dan wartawan perempuan Indonesia, lahir di Sawahlunto pada 25 November 1918. Ia mendirikan majalah Dunia Wanita yang mengangkat isu-isu perempuan di bidang sosial, politik, dan ekonomi untuk mendorong kemajuan kaum perempuan. Atas jasanya di bidang jurnalistik, ia menerima penghargaan Satya Penegak Pers Pancasila dari Menteri Penerangan RI pada tahun 1998.'},
+      isMediaAuthor: true
+    ),
+    Author(
+      id: 'kpwi',
+      name: 'Kesatuan Pergerakan Wanita Indonesia',
+      birthDeathDate: 'Sejak 1928',
+      background: {AppLanguage.id: 'Perjuangan kolektif perempuan Indonesia secara historis ditandai dengan terselenggaranya Kongres Perempuan Pertama pada 28 Desember 1928. Momentum tersebut menjadi tonggak penting bagi terbentuknya kesadaran bersama akan perlunya pengorganisasian perempuan dalam memperjuangkan hak-hak sosial, politik, dan budaya. Salah satu wujud konkret dari perkembangan ini adalah pendirian Perikatan Perkumpulan Isteri Indonesia.'},
       isMediaAuthor: true
     ),
   ];
