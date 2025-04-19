@@ -194,7 +194,7 @@ class BooksRepository {
       numberOfPage: 25,
       authorId: 'dunia_wanita',
       highlight: null,
-      edition: {AppLanguage.id: 'TODO'},
+      edition: {AppLanguage.id: 'Edisi No. 12 Tahun 48'},
       isOtherEdition: false,
       isMedia: true
     ),
@@ -305,6 +305,12 @@ class BooksRepository {
       name: 'Ani Idrus',
       birthDeathDate: 'Sejak 1949',
       background: {AppLanguage.id: 'Ani Idrus, tokoh pers dan wartawan perempuan Indonesia, lahir di Sawahlunto pada 25 November 1918. Ia mendirikan majalah Dunia Wanita yang mengangkat isu-isu perempuan di bidang sosial, politik, dan ekonomi untuk mendorong kemajuan kaum perempuan. Atas jasanya di bidang jurnalistik, ia menerima penghargaan Satya Penegak Pers Pancasila dari Menteri Penerangan RI pada tahun 1998.'},
+      contentType: {AppLanguage.id: 'Majalah'},
+      contentTitle: 'Dunia Wanita',
+      contentDescription: {
+        AppLanguage.id:
+            'Majalah Dunia Wanita didirikan pada tahun 1949 di Medan. Dunia Wanita menjadi salah satu majalah perempuan yang populer pasca kemerdekaan Indonesia. Memuat berbagai isu perempuan dari bidang sosial, politik hingga ekonomi untuk memberikan informasi dan kemajuan bagi perempuan. Di bawah pimpinan Ani Idrus, majalah ini juga menyuarakan tentang pentingnya keterlibatan laki-laki dalam rumah tangga.',
+      },
       isMediaAuthor: true
     ),
     Author(
