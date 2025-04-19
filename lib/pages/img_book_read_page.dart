@@ -202,7 +202,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                   ((_mediaWidth - _bookWidth) / scale),
               _bookHeight * -(widget.book.highlight!.centerY - (0.5 / scale)) -
                   ((_mediaHeight - _bookHeight) / scale) -
-                  ((120) / scale),
+                  ((120.sc) / scale),
             );
       _animateTo(zoomed);
       setState(() {
