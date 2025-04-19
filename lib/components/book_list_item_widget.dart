@@ -93,7 +93,7 @@ class BookListItemWidget extends StatelessWidget {
                               padding: EdgeInsets.all(5.sc),
                               color: Color.fromARGB(255, 162, 29, 58),
                               child: Text(
-                                book.getDate(context),
+                                book.getDate(context).toUpperCase(),
                                 style: TextStyle(
                                   fontFamily: 'Archivo',
                                   fontSize: 16.sc,

@@ -19,6 +19,43 @@ class BookInfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var seeOtherButton = Center(
+      child: ElevatedButton(
+        onPressed: () {
+          Navigator.popUntil(context, (Route<dynamic> route) => route.isFirst);
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => BookFilterPage()),
+          );
+        },
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Color.fromARGB(255, 239, 233, 209),
+          padding: EdgeInsets.symmetric(horizontal: 20.sc, vertical: 20.sc),
+        ),
+        child: Text(
+          context.watch<LanguageProvider>().isEnglish
+              ? 'VIEW ARCHIVE GALLERY'
+              : 'LIHAT GALERI ARSIP',
+          style: TextStyle(
+            fontFamily: 'Archivo',
+            fontWeight: FontWeight.bold,
+            color: Color.fromARGB(255, 85, 85, 85),
+            fontSize: 20.sc,
+          ),
+        ),
+      ),
+    );
+    var seeOtherText = Text(
+      context.watch<LanguageProvider>().isEnglish
+          ? 'SEE OTHER EDITIONS,'
+          : 'BACA EDISI LAINNYA,',
+      style: TextStyle(
+        fontFamily: 'Archivo',
+        fontWeight: FontWeight.bold,
+        color: Color.fromARGB(255, 119, 24, 45),
+        fontSize: 23.sc,
+      ),
+    );
     return Expanded(
       flex: 30,
       child: Container(
@@ -66,7 +103,7 @@ class BookInfoWidget extends StatelessWidget {
                                   child: Text(
                                     context.watch<LanguageProvider>().isEnglish
                                         ? 'VIEW ORIGINAL WRITING >'
-                                        : 'LIHAT TAJUK TULISAN ASLI >',
+                                        : 'LIHAT TULISAN ASLI >',
                                     style: TextStyle(
                                       fontFamily: 'Archivo',
                                       color: Color.fromARGB(255, 162, 29, 58),
@@ -88,7 +125,7 @@ class BookInfoWidget extends StatelessWidget {
                             style: TextStyle(
                               fontFamily: 'PublicSans',
                               color: Colors.black,
-                              fontSize: 16.sc,
+                              fontSize: 20.sc,
                             ),
                           ),
                         ),
@@ -107,84 +144,43 @@ class BookInfoWidget extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(10.sc)),
                 child: Container(
-                  padding: EdgeInsets.all(16.sc),
+                  padding: EdgeInsets.all(20.sc),
                   color: Colors.white,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        book.editionId != null
-                            ? context.watch<LanguageProvider>().isEnglish
-                                ? 'SEE OTHER EDITIONS,'
-                                : 'BACA EDISI LAINNYA,'
-                            : context.watch<LanguageProvider>().isEnglish
-                            ? 'SEE OTHER BOOKS,'
-                            : 'BACA BUKU LAINNYA,',
-                        style: TextStyle(
-                          fontFamily: 'Archivo',
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 119, 24, 45),
-                          fontSize: 23.sc,
-                        ),
-                      ),
-                      SizedBox(height: 10.sc),
-                      Expanded(
-                        child: Column(
-                          spacing: 10,
+                      if (book.editionId != null)
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Expanded(
-                              child: ListView(
-                                scrollDirection: Axis.vertical,
+                            seeOtherButton,
+                            SizedBox(height: 20.sc),
+                            seeOtherText,
+                          ],
+                        ),
+                      if (book.editionId == null)
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            seeOtherText,
+                            SizedBox(height: 20.sc),
+                            seeOtherButton,
+                          ],
+                        ),
+                      Expanded(
+                        child: ListView(
+                          scrollDirection: Axis.vertical,
+                          children: [
+                            for (var otherEdition in BooksRepository()
+                                .getBookEditions(book: book))
+                              Column(
                                 children: [
-                                  for (var otherEdition
-                                      in book.editionId != null
-                                          ? BooksRepository().getBookEditions(
-                                            book: book,
-                                          )
-                                          : BooksRepository().getAllBooks())
-                                    OtherBookEditionItemWidget(
-                                      book: otherEdition,
-                                    ),
+                                  OtherBookEditionItemWidget(
+                                    book: otherEdition,
+                                  ),
+                                  SizedBox(height: 10.sc),
                                 ],
                               ),
-                            ),
-                            ElevatedButton(
-                              onPressed: () {
-                                Navigator.popUntil(
-                                  context,
-                                  (Route<dynamic> route) => route.isFirst,
-                                );
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => BookFilterPage(),
-                                  ),
-                                );
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Color.fromARGB(
-                                  255,
-                                  239,
-                                  233,
-                                  209,
-                                ),
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 20.sc,
-                                  vertical: 20.sc,
-                                ),
-                              ),
-                              child: Text(
-                                context.watch<LanguageProvider>().isEnglish
-                                    ? 'VIEW ARCHIVE GALLERY'
-                                    : 'LIHAT GALERI ARSIP',
-                                style: TextStyle(
-                                  fontFamily: 'Archivo',
-                                  fontWeight: FontWeight.bold,
-                                  color: Color.fromARGB(255, 85, 85, 85),
-                                  fontSize: 20.sc,
-                                ),
-                              ),
-                            ),
                           ],
                         ),
                       ),

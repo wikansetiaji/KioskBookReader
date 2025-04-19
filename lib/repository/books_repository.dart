@@ -71,7 +71,7 @@ class BooksRepository {
       id: 'soenting_0',
       type: {AppLanguage.id: 'Surat Kabar'},
       title: 'Soenting Melajoe',
-      date: {AppLanguage.id: '1912'},
+      date: {AppLanguage.id: '7 Agustus 1912'},
       contentTitle: {AppLanguage.id: '“Pakaian Perhiasan”'},
       content: {
         AppLanguage.id:
@@ -79,9 +79,9 @@ class BooksRepository {
       },
       numberOfPage: 3,
       authorId: 'kuddus',
-      highlight: null,
-      collection: {AppLanguage.id: 'Soenting Melajoe'},
-      edition: {AppLanguage.id: 'Edisi Djoemat Sabtoe 7 Agustus 1912'},
+      highlight: BookHighlight(page: 1, centerX: 0.3542663973345178, centerY: 0.6005361544966039, width: 0.5769200408423047, height: 0.6902042549992871),
+      collection: {AppLanguage.id: 'Koleksi PERPUSNAS'},
+      edition: {AppLanguage.id: 'Edisi No. 10 Tahun 1'},
       editionId: 'soenting',
       isOtherEdition: false,
     ),
@@ -89,7 +89,7 @@ class BooksRepository {
       id: 'soenting_1',
       type: {AppLanguage.id: 'Surat Kabar'},
       title: 'Soenting Melajoe',
-      date: {AppLanguage.id: '1918'},
+      date: {AppLanguage.id: '13 Desember 1918'},
       contentTitle: {AppLanguage.id: '“Perempoean” '},
       content: {
         AppLanguage.id:
@@ -97,9 +97,9 @@ class BooksRepository {
       },
       numberOfPage: 4,
       authorId: 'kuddus',
-      highlight: null,
-      collection: {AppLanguage.id: 'Soenting Melajoe'},
-      edition: {AppLanguage.id: 'Edisi Djoemat 13 Desember 1918'},
+      highlight: BookHighlight(page: 1, centerX: 0.21226246422054304, centerY: 0.8045121596350856, width: 0.29241970456709726, height: 0.293483125703462),
+      collection: {AppLanguage.id: 'Koleksi PERPUSNAS'},
+      edition: {AppLanguage.id: 'Edisi No. 48 Tahun 7'},
       editionId: 'soenting',
       isOtherEdition: true,
     ),
@@ -322,7 +322,7 @@ class BooksRepository {
 
   List<Book> getBookEditions({required Book book}) {
     return allBooks
-        .where((b) => b.editionId == book.editionId && b != book)
+        .where((b) => b.editionId == book.editionId && b != book && book.editionId != null)
         .toList();
   }
 
