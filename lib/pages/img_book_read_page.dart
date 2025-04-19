@@ -193,13 +193,14 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
       });
       if (_isZoomed) _handleZoomReset();
 
-      final scale = 2.0;
+      final scale = 1.5;
       final zoomed =
           Matrix4.identity()
             ..scale(scale)
             ..translate(
               _bookWidth * -(widget.book.highlight!.centerX - (0.5 / scale)) -
-                  ((_mediaWidth - _bookWidth) / scale),
+                  ((_mediaWidth - _bookWidth) / scale) +
+                  ((400.sc) / scale),
               _bookHeight * -(widget.book.highlight!.centerY - (0.5 / scale)) -
                   ((_mediaHeight - _bookHeight) / scale) -
                   ((120.sc) / scale),
