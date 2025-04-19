@@ -23,7 +23,7 @@ class BooksRepository {
       },
       numberOfPage: 4,
       authorId: 'maramis',
-      highlight: null,
+      highlight: BookHighlight(page: 1, centerX: 0.79, centerY: 0.74, width: 0.27, height: 0.35),
       collection: {AppLanguage.id: 'Tjahaja Sjiang'},
       edition: {AppLanguage.id: 'Edisi 15 Juni 1917'},
       editionId: 'tjehaja_sjiang',
