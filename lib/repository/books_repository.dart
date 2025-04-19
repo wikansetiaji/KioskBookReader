@@ -253,8 +253,8 @@ class BooksRepository {
     ),
     Author(
       id: 'pahesan',
-      name: 'Pahesan',
-      birthDeathDate: '1937 - 1941',
+      name: 'Utami Suryadarma',
+      birthDeathDate: '6 Desember 1912',
       background: {AppLanguage.id: 'Utami Suryadarma merupakan tokoh perempuan yang pernah mewakili Indonesia dalam Inter-Asian Women Conference pada Desember 1947. Saat remaja, bersama sang kakak, Utami mendirikan Pahésan. Melalui media ini, ia mendorong perempuan untuk berpikir, bersuara, dan menyuarakan harapan atas masa depan bangsanya.'},
       contentType: {AppLanguage.id: 'Majalah'},
       contentTitle: 'Pahesan',
@@ -302,7 +302,7 @@ class BooksRepository {
     ),
     Author(
       id: 'dunia_wanita',
-      name: 'Dunia Wanita',
+      name: 'Ani Idrus',
       birthDeathDate: 'Sejak 1949',
       background: {AppLanguage.id: 'Ani Idrus, tokoh pers dan wartawan perempuan Indonesia, lahir di Sawahlunto pada 25 November 1918. Ia mendirikan majalah Dunia Wanita yang mengangkat isu-isu perempuan di bidang sosial, politik, dan ekonomi untuk mendorong kemajuan kaum perempuan. Atas jasanya di bidang jurnalistik, ia menerima penghargaan Satya Penegak Pers Pancasila dari Menteri Penerangan RI pada tahun 1998.'},
       isMediaAuthor: true
