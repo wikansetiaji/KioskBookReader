@@ -147,16 +147,16 @@ class BooksRepository {
       id: 'soeara_iboe',
       type: {AppLanguage.id: 'Surat Kabar'},
       title: 'Soeara Iboe',
-      date: {AppLanguage.id: '1932'},
+      date: {AppLanguage.id: '2 Mei 1932'},
       contentTitle: {AppLanguage.id: '“Perloenja Perempoean Disekolahkan”'},
       content: {
         AppLanguage.id:
-            'Artikel ini menyoroti pentingnya pendidikan bagi perempuan. Pada masa itu, masyarakat masih memegang teguh pandangan tradisional yang menyatakan bahwa “Bukankah perempuan pada akhirnya akan kembali ke dapur juga?” Pandangan semacam ini, menurut penulis, menjadi hambatan serius bagi perempuan dalam mengakses pendidikan. Dalam tulisan yang ditulis oleh V. Diaviance, ditegaskan bahwa seorang ibu yang berpendidikan akan mampu mengelola rumah tangga dengan lebih baik dibandingkan perempuan yang tidak pernah mengenyam pendidikan formal. Penulis juga mengajak pembaca untuk merenung melalui pertanyaan retoris: “Tidakkah hati kita merasa bangga apabila anak atau cucu perempuan kita mampu berkembang dan sejajar dengan saudara laki-lakinya?” Menurut penulis, siapa pun yang ingin menjadi ibu yang baik harus terlebih dahulu memiliki kemampuan untuk memberikan teladan yang baik bagi anak-anaknya.',
+            'Artikel ini menyoroti pentingnya pendidikan bagi perempuan di tengah pandangan tradisional bahwa perempuan pada akhirnya hanya akan “kembali ke dapur.” V. Diaviance menegaskan bahwa ibu berpendidikan lebih mampu mengelola rumah tangga dibandingkan yang tidak. Ia mengajak pembaca merenung lewat pertanyaan retoris: “Tidakkah kita bangga jika anak atau cucu perempuan kita mampu sejajar dengan saudara laki-lakinya?” Menurutnya, untuk menjadi ibu yang baik, perempuan harus mampu memberi teladan melalui pendidikan.',
       },
       numberOfPage: 4,
       authorId: 'soeara_iboe',
-      highlight: null,
-      edition: {AppLanguage.id: 'Edisi 2 Mei 1932'},
+      highlight: BookHighlight(page: 1, centerX: 0.6533516531018382, centerY: 0.7767897084801051, width: 0.620725511654897, height: 0.4005513058340456),
+      edition: {AppLanguage.id: 'Edisi 1 Tahun 1'},
       isOtherEdition: false,
       isMedia: true
     ),
