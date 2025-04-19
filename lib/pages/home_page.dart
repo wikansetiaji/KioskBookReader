@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                         textAlign: TextAlign.center,
                       ),
                       Text(
-                        'JEJAK TULISAN',
+                        'JEJAK PEMIKIRAN',
                         style: TextStyle(
                           fontFamily: 'ArchivoBlack',
                           fontSize: 68.sc,
@@ -88,7 +88,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       SizedBox(height: 20.sc),
                       Text(
-                        'DI MASA PERGERAKAN NASIONAL',
+                        'DI ERA PERGERAKAN NASIONAL',
                         style: TextStyle(
                           fontFamily: 'Archivo',
                           fontWeight: FontWeight.bold,
@@ -101,184 +101,219 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
-                Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          CarouselSlider.builder(
-                            itemCount: repository.getAllBooks().length,
-                            carouselController: booksCarouselController,
-                            options: CarouselOptions(
-                              aspectRatio: 1.8,
-                              viewportFraction: 0.35,
-                              initialPage: 0,
-                              enableInfiniteScroll: false,
-                              enlargeCenterPage: true,
-                              enlargeFactor: 0.3,
-                              autoPlay: true,
-                              autoPlayInterval: Duration(seconds: 3),
-                              autoPlayAnimationDuration: Duration(
-                                milliseconds: 2000,
-                              ),
-                              autoPlayCurve: Curves.fastOutSlowIn,
-                              scrollDirection: Axis.horizontal,
-                              onPageChanged: (index, reason) {
-                                _selectedIndex = index;
-                              },
-                              onScrolled: (value) {
-                                setState(() {
-                                  _carouselOffset = value ?? 0;
-                                });
-                              },
+                SizedBox(height: 60.sc),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        CarouselSlider.builder(
+                          itemCount: repository.getAllBooks().length,
+                          carouselController: booksCarouselController,
+                          options: CarouselOptions(
+                            aspectRatio: 1.8,
+                            viewportFraction: 0.35,
+                            initialPage: 0,
+                            enableInfiniteScroll: false,
+                            enlargeCenterPage: true,
+                            enlargeFactor: 0.3,
+                            autoPlay: true,
+                            autoPlayInterval: Duration(seconds: 3),
+                            autoPlayAnimationDuration: Duration(
+                              milliseconds: 2000,
                             ),
-                            itemBuilder: (context, index, realIndex) {
-                              final book = repository.getAllBooks()[index];
-                              double distanceFromCenter =
-                                  ((_carouselOffset % repository.getAllBooks().length) - index);
-                              double rotationY =
-                                  (distanceFromCenter * -1).clamp(-1.0, 1.0) *
-                                  0.5; // radians
+                            autoPlayCurve: Curves.fastOutSlowIn,
+                            scrollDirection: Axis.horizontal,
+                            onPageChanged: (index, reason) {
+                              _selectedIndex = index;
+                            },
+                            onScrolled: (value) {
+                              setState(() {
+                                _carouselOffset = value ?? 0;
+                              });
+                            },
+                          ),
+                          itemBuilder: (context, index, realIndex) {
+                            final book = repository.getAllBooks()[index];
+                            double distanceFromCenter =
+                                ((_carouselOffset %
+                                        repository.getAllBooks().length) -
+                                    index);
+                            double rotationY =
+                                (distanceFromCenter * -1).clamp(-1.0, 1.0) *
+                                0.5; // radians
 
-                              return Transform(
-                                transform:
-                                    Matrix4.identity()
-                                      ..setEntry(3, 2, 0.001) // perspective
-                                      ..rotateY(rotationY)
-                                      ..translate(distanceFromCenter * 30),
-                                alignment: Alignment.center,
-                                child: GestureDetector(
-                                  onTap: () async {
-                                    booksCarouselController.animateToPage(
-                                      index,
-                                      duration: Duration(milliseconds: 300),
-                                      curve: Curves.easeInOut,
-                                    );
-                                  },
-                                  child: Card(
-                                    elevation: 3,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(10.sc),
-                                      child: SizedBox(
-                                        width:
-                                            double.infinity, // Takes full width
-                                        child: Image.asset(
-                                          'assets/${book.id}/cover.jpg',
-                                          fit:
-                                              BoxFit
-                                                  .fill, // Changed from fill to cover
-                                          alignment: Alignment.center,
-                                        ),
+                            return Transform(
+                              transform:
+                                  Matrix4.identity()
+                                    ..setEntry(3, 2, 0.001) // perspective
+                                    ..rotateY(rotationY)
+                                    ..translate(distanceFromCenter * 30),
+                              alignment: Alignment.center,
+                              child: GestureDetector(
+                                onTap: () async {
+                                  booksCarouselController.animateToPage(
+                                    index,
+                                    duration: Duration(milliseconds: 300),
+                                    curve: Curves.easeInOut,
+                                  );
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder:
+                                          (context) => ImgBookReadPage(
+                                            book:
+                                                repository
+                                                    .getAllBooks()[_selectedIndex],
+                                          ),
+                                    ),
+                                  );
+                                },
+                                child: Card(
+                                  elevation: 3,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(10.sc),
+                                    child: SizedBox(
+                                      width:
+                                          double.infinity, // Takes full width
+                                      child: Image.asset(
+                                        'assets/${book.id}/cover.jpg',
+                                        fit:
+                                            BoxFit
+                                                .fill, // Changed from fill to cover
+                                        alignment: Alignment.center,
                                       ),
                                     ),
                                   ),
                                 ),
-                              );
-                            },
-                          ),
-                          Row(
-                            children: [
-                              SizedBox(width: 20.sc),
-                              ElevatedButton(
-                                onPressed: () {
-                                  if (_selectedIndex == 0) {
-                                    booksCarouselController.animateToPage(
-                                      repository.getAllBooks().length - 1,
-                                    );
-                                  } else {
-                                    booksCarouselController.previousPage();
-                                  }
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  shape: CircleBorder(),
-                                  padding: EdgeInsets.all(16.sc),
-                                  backgroundColor: Color.fromARGB(
-                                    255,
-                                    162,
-                                    29,
-                                    58,
-                                  ),
-                                ),
-                                child: Icon(
-                                  Icons.chevron_left,
-                                  color: Colors.white,
-                                  size: 60.sc,
+                              ),
+                            );
+                          },
+                        ),
+                        Row(
+                          children: [
+                            SizedBox(width: 20.sc),
+                            ElevatedButton(
+                              onPressed: () {
+                                if (_selectedIndex == 0) {
+                                  booksCarouselController.animateToPage(
+                                    repository.getAllBooks().length - 1,
+                                  );
+                                } else {
+                                  booksCarouselController.previousPage();
+                                }
+                              },
+                              style: ElevatedButton.styleFrom(
+                                shape: CircleBorder(),
+                                padding: EdgeInsets.all(16.sc),
+                                backgroundColor: Color.fromARGB(
+                                  255,
+                                  162,
+                                  29,
+                                  58,
                                 ),
                               ),
-                              Expanded(child: Container()),
-                              ElevatedButton(
-                                onPressed: () {
-                                  if (_selectedIndex == repository.getAllBooks().length - 1) {
-                                    booksCarouselController.animateToPage(0);
-                                  } else {
-                                    booksCarouselController.nextPage();
-                                  }
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  shape: CircleBorder(),
-                                  padding: EdgeInsets.all(16.sc),
-                                  backgroundColor: Color.fromARGB(
-                                    255,
-                                    162,
-                                    29,
-                                    58,
-                                  ),
-                                ),
-                                child: Icon(
-                                  Icons.chevron_right,
-                                  color: Colors.white,
-                                  size: 60.sc
+                              child: Icon(
+                                Icons.chevron_left,
+                                color: Colors.white,
+                                size: 60.sc,
+                              ),
+                            ),
+                            Expanded(child: Container()),
+                            ElevatedButton(
+                              onPressed: () {
+                                if (_selectedIndex ==
+                                    repository.getAllBooks().length - 1) {
+                                  booksCarouselController.animateToPage(0);
+                                } else {
+                                  booksCarouselController.nextPage();
+                                }
+                              },
+                              style: ElevatedButton.styleFrom(
+                                shape: CircleBorder(),
+                                padding: EdgeInsets.all(16.sc),
+                                backgroundColor: Color.fromARGB(
+                                  255,
+                                  162,
+                                  29,
+                                  58,
                                 ),
                               ),
-                              SizedBox(width: 20.sc),
-                            ],
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 25.sc),
-                      Text(
-                        repository.getAuthor(book: repository.getAllBooks()[_selectedIndex])?.name
-                                .toUpperCase() ??
-                            '',
-                        style: TextStyle(
-                          fontFamily: 'Archivo',
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 119, 24, 45),
-                          fontSize: 32.sc,
+                              child: Icon(
+                                Icons.chevron_right,
+                                color: Colors.white,
+                                size: 60.sc,
+                              ),
+                            ),
+                            SizedBox(width: 20.sc),
+                          ],
                         ),
-                        textAlign: TextAlign.center,
+                      ],
+                    ),
+                    SizedBox(height: 25.sc),
+                    Text(
+                      repository
+                              .getAuthor(
+                                book: repository.getAllBooks()[_selectedIndex],
+                              )!
+                              .isMediaAuthor
+                          ? '${repository.getAllBooks()[_selectedIndex].getType(context).toUpperCase()} ${repository.getAllBooks()[_selectedIndex].title.toUpperCase()}'
+                          : repository
+                                  .getAuthor(
+                                    book:
+                                        repository
+                                            .getAllBooks()[_selectedIndex],
+                                  )
+                                  ?.name
+                                  .toUpperCase() ??
+                              '',
+                      style: TextStyle(
+                        fontFamily: 'Archivo',
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 119, 24, 45),
+                        fontSize: 32.sc,
                       ),
-                      SizedBox(height: 10.sc),
-                      Text(
-                        repository.getAllBooks()[_selectedIndex].title.toUpperCase(),
-                        style: TextStyle(
-                          fontFamily: 'Archivo',
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 85, 85, 85),
-                          fontSize: 27.sc,
-                        ),
-                        textAlign: TextAlign.center,
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(height: 10.sc),
+                    Text(
+                      repository
+                              .getAuthor(
+                                book: repository.getAllBooks()[_selectedIndex],
+                              )!
+                              .isMediaAuthor
+                          ? ''
+                          : '${repository.getAllBooks()[_selectedIndex].getType(context).toUpperCase()} ${repository.getAllBooks()[_selectedIndex].title.toUpperCase()}',
+                      style: TextStyle(
+                        fontFamily: 'Archivo',
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 85, 85, 85),
+                        fontSize: 27.sc,
                       ),
-                    ],
-                  ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
                 ),
-                SizedBox(height: 30.sc),
+                SizedBox(height: 60.sc),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder:
-                            (context) =>
-                                ImgBookReadPage(book: repository.getAllBooks()[_selectedIndex]),
+                            (context) => ImgBookReadPage(
+                              book: repository.getAllBooks()[_selectedIndex],
+                            ),
                       ),
                     );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color.fromARGB(255, 162, 29, 58),
-                    padding: EdgeInsets.symmetric(horizontal: 24.sc, vertical: 24.sc),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 24.sc,
+                      vertical: 24.sc,
+                    ),
                   ),
                   child: Text(
                     'BACA TULISAN',
@@ -295,11 +330,7 @@ class _HomePageState extends State<HomePage> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                        builder:
-                            (context) =>
-                                BookFilterPage(),
-                      ),
+                      MaterialPageRoute(builder: (context) => BookFilterPage()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -309,10 +340,13 @@ class _HomePageState extends State<HomePage> {
                       color: Color.fromARGB(255, 162, 29, 58),
                       width: 2,
                     ),
-                    padding: EdgeInsets.symmetric(horizontal: 24.sc, vertical: 24.sc),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 24.sc,
+                      vertical: 24.sc,
+                    ),
                   ),
                   child: Text(
-                    'LIHAT GALERI ARSIP LAINNYA',
+                    'LIHAT ARSIP LAINNYA',
                     style: TextStyle(
                       fontFamily: 'Archivo',
                       fontWeight: FontWeight.bold,
@@ -321,7 +355,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                SizedBox(height: 40.sc),
+                Expanded(child: Container()),
               ],
             ),
           ],
