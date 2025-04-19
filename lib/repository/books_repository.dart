@@ -109,7 +109,7 @@ class BooksRepository {
       id: 'pahesan',
       type: {AppLanguage.id: 'Majalah'},
       title: 'Pahesan',
-      date: {AppLanguage.id: '1937 - 1941'},
+      date: {AppLanguage.id: '15 Juni 1917'},
       contentTitle: {AppLanguage.id: 'Majalah Pahésan, Edisi 15 April 1941'},
       content: {
         AppLanguage.id:
@@ -118,7 +118,7 @@ class BooksRepository {
       numberOfPage: 12,
       authorId: 'pahesan',
       highlight: null,
-      edition: {AppLanguage.id: 'Edisi 15 April 1941'},
+      edition: {AppLanguage.id: 'Edisi No. 12 Tahun 48'},
       isOtherEdition: false,
       isMedia: true
     ),
