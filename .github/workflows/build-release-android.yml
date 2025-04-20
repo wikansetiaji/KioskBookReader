@@ -1,4 +1,4 @@
-name: Flutter Android Build and Release (Debug)
+name: Flutter Android Build and Release (armeabi-v7a Debug)
 
 on:
   push:
@@ -36,25 +36,26 @@ jobs:
       - name: Check Flutter doctor
         run: flutter doctor -v
         
-      - name: Build Debug APK
-        run: flutter build apk --debug  # Changed from --release to --debug
+      - name: Build Debug APK (armeabi-v7a)
+        run: flutter build apk --debug --target-platform android-arm  # Forces armeabi-v7a build
         
       - name: Prepare APK files
         run: |
-          mv build/app/outputs/flutter-apk/app-debug.apk app-latest-debug.apk  # Changed filename
-          cp app-latest-debug.apk app-${{ github.ref_name }}-debug.apk  # Added -debug suffix
+          mv build/app/outputs/flutter-apk/app-debug.apk app-armeabi-v7a-debug.apk  # Rename to indicate architecture
+          cp app-armeabi-v7a-debug.apk app-${{ github.ref_name }}-armeabi-v7a-debug.apk
         
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            app-latest-debug.apk
-            app-${{ github.ref_name }}-debug.apk
+            app-armeabi-v7a-debug.apk
+            app-${{ github.ref_name }}-armeabi-v7a-debug.apk
           tag_name: ${{ github.ref_name }}
-          name: Debug Release ${{ github.ref_name }}  # Added Debug prefix
+          name: Debug Release (armeabi-v7a) ${{ github.ref_name }}
           body: |
-            ### Debug Release Notes
+            ### Debug Release Notes (armeabi-v7a)
             - Version: ${{ github.ref_name }}
+            - Architecture: armeabi-v7a (for older Android devices)
             - Build Date: $(date -u +"%Y-%m-%dT%H:%M:%SZ")
             - Build Type: Debug
           draft: false
