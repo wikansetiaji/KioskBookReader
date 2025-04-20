@@ -56,7 +56,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
   Future<void> _loadFirstImageAspectRatio() async {
     try {
       final ByteData data = await rootBundle.load(
-        'assets/${widget.book.id}/1.jpg',
+        'assets/${widget.book.id}/1.webp',
       );
       final Uint8List bytes = data.buffer.asUint8List();
       final Image image = Image.memory(bytes);
@@ -653,7 +653,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
       width: width,
       height: height,
       child: Image.asset(
-        'assets/${widget.book.id}/$index.jpg',
+        'assets/${widget.book.id}/$index.webp',
         fit: BoxFit.cover,
       ),
     );

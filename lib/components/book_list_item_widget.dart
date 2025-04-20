@@ -35,7 +35,7 @@ class BookListItemWidget extends StatelessWidget {
               child: Stack(
                 children: [
                   Image.asset(
-                    'assets/${book.id}/cover.jpg',
+                    'assets/${book.id}/cover.webp',
                     fit: BoxFit.cover,
                     width: width,
                   ),

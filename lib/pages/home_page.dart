@@ -189,7 +189,7 @@ class _HomePageState extends State<HomePage> {
                                       width:
                                           double.infinity, // Takes full width
                                       child: Image.asset(
-                                        'assets/${book.id}/cover.jpg',
+                                        'assets/${book.id}/cover.webp',
                                         fit:
                                             BoxFit
                                                 .fill, // Changed from fill to cover
