@@ -171,7 +171,7 @@ class _BookFilterPageState extends State<BookFilterPage> {
                             child: BookListWidget(
                               books:
                                   _selectedAuthor == null
-                                      ? booksRepository.getAllBooks()
+                                      ? booksRepository.getAllBooks(showEditions: true) 
                                       : booksRepository.getBooksFromAuthor(
                                         author: _selectedAuthor!,
                                         showEditions: true,

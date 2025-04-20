@@ -322,8 +322,10 @@ class BooksRepository {
     ),
   ];
 
-  List<Book> getAllBooks() {
-    return allBooks.where((b) => !b.isOtherEdition).toList();
+  List<Book> getAllBooks({ bool showEditions = false }) {
+    List<Book> books = allBooks.where((b) => !b.isOtherEdition || showEditions).toList();
+    books.sort((a, b) => a.title.compareTo(b.title),);
+    return books;
   }
 
   Author? getAuthor({required Book book}) {

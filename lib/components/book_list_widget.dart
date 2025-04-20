@@ -20,15 +20,16 @@ class _BookListWidgetState extends State<BookListWidget> {
       builder: (context, constraints) {
         final screenSize = constraints.biggest;
         double spacing = 60.sc;
-        double imageSize = (screenSize.width - spacing * 4) / 2;
+        double imageSize = (screenSize.width - (spacing * 3)) / 2;
     
         return Padding(
           padding: EdgeInsets.symmetric(horizontal: spacing),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsets.only(top: 100.sc),
+                padding: EdgeInsets.only(top: 100.sc, left: 15.sc),
                 child: Column(
                   children: [
                     for (int i = 0; i < widget.books.length; i += 2)
