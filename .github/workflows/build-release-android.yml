@@ -1,4 +1,4 @@
-name: Flutter Android Build and Release (Debug)
+name: Flutter Android Build and Release
 
 on:
   push:
@@ -36,27 +36,26 @@ jobs:
       - name: Check Flutter doctor
         run: flutter doctor -v
         
-      - name: Build Debug APK
-        run: flutter build apk --debug  # Changed from --release to --debug
+      - name: Build APK
+        run: flutter build apk --release
         
       - name: Prepare APK files
         run: |
-          mv build/app/outputs/flutter-apk/app-debug.apk app-latest-debug.apk  # Changed filename
-          cp app-latest-debug.apk app-${{ github.ref_name }}-debug.apk  # Added -debug suffix
+          mv build/app/outputs/flutter-apk/app-release.apk app-latest.apk
+          cp app-latest.apk app-${{ github.ref_name }}.apk
         
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            app-latest-debug.apk
-            app-${{ github.ref_name }}-debug.apk
+            app-latest.apk
+            app-${{ github.ref_name }}.apk
           tag_name: ${{ github.ref_name }}
-          name: Debug Release ${{ github.ref_name }}  # Added Debug prefix
+          name: Release ${{ github.ref_name }}
           body: |
-            ### Debug Release Notes
+            ### Release Notes
             - Version: ${{ github.ref_name }}
             - Build Date: $(date -u +"%Y-%m-%dT%H:%M:%SZ")
-            - Build Type: Debug
           draft: false
           prerelease: false
         env:
