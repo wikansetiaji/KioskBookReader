@@ -23,7 +23,13 @@ class BooksRepository {
       },
       numberOfPage: 4,
       authorId: 'maramis',
-      highlight: BookHighlight(page: 1, centerX: 0.79, centerY: 0.74, width: 0.27, height: 0.35),
+      highlight: BookHighlight(
+        page: 1,
+        centerX: 0.79,
+        centerY: 0.74,
+        width: 0.27,
+        height: 0.35,
+      ),
       collection: {AppLanguage.id: 'Koleksi PERPUSNAS'},
       edition: {AppLanguage.id: 'Edisi No. 12 Tahun 48'},
       editionId: 'tjehaja_sjiang',
@@ -41,7 +47,13 @@ class BooksRepository {
       },
       numberOfPage: 3,
       authorId: 'maramis',
-      highlight: BookHighlight(page: 1, centerX: 0.8070919247945535, centerY: 0.8816236856458013, width: 0.2785716272457427, height: 0.1406850873856222),
+      highlight: BookHighlight(
+        page: 1,
+        centerX: 0.8070919247945535,
+        centerY: 0.8816236856458013,
+        width: 0.2785716272457427,
+        height: 0.1406850873856222,
+      ),
       collection: {AppLanguage.id: 'Koleksi PERPUSNAS'},
       edition: {AppLanguage.id: 'Edisi No. 19 Tahun 49'},
       editionId: 'tjehaja_sjiang',
@@ -59,7 +71,13 @@ class BooksRepository {
       },
       numberOfPage: 2,
       authorId: 'maramis',
-      highlight: BookHighlight(page: 2, centerX: 0.21890775584626136, centerY: 0.4938281339561144, width: 0.2896971087706898, height: 0.8616827871297706),
+      highlight: BookHighlight(
+        page: 2,
+        centerX: 0.21890775584626136,
+        centerY: 0.4938281339561144,
+        width: 0.2896971087706898,
+        height: 0.8616827871297706,
+      ),
       collection: {AppLanguage.id: 'Koleksi PERPUSNAS'},
       edition: {AppLanguage.id: 'Edisi No. 20 Tahun 49'},
       editionId: 'tjehaja_sjiang',
@@ -76,10 +94,18 @@ class BooksRepository {
       content: {
         AppLanguage.id:
             'Dalam artikelnya, Ruhanna Kuddus menguraikan beragam keterampilan yang dimiliki oleh para perempuan Minangkabau, khususnya dalam bidang kerajinan tangan berbahan kain. Namun, ia mengemukakan kekhawatirannya terhadap tidak berlanjutnya proses alih pengetahuan dari generasi tua kepada generasi muda, yang dapat menyebabkan terputusnya tradisi keterampilan tersebut. Ruhanna juga menyampaikan bahwa organisasi “Kerajinan Amai Setia” memiliki tujuan utama untuk menghidupkan kembali dan melestarikan keahlian-keahlian tradisional yang dahulu dimiliki oleh para perempuan Melayu. Ia menekankan pentingnya berbagi pengetahuan, dalam konteks ini, ilmu yang diperoleh melalui kegiatan di Kerajinan Amai Setia, karena hal tersebut diyakini dapat mempermudah dan menopang keberlangsungan hidup di masa depan.',
+        AppLanguage.en:
+            'In this article, Ruhana Kuddus outlines the various skills possessed by Minangkabau women, especially in textile handcrafts. However, she expresses concern about the lack of knowledge transfer from the older to the younger generation, which could lead to the loss of these traditions. Ruhana also mentions the organization “Kerajinan Amai Setia,” which aims to revive and preserve traditional skills once mastered by Malay women. She emphasizes the importance of knowledge sharing, particularly skills gained through the activities of Kerajinan Amai Setia, as these are believed to ease and support future livelihoods.',
       },
       numberOfPage: 3,
       authorId: 'kuddus',
-      highlight: BookHighlight(page: 1, centerX: 0.3542663973345178, centerY: 0.6005361544966039, width: 0.5769200408423047, height: 0.6902042549992871),
+      highlight: BookHighlight(
+        page: 1,
+        centerX: 0.3542663973345178,
+        centerY: 0.6005361544966039,
+        width: 0.5769200408423047,
+        height: 0.6902042549992871,
+      ),
       collection: {AppLanguage.id: 'Koleksi PERPUSNAS'},
       edition: {AppLanguage.id: 'Edisi No. 10 Tahun 1'},
       editionId: 'soenting',
@@ -94,10 +120,18 @@ class BooksRepository {
       content: {
         AppLanguage.id:
             'Artikel ini membahas tentang kedudukan perempuan Melayu di wilayah Minangkabau. Penulis memulai tulisannya dengan melakukan perbandingan antara kondisi perempuan Melayu di tanah Minang dan perempuan Hindu di Hindustan (India). Dalam tulisannya, Ruhanna Kuddus mengungkapkan situasi perempuan di Hindustan yang bahkan harus menjalani tradisi kematian bersama (sati) ketika suaminya meninggal dunia. Meskipun demikian, ia mencatat bahwa gerakan perempuan di India menunjukkan kemajuan yang signifikan, salah satunya dengan keberhasilan mendirikan institusi pendidikan tinggi khusus perempuan, yaitu Universitas Ja’ni. Melalui artikel ini, penulis mengajak pembaca untuk melakukan refleksi bahwa secara hak dan kedudukan, perempuan Melayu sejatinya telah berada dalam posisi yang lebih maju dibandingkan perempuan di bangsa lain. Hal ini disebabkan oleh pandangan budaya lokal yang menjunjung tinggi kemerdekaan, kehormatan, dan martabat perempuan.',
+        AppLanguage.en:
+            "This article discusses the status of Malay women in the Minangkabau region. The writer starts by comparing the condition of Malay women in Minangkabau and Hindu women in Hindustan (India). Ruhana Kuddus reveals the plight of women in Hindustan, who were even subjected to the tradition of sati—dying with their husbands. Nevertheless, she noted the significant progress of the women's movement in India, including the establishment of women-only higher education institutions such as Ja’ni University. Through this article, the author invites readers to reflect that, in terms of rights and status, Malay women are essentially in a more advanced position compared to women of other nations. This is due to local cultural values that uphold the freedom, honor, and dignity of women.",
       },
       numberOfPage: 4,
       authorId: 'kuddus',
-      highlight: BookHighlight(page: 1, centerX: 0.21226246422054304, centerY: 0.8045121596350856, width: 0.29241970456709726, height: 0.293483125703462),
+      highlight: BookHighlight(
+        page: 1,
+        centerX: 0.21226246422054304,
+        centerY: 0.8045121596350856,
+        width: 0.29241970456709726,
+        height: 0.293483125703462,
+      ),
       collection: {AppLanguage.id: 'Koleksi PERPUSNAS'},
       edition: {AppLanguage.id: 'Edisi No. 48 Tahun 7'},
       editionId: 'soenting',
@@ -120,7 +154,7 @@ class BooksRepository {
       highlight: null,
       edition: {AppLanguage.id: 'Edisi No. 12 Tahun 48'},
       isOtherEdition: false,
-      isMedia: true
+      isMedia: true,
     ),
 
     // Sedar
@@ -129,17 +163,25 @@ class BooksRepository {
       type: {AppLanguage.id: 'Majalah'},
       title: 'Sedar',
       date: {AppLanguage.id: 'November 1930'},
-      contentTitle: {AppLanguage.id: '“Tentang Hak dan Kewajiban Perempoean Indonesia” '},
+      contentTitle: {
+        AppLanguage.id: '“Tentang Hak dan Kewajiban Perempoean Indonesia” ',
+      },
       content: {
         AppLanguage.id:
             'Melalui nama pena “Doro Petak”, penulis artikel ini mengkritik anggapan bahwa perempuan adalah makhluk lemah. Ia menekankan pentingnya kesetaraan hak dan kewajiban antara laki-laki dan perempuan, serta perlunya pemahaman tentang dinamika sosial. Penulis membandingkan situasi di Hindia Belanda dengan kondisi di negara-negara di Eropa, di mana perempuan telah memiliki hak untuk menduduki berbagai jenis pekerjaan, termasuk hak untuk memilih dan dipilih dalam pemilihan umum. Di Rusia, bahkan perempuan dapat terlibat dalam upaya mempertahankan kemerdekaan bangsa. Kondisi ini kemudian dikontraskan dengan keadaan di negeri jajahan seperti Hindia Belanda, di mana masih terdapat ketimpangan dalam relasi antara laki-laki dan perempuan. Tulisan ini menyerukan kerja sama antara perempuan dan laki-laki demi menghapus penderitaan bangsa dan membangun masa depan yang lebih setara.',
       },
       numberOfPage: 8,
       authorId: 'sedar',
-      highlight: BookHighlight(page: 1, centerX: 0.49782504409153174, centerY: 0.6699519553314609, width: 0.8922842922264999, height: 0.6182387442811139),
+      highlight: BookHighlight(
+        page: 1,
+        centerX: 0.49782504409153174,
+        centerY: 0.6699519553314609,
+        width: 0.8922842922264999,
+        height: 0.6182387442811139,
+      ),
       edition: {AppLanguage.id: 'Edisi No. 4 Tahun 1'},
       isOtherEdition: false,
-      isMedia: true
+      isMedia: true,
     ),
 
     // Soeara Iboe
@@ -155,10 +197,16 @@ class BooksRepository {
       },
       numberOfPage: 4,
       authorId: 'soeara_iboe',
-      highlight: BookHighlight(page: 1, centerX: 0.6533516531018382, centerY: 0.7767897084801051, width: 0.620725511654897, height: 0.4005513058340456),
+      highlight: BookHighlight(
+        page: 1,
+        centerX: 0.6533516531018382,
+        centerY: 0.7767897084801051,
+        width: 0.620725511654897,
+        height: 0.4005513058340456,
+      ),
       edition: {AppLanguage.id: 'Edisi 1 Tahun 1'},
       isOtherEdition: false,
-      isMedia: true
+      isMedia: true,
     ),
 
     // Doenia Kita
@@ -174,10 +222,16 @@ class BooksRepository {
       },
       numberOfPage: 26,
       authorId: 'doenia_kita',
-      highlight: BookHighlight(page: 13, centerX: 0.48246904802827065, centerY: 0.41575593432139366, width: 0.8924461137349179, height: 0.7774322119843885),
+      highlight: BookHighlight(
+        page: 13,
+        centerX: 0.48246904802827065,
+        centerY: 0.41575593432139366,
+        width: 0.8924461137349179,
+        height: 0.7774322119843885,
+      ),
       edition: {AppLanguage.id: 'Edisi No. 10 Tahun 1'},
       isOtherEdition: false,
-      isMedia: true
+      isMedia: true,
     ),
 
     // Dunia Wanita
@@ -187,10 +241,7 @@ class BooksRepository {
       title: 'Dunia Wanita',
       date: {AppLanguage.id: '15 Juni 1917'},
       contentTitle: {AppLanguage.id: '“TODO” '},
-      content: {
-        AppLanguage.id:
-            'TODO',
-      },
+      content: {AppLanguage.id: 'TODO'},
       numberOfPage: 25,
       authorId: 'dunia_wanita',
       highlight: null,
@@ -207,18 +258,14 @@ class BooksRepository {
       title: 'Kesatuan Pergerakan Wanita Indonesia',
       date: {AppLanguage.id: '22 Desember 1958'},
       contentTitle: {AppLanguage.id: '“TODO” '},
-      content: {
-        AppLanguage.id:
-            'TODO',
-      },
+      content: {AppLanguage.id: 'TODO'},
       numberOfPage: 26,
       authorId: 'kpwi',
       highlight: null,
       edition: {AppLanguage.id: 'TODO'},
       isOtherEdition: false,
-      isMedia: true
+      isMedia: true,
     ),
-
   ];
 
   final List<Author> allAuthors = [
@@ -229,12 +276,16 @@ class BooksRepository {
       background: {
         AppLanguage.id:
             'Ruhana Kuddus atau dikenal dengan Ibu Pers Indonesia, lahir pada 20 Desember 1884 di Koto Gadang, Kabupaten Agam, Sumatera Barat. Roehana memiliki perhatian terhadap nasib perempuan dan memperjuangkan pendidikan bagi kaum perempuan. Ia mendirikan Soenting Melajoe pada 1912, salah satu surat kabar perempuan pertama di Hindia Belanda yang didirikan di Padang. ',
+        AppLanguage.en:
+            "Ruhana Kuddus, also known as the Mother of Indonesian Press, was born on December 20, 1884, in Koto Gadang, Agam Regency, West Sumatra. Roehana had a deep concern for the fate of women and fought for women's education. In 1912, she founded Soenting Melajoe, one of the first women’s newspapers in the Dutch East Indies based in Padang.",
       },
       contentType: {AppLanguage.id: 'Surat Kabar'},
       contentTitle: 'Soenting Melajoe',
       contentDescription: {
         AppLanguage.id:
             'Soenting Melajoe adalah majalah yang memuat tajuk rencana, puisi, tulisan-tulisan perempuan, serta biografi tokoh-tokoh ternama. Terbit pertama kali pada 10 Juli 1912 dan berhenti pada 28 Januari 1921, majalah ini merekam diskusi perempuan Hindia Belanda seputar pendidikan, kesehatan, agama, dan budaya dalam tiap edisi empat halamannya.',
+        AppLanguage.en:
+            "Soenting Melajoe was a magazine that featured editorials, poetry, writings by women, and biographies of prominent figures. First published on July 10, 1912, and ending on January 28, 1921, the magazine captured discussions among women in the Dutch East Indies about education, health, religion, and culture in each of its four-page editions.",
       },
     ),
     Author(
@@ -256,14 +307,17 @@ class BooksRepository {
       id: 'pahesan',
       name: 'Utami Suryadarma',
       birthDeathDate: '6 Desember 1912',
-      background: {AppLanguage.id: 'Utami Suryadarma merupakan tokoh perempuan yang pernah mewakili Indonesia dalam Inter-Asian Women Conference pada Desember 1947. Saat remaja, bersama sang kakak, Utami mendirikan Pahésan. Melalui media ini, ia mendorong perempuan untuk berpikir, bersuara, dan menyuarakan harapan atas masa depan bangsanya.'},
+      background: {
+        AppLanguage.id:
+            'Utami Suryadarma merupakan tokoh perempuan yang pernah mewakili Indonesia dalam Inter-Asian Women Conference pada Desember 1947. Saat remaja, bersama sang kakak, Utami mendirikan Pahésan. Melalui media ini, ia mendorong perempuan untuk berpikir, bersuara, dan menyuarakan harapan atas masa depan bangsanya.',
+      },
       contentType: {AppLanguage.id: 'Majalah'},
       contentTitle: 'Pahésan',
       contentDescription: {
         AppLanguage.id:
             'Majalah Pahésan (berarti “cermin”) didirikan di Solo dan terbit antara tahun 1937 hingga 1941. Mengangkat tema sosial-budaya serta peran perempuan, Pahésan menjadi ruang bagi perempuan muda menyuarakan pandangan dan membangun kesadaran kolektif di tengah perjuangan menuju kemerdekaan. Meski menggunakan bahasa Belanda yang menjadi bahasa pendidikan formal bagi anak-anak priyayi masa itu, suara-suara kritis dan emansipasi terasa pada tiap halamannya.',
       },
-      isMediaAuthor: true
+      isMediaAuthor: true,
     ),
     Author(
       id: 'sedar',
@@ -275,7 +329,7 @@ class BooksRepository {
         AppLanguage.id:
             'Organisasi Persatuan Wanita Sedar didirikan di Bandung pada tahun 1930 sebagai ruang perjuangan bagi perempuan kelas pekerja. Salah satu media yang diterbitkan organisasi ini adalah Majalah Sedar, yang memuat tulisan-tulisan tentang pendidikan, perjuangan perempuan, serta pemikiran-pemikiran progresif. Banyak di antaranya menyuarakan keresahan terhadap kondisi perempuan, termasuk penolakan terhadap praktik poligami yang dianggap merugikan perempuan. Majalah ini juga berfungsi sebagai sarana pendidikan rakyat.',
       },
-      isMediaAuthor: true
+      isMediaAuthor: true,
     ),
     Author(
       id: 'soeara_iboe',
@@ -287,7 +341,7 @@ class BooksRepository {
         AppLanguage.id:
             'Soeara Iboe adalah surat kabar yang terbit di Sibolga pada 2 Mei 1932, lahir dari semangat kolektif organisasi kaum ibu bernama Comite Kaoem Iboe yang berdiri pada 8 November 1931. Surat kabar ini hadir untuk mempererat hubungan antar ibu, menyebarkan informasi dari luar wilayah, serta menjadi alat perlawanan terhadap kekuasaan adat. Isinya mencakup berbagai topik seperti masakan, kesehatan ibu dan anak, pendidikan, iklan, berita umum, hingga karya sastra berupa puisi dan cerita.',
       },
-      isMediaAuthor: true
+      isMediaAuthor: true,
     ),
     Author(
       id: 'doenia_kita',
@@ -299,20 +353,23 @@ class BooksRepository {
         AppLanguage.id:
             'Majalah Doenia Kita (DK) adalah majalah bulanan yang pertama kali terbit pada tahun 1937. Majalah ini didirikan oleh Siti Alimah untuk memenuhi aspirasi kaum perempuan yang mengalami kesulitan akibat zaman baru. Istilah Doenia Kita mengandung makna dunia kelahiran dan kebatinannya kaum putri. Haluan dari majalah ini adalah kemajuan seluruh perempuan Indonesia.',
       },
-      isMediaAuthor: true
+      isMediaAuthor: true,
     ),
     Author(
       id: 'dunia_wanita',
       name: 'Ani Idrus',
       birthDeathDate: '25 NOVEMBER 1918 – 9 JANUARI 1999',
-      background: {AppLanguage.id: 'Ani Idrus, tokoh pers dan wartawan perempuan Indonesia, lahir di Sawahlunto pada 25 November 1918. Ia mendirikan majalah Dunia Wanita yang mengangkat isu-isu perempuan di bidang sosial, politik, dan ekonomi untuk mendorong kemajuan kaum perempuan. Atas jasanya di bidang jurnalistik, ia menerima penghargaan Satya Penegak Pers Pancasila dari Menteri Penerangan RI pada tahun 1998.'},
+      background: {
+        AppLanguage.id:
+            'Ani Idrus, tokoh pers dan wartawan perempuan Indonesia, lahir di Sawahlunto pada 25 November 1918. Ia mendirikan majalah Dunia Wanita yang mengangkat isu-isu perempuan di bidang sosial, politik, dan ekonomi untuk mendorong kemajuan kaum perempuan. Atas jasanya di bidang jurnalistik, ia menerima penghargaan Satya Penegak Pers Pancasila dari Menteri Penerangan RI pada tahun 1998.',
+      },
       contentType: {AppLanguage.id: 'Majalah'},
       contentTitle: 'Dunia Wanita',
       contentDescription: {
         AppLanguage.id:
             'Majalah Dunia Wanita didirikan pada tahun 1949 di Medan. Dunia Wanita menjadi salah satu majalah perempuan yang populer pasca kemerdekaan Indonesia. Memuat berbagai isu perempuan dari bidang sosial, politik hingga ekonomi untuk memberikan informasi dan kemajuan bagi perempuan. Di bawah pimpinan Ani Idrus, majalah ini juga menyuarakan tentang pentingnya keterlibatan laki-laki dalam rumah tangga.',
       },
-      isMediaAuthor: true
+      isMediaAuthor: true,
     ),
     Author(
       id: 'kpwi',
@@ -324,13 +381,14 @@ class BooksRepository {
         AppLanguage.id:
             'Perjuangan kolektif perempuan Indonesia secara historis ditandai dengan terselenggaranya Kongres Perempuan Pertama pada 28 Desember 1928. Momentum tersebut menjadi tonggak penting bagi terbentuknya kesadaran bersama akan perlunya pengorganisasian perempuan dalam memperjuangkan hak-hak sosial, politik, dan budaya. Salah satu wujud konkret dari perkembangan ini adalah pendirian Perikatan Perkumpulan Isteri Indonesia.',
       },
-      isMediaAuthor: true
+      isMediaAuthor: true,
     ),
   ];
 
-  List<Book> getAllBooks({ bool showEditions = false }) {
-    List<Book> books = allBooks.where((b) => !b.isOtherEdition || showEditions).toList();
-    books.sort((a, b) => a.title.compareTo(b.title),);
+  List<Book> getAllBooks({bool showEditions = false}) {
+    List<Book> books =
+        allBooks.where((b) => !b.isOtherEdition || showEditions).toList();
+    books.sort((a, b) => a.title.compareTo(b.title));
     return books;
   }
 
@@ -343,15 +401,25 @@ class BooksRepository {
     return null;
   }
 
-  List<Book> getBooksFromAuthor({required Author author, bool showEditions = false}) {
+  List<Book> getBooksFromAuthor({
+    required Author author,
+    bool showEditions = false,
+  }) {
     return allBooks
-        .where((b) => b.authorId == author.id && (!b.isOtherEdition || showEditions))
+        .where(
+          (b) => b.authorId == author.id && (!b.isOtherEdition || showEditions),
+        )
         .toList();
   }
 
   List<Book> getBookEditions({required Book book}) {
     return allBooks
-        .where((b) => b.editionId == book.editionId && b != book && book.editionId != null)
+        .where(
+          (b) =>
+              b.editionId == book.editionId &&
+              b != book &&
+              book.editionId != null,
+        )
         .toList();
   }
 
