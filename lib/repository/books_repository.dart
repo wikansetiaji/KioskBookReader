@@ -20,6 +20,8 @@ class BooksRepository {
       content: {
         AppLanguage.id:
             'Dalam artikelnya, Maria Walanda Maramis menekankan pentingnya peran perempuan sebagai ibu dan pendidik pertama bagi anak-anak. Ia mengajak perempuan Minahasa untuk sadar akan tanggung jawab mereka dalam membentuk generasi yang bermoral dan cerdas. Maria menyoroti ketimpangan pendidikan bagi perempuan dan pentingnya mendidik anak sejak dini, baik secara fisik maupun spiritual. Ia percaya bahwa kemajuan bangsa dimulai dari perempuan yang berdaya dan terdidik.',
+        AppLanguage.en:
+            "In this article, Maria Walanda Maramis stresses the importance of women as mothers and the first educators of children. She calls on Minahasa women to be aware of their responsibilities in raising a moral and intelligent generation. She highlights the inequality in education for girls and the importance of early education, both physically and spiritually. She believes that a nation's progress begins with empowered and educated women.",
       },
       numberOfPage: 4,
       authorId: 'maramis',
@@ -44,6 +46,8 @@ class BooksRepository {
       content: {
         AppLanguage.id:
             'Dalam tulisan reflektifnya, Maria Walanda Maramis menyamakan perjuangan menjadi ibu dengan “peperangan sembilan bulan”. Ia menekankan bahwa pekerjaan dan pikiran seorang ibu berkaitan langsung dengan masa depan anak dan masyarakat. “Pekerjaan dan pikiran seorang ibu,” tulisnya, “berhubungan erat—seperti telepon—dengan tubuh dan waktu yang akan datang.',
+        AppLanguage.en:
+            "In this reflective piece, Maria likens motherhood to “a nine-month war.” She emphasizes that a mother’s work and thoughts are directly related to a child’s and society’s future. “A mother's work and thoughts,” she writes, “are directly connected—like a telephone—to the body and time ahead.”",
       },
       numberOfPage: 3,
       authorId: 'maramis',
@@ -68,6 +72,8 @@ class BooksRepository {
       content: {
         AppLanguage.id:
             'Dalam tulisan sambungan ini, Maria Walanda Maramis mengajak para orang tua—khususnya perempuan Minahasa—untuk lebih sadar terhadap pola asuh yang tanpa disadari dapat menanamkan kebiasaan buruk sejak dini, seperti memberi janji palsu, membenarkan kekerasan, atau membiarkan anak mengambil milik orang lain. Ia menekankan bahwa masa depan anak bergantung pada kesadaran, keteladanan, dan tanggung jawab orang tua hari ini.',
+        AppLanguage.en:
+            "In the continuation of her writing, Maria urges parents—especially Minahasa women—to be more conscious of parenting styles that might unknowingly instill bad habits, such as false promises, justifying violence, or allowing children to take what isn't theirs. She emphasizes that a child's future depends on today’s parental awareness, example, and responsibility.",
       },
       numberOfPage: 2,
       authorId: 'maramis',
@@ -295,12 +301,16 @@ class BooksRepository {
       background: {
         AppLanguage.id:
             'Maria Walanda Maramis, lahir di Sulawesi Utara pada 1 Desember 1872, adalah pelopor emansipasi perempuan yang menekankan peran ibu dalam keluarga dan pendidikan anak. Ia mengusulkan pendirian organisasi PIKAT, membuka Sekolah Rumah Tangga (Huishold School) untuk pendidikan gratis untuk anak-anak perempuan, menulis di Tjehaja Sijang, dan memperjuangkan hak politik perempuan lewat kampanye surat ke Batavia.',
+        AppLanguage.en:
+            "Maria Walanda Maramis, born in North Sulawesi on December 1, 1872, was a pioneer in women’s emancipation who emphasized the role of mothers in the family and child education. She proposed the establishment of the PIKAT organization, opened a Household School for girls’ free education, wrote for Tjehaja Sijang, and fought for women's political rights through letter campaigns to Batavia.",
       },
       contentType: {AppLanguage.id: 'Surat Kabar'},
       contentTitle: 'Tjehaja Sijang',
       contentDescription: {
         AppLanguage.id:
             'Tjehaja Sijang adalah salah satu surat kabar berbahasa Melayu yang terbit di awal abad ke-20 di Minahasa. Surat kabar ini menjadi wadah penting bagi kaum intelektual dan tokoh pergerakan nasional, termasuk perempuan seperti Maria Walanda Maramis, untuk menyuarakan gagasan tentang pendidikan, kesetaraan gender, dan emansipasi perempuan. Tjahaja Siang memiliki peran dalam membentuk opini publik dan menyebarkan kesadaran sosial-politik di kalangan masyarakat pribumi.',
+        AppLanguage.en:
+            'Tjehaja Sijang was one of the early 20th-century Malay-language newspapers in Minahasa. It served as an important platform for intellectuals and national movement leaders—including women like Maria Walanda Maramis—to express ideas about education, gender equality, and women’s emancipation. Tjehaja Sijang played a role in shaping public opinion and spreading socio-political awareness among native Indonesians.',
       },
     ),
     Author(
