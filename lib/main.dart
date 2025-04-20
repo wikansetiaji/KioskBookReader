@@ -87,9 +87,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
-
-  final preloadFuture = AssetPreloader.preloadAssets();
-
+  
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
@@ -99,15 +97,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       behavior: HitTestBehavior.translucent,
       child: MaterialApp(
         navigatorKey: _navigatorKey,
-        home: FutureBuilder(
-          future: preloadFuture,
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.done) {
-              return const HomePage(title: ''); // Your actual app widget
-            }
-            return const LoadingScreen();
-          },
-        ),
+        home: const HomePage(title: '')
       ),
     );
   }
