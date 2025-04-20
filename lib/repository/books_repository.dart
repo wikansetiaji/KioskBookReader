@@ -273,7 +273,7 @@ class BooksRepository {
       date: {AppLanguage.id: '22 Desember 1958'},
       contentTitle: {AppLanguage.id: '“TODO” '},
       content: {AppLanguage.id: 'TODO'},
-      numberOfPage: 26,
+      numberOfPage: 46,
       authorId: 'kpwi',
       highlight: null,
       edition: {AppLanguage.id: 'TODO'},
