@@ -69,7 +69,7 @@ class BookListItemWidget extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
                             ),
-                            textAlign: TextAlign.center,
+                            textAlign: TextAlign.start,
                           ),
                           SizedBox(height: 10.sc),
                           if (book.edition != null)

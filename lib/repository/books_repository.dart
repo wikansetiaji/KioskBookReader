@@ -185,7 +185,7 @@ class BooksRepository {
       id: 'dunia_wanita',
       type: {AppLanguage.id: 'Majalah'},
       title: 'Dunia Wanita',
-      date: {AppLanguage.id: 'Sejak 1949'},
+      date: {AppLanguage.id: '15 Juni 1917'},
       contentTitle: {AppLanguage.id: '“TODO” '},
       content: {
         AppLanguage.id:
@@ -196,14 +196,15 @@ class BooksRepository {
       highlight: null,
       edition: {AppLanguage.id: 'Edisi No. 12 Tahun 48'},
       isOtherEdition: false,
-      isMedia: true
+      isMedia: true,
+      collection: {AppLanguage.id: 'Koleksi PERPUSNAS'},
     ),
 
     // KPWI
     Book(
       id: 'kpwi',
       type: {AppLanguage.id: 'Buku'},
-      title: 'Peringatan 30 Tahun Kesatuan Pergerakan Wanita Indonesia',
+      title: 'Kesatuan Pergerakan Wanita Indonesia',
       date: {AppLanguage.id: '22 Desember 1958'},
       contentTitle: {AppLanguage.id: '“TODO” '},
       content: {
@@ -303,7 +304,7 @@ class BooksRepository {
     Author(
       id: 'dunia_wanita',
       name: 'Ani Idrus',
-      birthDeathDate: 'Sejak 1949',
+      birthDeathDate: '25 NOVEMBER 1918 – 9 JANUARI 1999',
       background: {AppLanguage.id: 'Ani Idrus, tokoh pers dan wartawan perempuan Indonesia, lahir di Sawahlunto pada 25 November 1918. Ia mendirikan majalah Dunia Wanita yang mengangkat isu-isu perempuan di bidang sosial, politik, dan ekonomi untuk mendorong kemajuan kaum perempuan. Atas jasanya di bidang jurnalistik, ia menerima penghargaan Satya Penegak Pers Pancasila dari Menteri Penerangan RI pada tahun 1998.'},
       contentType: {AppLanguage.id: 'Majalah'},
       contentTitle: 'Dunia Wanita',
@@ -317,7 +318,12 @@ class BooksRepository {
       id: 'kpwi',
       name: 'Kesatuan Pergerakan Wanita Indonesia',
       birthDeathDate: 'Sejak 1928',
-      background: {AppLanguage.id: 'Perjuangan kolektif perempuan Indonesia secara historis ditandai dengan terselenggaranya Kongres Perempuan Pertama pada 28 Desember 1928. Momentum tersebut menjadi tonggak penting bagi terbentuknya kesadaran bersama akan perlunya pengorganisasian perempuan dalam memperjuangkan hak-hak sosial, politik, dan budaya. Salah satu wujud konkret dari perkembangan ini adalah pendirian Perikatan Perkumpulan Isteri Indonesia.'},
+      contentType: {AppLanguage.id: 'KETERANGAN'},
+      contentTitle: '',
+      contentDescription: {
+        AppLanguage.id:
+            'Perjuangan kolektif perempuan Indonesia secara historis ditandai dengan terselenggaranya Kongres Perempuan Pertama pada 28 Desember 1928. Momentum tersebut menjadi tonggak penting bagi terbentuknya kesadaran bersama akan perlunya pengorganisasian perempuan dalam memperjuangkan hak-hak sosial, politik, dan budaya. Salah satu wujud konkret dari perkembangan ini adalah pendirian Perikatan Perkumpulan Isteri Indonesia.',
+      },
       isMediaAuthor: true
     ),
   ];
