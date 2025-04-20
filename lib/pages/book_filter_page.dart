@@ -64,16 +64,21 @@ class _BookFilterPageState extends State<BookFilterPage> {
                             vertical: 12.sc,
                           ),
                         ),
-                        child: Text(
-                          context.watch<LanguageProvider>().isEnglish
-                              ? '< BACK'
-                              : '< KEMBALI',
-                          style: TextStyle(
-                            fontFamily: 'Archivo',
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 162, 29, 58),
-                            fontSize: 32.sc,
-                          ),
+                        child: Row(
+                          children: [
+                            Icon(Icons.chevron_left, color: Color.fromARGB(255, 162, 29, 58), size: 40.sc,),
+                            Text(
+                              context.watch<LanguageProvider>().isEnglish
+                                  ? 'BACK'
+                                  : 'KEMBALI',
+                              style: TextStyle(
+                                fontFamily: 'Archivo',
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 162, 29, 58),
+                                fontSize: 32.sc,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                       Expanded(child: Container()),

@@ -257,19 +257,30 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                           vertical: 12.sc,
                         ),
                       ),
-                      child: Text(
-                        context.watch<LanguageProvider>().isEnglish ? '< BACK' : '< KEMBALI',
-                        style: TextStyle(
-                          fontFamily: 'Archivo',
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 162, 29, 58),
-                          fontSize: 32.sc,
-                        ),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.chevron_left,
+                            color: Color.fromARGB(255, 162, 29, 58),
+                            size: 40.sc,
+                          ),
+                          Text(
+                            context.watch<LanguageProvider>().isEnglish
+                                ? 'BACK'
+                                : 'KEMBALI',
+                            style: TextStyle(
+                              fontFamily: 'Archivo',
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromARGB(255, 162, 29, 58),
+                              fontSize: 32.sc,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     Expanded(child: Container()),
                     LanguageToggleSwitch(),
-                    SizedBox(width: 40.sc,)
+                    SizedBox(width: 40.sc),
                   ],
                 ),
                 SizedBox(height: 40.sc),
@@ -331,7 +342,9 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                                           ),
                                           if (widget.book.edition != null)
                                             Text(
-                                              widget.book.getEdition(context)!,
+                                              widget.book
+                                                  .getEdition(context)!
+                                                  .toUpperCase(),
                                               style: TextStyle(
                                                 fontFamily: 'Archivo',
                                                 fontSize: 16.sc,
@@ -341,11 +354,14 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                                                   85,
                                                   85,
                                                 ),
+                                                fontWeight: FontWeight.bold,
                                               ),
                                               textAlign: TextAlign.start,
                                             ),
                                           Text(
-                                            widget.book.getDate(context),
+                                            widget.book
+                                                .getDate(context)
+                                                .toUpperCase(),
                                             style: TextStyle(
                                               fontFamily: 'Archivo',
                                               fontSize: 16.sc,
@@ -355,6 +371,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                                                 29,
                                                 58,
                                               ),
+                                              fontWeight: FontWeight.bold,
                                             ),
                                             textAlign: TextAlign.start,
                                           ),
@@ -589,7 +606,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                       style: TextStyle(
                         fontFamily: 'PublicSans',
                         color: Color.fromARGB(255, 85, 85, 85),
-                        fontSize: 20.sc
+                        fontSize: 20.sc,
                       ),
                     ),
                     Expanded(child: Container()),
@@ -613,7 +630,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                           style: TextStyle(
                             fontFamily: 'PublicSans',
                             color: Color.fromARGB(255, 255, 255, 255),
-                            fontSize: 20.sc
+                            fontSize: 20.sc,
                           ),
                         ),
                       ),

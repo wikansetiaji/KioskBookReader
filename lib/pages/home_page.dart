@@ -328,7 +328,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ],
                 ),
-                SizedBox(height: 60.sc),
+                SizedBox(height: 20.sc),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(

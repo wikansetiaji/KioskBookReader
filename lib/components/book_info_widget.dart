@@ -19,7 +19,8 @@ class BookInfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var seeOtherButton = Center(
+    var seeOtherButton = SizedBox(
+      width: double.infinity,
       child: ElevatedButton(
         onPressed: () {
           Navigator.popUntil(context, (Route<dynamic> route) => route.isFirst);
@@ -47,8 +48,8 @@ class BookInfoWidget extends StatelessWidget {
     );
     var seeOtherText = Text(
       context.watch<LanguageProvider>().isEnglish
-          ? 'SEE OTHER EDITIONS,'
-          : 'BACA EDISI LAINNYA,',
+          ? 'SEE OTHER EDITIONS'
+          : 'BACA EDISI LAINNYA',
       style: TextStyle(
         fontFamily: 'Archivo',
         fontWeight: FontWeight.bold,
@@ -100,15 +101,20 @@ class BookInfoWidget extends StatelessWidget {
                                       width: 2,
                                     ),
                                   ),
-                                  child: Text(
-                                    context.watch<LanguageProvider>().isEnglish
-                                        ? 'VIEW ORIGINAL WRITING >'
-                                        : 'LIHAT TULISAN ASLI >',
-                                    style: TextStyle(
-                                      fontFamily: 'Archivo',
-                                      color: Color.fromARGB(255, 162, 29, 58),
-                                      fontSize: 16.sc,
-                                    ),
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        context.watch<LanguageProvider>().isEnglish
+                                            ? 'VIEW ORIGINAL WRITING'
+                                            : 'LIHAT TULISAN ASLI',
+                                        style: TextStyle(
+                                          fontFamily: 'Archivo',
+                                          color: Color.fromARGB(255, 162, 29, 58),
+                                          fontSize: 20.sc,
+                                        ),
+                                      ),
+                                      Icon(Icons.chevron_right, color: Color.fromARGB(255, 162, 29, 58), size: 20.sc,)
+                                    ],
                                   ),
                                 ),
                                 Expanded(child: Container()),
