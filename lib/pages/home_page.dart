@@ -191,62 +191,74 @@ class _HomePageState extends State<HomePage> {
                             );
                           },
                         ),
-                        Row(
+                        Stack(
+                          alignment: Alignment.center,
                           children: [
-                            SizedBox(width: 20.sc),
-                            ElevatedButton(
-                              onPressed: () {
-                                if (_selectedIndex == 0) {
-                                  booksCarouselController.animateToPage(
-                                    repository.getAllBooks().length - 1,
-                                  );
-                                } else {
-                                  booksCarouselController.previousPage();
-                                }
-                              },
-                              style: ElevatedButton.styleFrom(
-                                shape: CircleBorder(),
-                                padding: EdgeInsets.all(16.sc),
-                                backgroundColor: Color.fromARGB(
-                                  255,
-                                  162,
-                                  29,
-                                  58,
-                                ),
-                              ),
-                              child: Icon(
-                                Icons.chevron_left,
-                                color: Colors.white,
-                                size: 60.sc,
-                              ),
+                            Row(
+                              children: [
+                                Image.asset('assets/fade-left.png', height: 586.sc,),
+                                Expanded(child: Container()),
+                                Image.asset('assets/fade-right.png', height: 586.sc),
+                              ],
                             ),
-                            Expanded(child: Container()),
-                            ElevatedButton(
-                              onPressed: () {
-                                if (_selectedIndex ==
-                                    repository.getAllBooks().length - 1) {
-                                  booksCarouselController.animateToPage(0);
-                                } else {
-                                  booksCarouselController.nextPage();
-                                }
-                              },
-                              style: ElevatedButton.styleFrom(
-                                shape: CircleBorder(),
-                                padding: EdgeInsets.all(16.sc),
-                                backgroundColor: Color.fromARGB(
-                                  255,
-                                  162,
-                                  29,
-                                  58,
+                            Row(
+                              children: [
+                                SizedBox(width: 40.sc),
+                                ElevatedButton(
+                                  onPressed: () {
+                                    if (_selectedIndex == 0) {
+                                      booksCarouselController.animateToPage(
+                                        repository.getAllBooks().length - 1,
+                                      );
+                                    } else {
+                                      booksCarouselController.previousPage();
+                                    }
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                    shape: CircleBorder(),
+                                    padding: EdgeInsets.all(16.sc),
+                                    backgroundColor: Color.fromARGB(
+                                      255,
+                                      162,
+                                      29,
+                                      58,
+                                    ),
+                                  ),
+                                  child: Icon(
+                                    Icons.chevron_left,
+                                    color: Colors.white,
+                                    size: 60.sc,
+                                  ),
                                 ),
-                              ),
-                              child: Icon(
-                                Icons.chevron_right,
-                                color: Colors.white,
-                                size: 60.sc,
-                              ),
+                                Expanded(child: Container()),
+                                ElevatedButton(
+                                  onPressed: () {
+                                    if (_selectedIndex ==
+                                        repository.getAllBooks().length - 1) {
+                                      booksCarouselController.animateToPage(0);
+                                    } else {
+                                      booksCarouselController.nextPage();
+                                    }
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                    shape: CircleBorder(),
+                                    padding: EdgeInsets.all(16.sc),
+                                    backgroundColor: Color.fromARGB(
+                                      255,
+                                      162,
+                                      29,
+                                      58,
+                                    ),
+                                  ),
+                                  child: Icon(
+                                    Icons.chevron_right,
+                                    color: Colors.white,
+                                    size: 60.sc,
+                                  ),
+                                ),
+                                SizedBox(width: 40.sc),
+                              ],
                             ),
-                            SizedBox(width: 20.sc),
                           ],
                         ),
                       ],
