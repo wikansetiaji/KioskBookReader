@@ -13,7 +13,7 @@ jobs:
 
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.16.0"  # Match your Flutter version
+          flutter-version: "3.29.3"  # Match your Flutter version
 
       - run: flutter pub get
       - run: flutter build web --release --web-renderer html
