@@ -108,7 +108,7 @@ class BooksRepository {
     Book(
       id: 'pahesan',
       type: {AppLanguage.id: 'Majalah'},
-      title: 'Pahesan',
+      title: 'Pahésan',
       date: {AppLanguage.id: '15 Juni 1917'},
       contentTitle: {AppLanguage.id: 'Majalah Pahésan, Edisi 15 April 1941'},
       content: {
@@ -257,7 +257,7 @@ class BooksRepository {
       birthDeathDate: '6 Desember 1912',
       background: {AppLanguage.id: 'Utami Suryadarma merupakan tokoh perempuan yang pernah mewakili Indonesia dalam Inter-Asian Women Conference pada Desember 1947. Saat remaja, bersama sang kakak, Utami mendirikan Pahésan. Melalui media ini, ia mendorong perempuan untuk berpikir, bersuara, dan menyuarakan harapan atas masa depan bangsanya.'},
       contentType: {AppLanguage.id: 'Majalah'},
-      contentTitle: 'Pahesan',
+      contentTitle: 'Pahésan',
       contentDescription: {
         AppLanguage.id:
             'Majalah Pahésan (berarti “cermin”) didirikan di Solo dan terbit antara tahun 1937 hingga 1941. Mengangkat tema sosial-budaya serta peran perempuan, Pahésan menjadi ruang bagi perempuan muda menyuarakan pandangan dan membangun kesadaran kolektif di tengah perjuangan menuju kemerdekaan. Meski menggunakan bahasa Belanda yang menjadi bahasa pendidikan formal bagi anak-anak priyayi masa itu, suara-suara kritis dan emansipasi terasa pada tiap halamannya.',

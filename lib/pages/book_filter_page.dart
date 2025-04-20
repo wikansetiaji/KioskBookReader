@@ -134,7 +134,7 @@ class _BookFilterPageState extends State<BookFilterPage> {
                                             .isEnglish
                                         ? 'ALL WOMEN WRITERS'
                                         : 'SEMUA PENULIS WANITA'
-                                    : _selectedAuthor!.name.toUpperCase(),
+                                    : _selectedAuthor!.contentTitle!.toUpperCase(),
                                 style: TextStyle(
                                   fontFamily: 'Archivo',
                                   fontSize: 42.sc,
