@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:kiosk_book_reader/pages/home_page.dart';
+import 'package:kiosk_book_reader/pages/loading_screen.dart';
 import 'package:kiosk_book_reader/service/asset_preloader.dart';
 import 'package:kiosk_book_reader/service/idle_timer.dart';
 import 'package:kiosk_book_reader/service/language_provider.dart';
@@ -104,28 +105,8 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
             if (snapshot.connectionState == ConnectionState.done) {
               return const HomePage(title: ''); // Your actual app widget
             }
-            return const PreloaderScreen();
+            return const LoadingScreen();
           },
-        ),
-      ),
-    );
-  }
-}
-
-class PreloaderScreen extends StatelessWidget {
-  const PreloaderScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CircularProgressIndicator(),
-            SizedBox(height: 20),
-            Text('Loading resources...'),
-          ],
         ),
       ),
     );
