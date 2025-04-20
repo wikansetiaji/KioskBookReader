@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:kiosk_book_reader/pages/home_page.dart';
+import 'package:kiosk_book_reader/service/asset_preloader.dart';
 import 'package:kiosk_book_reader/service/idle_timer.dart';
 import 'package:kiosk_book_reader/service/language_provider.dart';
 import 'package:kiosk_book_reader/service/size_config.dart';
@@ -86,6 +87,8 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
     super.dispose();
   }
 
+  final preloadFuture = AssetPreloader.preloadAssets();
+
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
@@ -95,7 +98,35 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       behavior: HitTestBehavior.translucent,
       child: MaterialApp(
         navigatorKey: _navigatorKey,
-        home: HomePage(title: ""),
+        home: FutureBuilder(
+          future: preloadFuture,
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.done) {
+              return const HomePage(title: ''); // Your actual app widget
+            }
+            return const PreloaderScreen();
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class PreloaderScreen extends StatelessWidget {
+  const PreloaderScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CircularProgressIndicator(),
+            SizedBox(height: 20),
+            Text('Loading resources...'),
+          ],
+        ),
       ),
     );
   }
