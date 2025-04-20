@@ -13,7 +13,7 @@ class BooksRepository {
     // Tjehaja Sijang
     Book(
       id: 'tjehaja_sijang_0',
-      type: {AppLanguage.id: 'Surat Kabar'},
+      type: {AppLanguage.id: 'Surat Kabar', AppLanguage.en: 'Newspaper'},
       title: 'Tjahaja Siang',
       date: {AppLanguage.id: '15 Juni 1917'},
       contentTitle: {AppLanguage.id: '“Djempoetan Bagi Bangsa Perempoean”'},
@@ -39,7 +39,7 @@ class BooksRepository {
     ),
     Book(
       id: 'tjehaja_sijang_1',
-      type: {AppLanguage.id: 'Surat Kabar'},
+      type: {AppLanguage.id: 'Surat Kabar', AppLanguage.en: 'Newspaper'},
       title: 'Tjahaja Siang',
       date: {AppLanguage.id: '1 Oktober 1918'},
       contentTitle: {AppLanguage.id: '“Siapa Poenja Salah?”'},
@@ -65,7 +65,7 @@ class BooksRepository {
     ),
     Book(
       id: 'tjehaja_sijang_2',
-      type: {AppLanguage.id: 'Surat Kabar'},
+      type: {AppLanguage.id: 'Surat Kabar', AppLanguage.en: 'Newspaper'},
       title: 'Tjahaja Siang',
       date: {AppLanguage.id: '15 Oktober 1918'},
       contentTitle: {AppLanguage.id: '“Siapa Poenja Salah? (Sambungan)”'},
@@ -93,7 +93,7 @@ class BooksRepository {
     // Soenting
     Book(
       id: 'soenting_0',
-      type: {AppLanguage.id: 'Surat Kabar'},
+      type: {AppLanguage.id: 'Surat Kabar', AppLanguage.en: 'Newspaper'},
       title: 'Soenting Melajoe',
       date: {AppLanguage.id: '7 Agustus 1912'},
       contentTitle: {AppLanguage.id: '“Pakaian Perhiasan”'},
@@ -119,7 +119,7 @@ class BooksRepository {
     ),
     Book(
       id: 'soenting_1',
-      type: {AppLanguage.id: 'Surat Kabar'},
+      type: {AppLanguage.id: 'Surat Kabar', AppLanguage.en: 'Newspaper'},
       title: 'Soenting Melajoe',
       date: {AppLanguage.id: '13 Desember 1918'},
       contentTitle: {AppLanguage.id: '“Perempoean” '},
@@ -147,7 +147,7 @@ class BooksRepository {
     // Pahesan
     Book(
       id: 'pahesan',
-      type: {AppLanguage.id: 'Majalah'},
+      type: {AppLanguage.id: 'Majalah', AppLanguage.en: 'Magazine'},
       title: 'Pahésan',
       date: {AppLanguage.id: '15 Juni 1917'},
       contentTitle: {AppLanguage.id: 'Majalah Pahésan, Edisi 15 April 1941'},
@@ -174,7 +174,7 @@ class BooksRepository {
     // Sedar
     Book(
       id: 'sedar',
-      type: {AppLanguage.id: 'Majalah'},
+      type: {AppLanguage.id: 'Majalah', AppLanguage.en: 'Magazine'},
       title: 'Sedar',
       date: {AppLanguage.id: 'November 1930'},
       contentTitle: {
@@ -203,7 +203,7 @@ class BooksRepository {
     // Soeara Iboe
     Book(
       id: 'soeara_iboe',
-      type: {AppLanguage.id: 'Surat Kabar'},
+      type: {AppLanguage.id: 'Surat Kabar', AppLanguage.en: 'Newspaper'},
       title: 'Soeara Iboe',
       date: {AppLanguage.id: '2 Mei 1932'},
       contentTitle: {AppLanguage.id: '“Perloenja Perempoean Disekolahkan”'},
@@ -230,7 +230,7 @@ class BooksRepository {
     // Doenia Kita
     Book(
       id: 'doenia_kita',
-      type: {AppLanguage.id: 'Majalah'},
+      type: {AppLanguage.id: 'Majalah', AppLanguage.en: 'Magazine'},
       title: 'Doenia Kita',
       date: {AppLanguage.id: 'Agustus 1938'},
       contentTitle: {AppLanguage.id: '“Ilmoe Penjoeloeh Djalan” '},
@@ -240,15 +240,15 @@ class BooksRepository {
         AppLanguage.en:
             "Written by Siti Salimah, this article urges mothers to pursue activities beyond domestic tasks. She encourages women to read useful books and expand social networks outside their households. Salimah argues that broader social interaction allows women to stay updated with the times and acquire new information. While a woman’s primary role remains child-rearing and household management, the writer believes that a mother’s knowledge and skills directly enhance her ability to fulfill those domestic roles and raise children well.",
       },
-      numberOfPage: 26,
+      numberOfPage: 20,
       authorId: 'doenia_kita',
-      highlight: BookHighlight(
-        page: 13,
-        centerX: 0.48246904802827065,
-        centerY: 0.41575593432139366,
-        width: 0.8924461137349179,
-        height: 0.7774322119843885,
-      ),
+      // highlight: BookHighlight(
+      //   page: 13,
+      //   centerX: 0.48246904802827065,
+      //   centerY: 0.41575593432139366,
+      //   width: 0.8924461137349179,
+      //   height: 0.7774322119843885,
+      // ),
       edition: {AppLanguage.id: 'Edisi No. 10 Tahun 1'},
       isOtherEdition: false,
       isMedia: true,
@@ -257,7 +257,7 @@ class BooksRepository {
     // Dunia Wanita
     Book(
       id: 'dunia_wanita',
-      type: {AppLanguage.id: 'Majalah'},
+      type: {AppLanguage.id: 'Majalah', AppLanguage.en: 'Magazine'},
       title: 'Dunia Wanita',
       date: {AppLanguage.id: '15 Juni 1917'},
       contentTitle: {
@@ -280,7 +280,7 @@ class BooksRepository {
     // KPWI
     Book(
       id: 'kpwi',
-      type: {AppLanguage.id: 'Buku'},
+      type: {AppLanguage.id: 'Buku', AppLanguage.en: 'Book'},
       title: 'Kesatuan Pergerakan Wanita Indonesia',
       date: {AppLanguage.id: '22 Desember 1958'},
       contentTitle: {
@@ -321,7 +321,7 @@ class BooksRepository {
         AppLanguage.en:
             "Ruhana Kuddus, also known as the Mother of Indonesian Press, was born on December 20, 1884, in Koto Gadang, Agam Regency, West Sumatra. Roehana had a deep concern for the fate of women and fought for women's education. In 1912, she founded Soenting Melajoe, one of the first women’s newspapers in the Dutch East Indies based in Padang.",
       },
-      contentType: {AppLanguage.id: 'Surat Kabar'},
+      contentType: {AppLanguage.id: 'Surat Kabar', AppLanguage.en: 'Newspaper'},
       contentTitle: 'Soenting Melajoe',
       contentDescription: {
         AppLanguage.id:
@@ -340,7 +340,7 @@ class BooksRepository {
         AppLanguage.en:
             "Maria Walanda Maramis, born in North Sulawesi on December 1, 1872, was a pioneer in women’s emancipation who emphasized the role of mothers in the family and child education. She proposed the establishment of the PIKAT organization, opened a Household School for girls’ free education, wrote for Tjehaja Sijang, and fought for women's political rights through letter campaigns to Batavia.",
       },
-      contentType: {AppLanguage.id: 'Surat Kabar'},
+      contentType: {AppLanguage.id: 'Surat Kabar', AppLanguage.en: 'Newspaper'},
       contentTitle: 'Tjehaja Sijang',
       contentDescription: {
         AppLanguage.id:
@@ -359,7 +359,7 @@ class BooksRepository {
         AppLanguage.en:
             "Utami Suryadarma was a female figure who represented Indonesia at the Inter-Asian Women Conference in December 1947. In her youth, she co-founded Pahésan with her sister. Through this media, she encouraged women to think, speak out, and express hopes for their nation's future.",
       },
-      contentType: {AppLanguage.id: 'Majalah'},
+      contentType: {AppLanguage.id: 'Majalah', AppLanguage.en: 'Magazine'},
       contentTitle: 'Pahésan',
       contentDescription: {
         AppLanguage.id:
@@ -373,7 +373,7 @@ class BooksRepository {
       id: 'sedar',
       name: 'Sedar',
       birthDeathDate: 'Sejak Agustus 1930',
-      contentType: {AppLanguage.id: 'Majalah'},
+      contentType: {AppLanguage.id: 'Majalah', AppLanguage.en: 'Magazine'},
       contentTitle: 'Sedar',
       contentDescription: {
         AppLanguage.id:
@@ -387,7 +387,7 @@ class BooksRepository {
       id: 'soeara_iboe',
       name: 'Soeara Iboe',
       birthDeathDate: '2 Mei 1932',
-      contentType: {AppLanguage.id: 'Surat Kabar'},
+      contentType: {AppLanguage.id: 'Surat Kabar', AppLanguage.en: 'Newspaper'},
       contentTitle: 'Soeara Iboe',
       contentDescription: {
         AppLanguage.id:
@@ -401,7 +401,7 @@ class BooksRepository {
       id: 'doenia_kita',
       name: 'Doenia Kita',
       birthDeathDate: 'Sejak 1937',
-      contentType: {AppLanguage.id: 'Majalah'},
+      contentType: {AppLanguage.id: 'Majalah', AppLanguage.en: 'Magazine'},
       contentTitle: 'Doenia Kita',
       contentDescription: {
         AppLanguage.id:
@@ -421,7 +421,7 @@ class BooksRepository {
         AppLanguage.en:
             "Ani Idrus, a prominent Indonesian female journalist, was born in Sawahlunto on November 25, 1918. She founded Dunia Wanita magazine, which covered women's issues in social, political, and economic fields. For her contribution to journalism, she received the Satya Penegak Pers Pancasila award from the Minister of Information in 1998.",
       },
-      contentType: {AppLanguage.id: 'Majalah'},
+      contentType: {AppLanguage.id: 'Majalah', AppLanguage.en: 'Magazine'},
       contentTitle: 'Dunia Wanita',
       contentDescription: {
         AppLanguage.id:
@@ -435,7 +435,7 @@ class BooksRepository {
       id: 'kpwi',
       name: 'Kesatuan Pergerakan Wanita Indonesia',
       birthDeathDate: 'Sejak 1928',
-      contentType: {AppLanguage.id: 'KETERANGAN'},
+      contentType: {AppLanguage.id: 'KETERANGAN', AppLanguage.en: 'BACKGROUNDS'},
       contentTitle: '',
       contentDescription: {
         AppLanguage.id:

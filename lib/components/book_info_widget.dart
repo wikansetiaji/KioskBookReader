@@ -48,7 +48,7 @@ class BookInfoWidget extends StatelessWidget {
     );
     var seeOtherText = Text(
       context.watch<LanguageProvider>().isEnglish
-          ? 'SEE OTHER EDITIONS'
+          ? 'READ OTHER EDITIONS'
           : 'BACA EDISI LAINNYA',
       style: TextStyle(
         fontFamily: 'Archivo',
@@ -105,7 +105,7 @@ class BookInfoWidget extends StatelessWidget {
                                     children: [
                                       Text(
                                         context.watch<LanguageProvider>().isEnglish
-                                            ? 'VIEW ORIGINAL WRITING'
+                                            ? 'VIEW ORIGINAL TEXT'
                                             : 'LIHAT TULISAN ASLI',
                                         style: TextStyle(
                                           fontFamily: 'Archivo',
