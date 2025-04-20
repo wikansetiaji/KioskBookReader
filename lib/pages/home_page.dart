@@ -153,22 +153,33 @@ class _HomePageState extends State<HomePage> {
                               alignment: Alignment.center,
                               child: GestureDetector(
                                 onTap: () async {
-                                  booksCarouselController.animateToPage(
-                                    index,
-                                    duration: Duration(milliseconds: 300),
-                                    curve: Curves.easeInOut,
-                                  );
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder:
-                                          (context) => ImgBookReadPage(
-                                            book:
-                                                repository
-                                                    .getAllBooks()[_selectedIndex],
-                                          ),
-                                    ),
-                                  );
+                                  booksCarouselController
+                                      .animateToPage(
+                                        index,
+                                        duration: Duration(milliseconds: 300),
+                                        curve: Curves.easeInOut,
+                                      )
+                                      .then((_) {
+                                        // Wait 500ms after the animation completes before navigating
+                                        Future.delayed(
+                                          Duration(milliseconds: 300),
+                                          () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder:
+                                                    (
+                                                      context,
+                                                    ) => ImgBookReadPage(
+                                                      book:
+                                                          repository
+                                                              .getAllBooks()[_selectedIndex],
+                                                    ),
+                                              ),
+                                            );
+                                          },
+                                        );
+                                      });
                                 },
                                 child: Card(
                                   elevation: 3,
@@ -196,9 +207,19 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Row(
                               children: [
-                                Image.asset('assets/fade-left.png', height: 586.sc,),
+                                IgnorePointer(
+                                  child: Image.asset(
+                                    'assets/fade-left.png',
+                                    height: 586.sc,
+                                  ),
+                                ),
                                 Expanded(child: Container()),
-                                Image.asset('assets/fade-right.png', height: 586.sc),
+                                IgnorePointer(
+                                  child: Image.asset(
+                                    'assets/fade-right.png',
+                                    height: 586.sc,
+                                  ),
+                                ),
                               ],
                             ),
                             Row(
