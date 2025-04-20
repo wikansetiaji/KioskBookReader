@@ -159,7 +159,13 @@ class BooksRepository {
       },
       numberOfPage: 12,
       authorId: 'pahesan',
-      highlight: null,
+      highlight: BookHighlight(
+        page: 1,
+        centerX: 0.7521796865595566,
+        centerY: 0.6689088529725181,
+        width: 0.4225115801129415,
+        height: 0.4149140229302582,
+      ),
       edition: {AppLanguage.id: 'Edisi No. 12 Tahun 48'},
       isOtherEdition: false,
       isMedia: true,
@@ -254,8 +260,14 @@ class BooksRepository {
       type: {AppLanguage.id: 'Majalah'},
       title: 'Dunia Wanita',
       date: {AppLanguage.id: '15 Juni 1917'},
-      contentTitle: {AppLanguage.id: '“TODO” '},
-      content: {AppLanguage.id: 'TODO'},
+      contentTitle: {
+        AppLanguage.id: 'Majalah Pahésan, Edisi 15 April 1941',
+        AppLanguage.en: "",
+      },
+      content: {
+        AppLanguage.id:
+            'Edisi ini memuat tulisan untuk mengenang R.A. Kartini, pandangan tentang pentingnya pendidikan campuran antara perempuan dan laki-laki, perkembangan seni rupa Bali, serta pembahasan seputar gaya busana dan ekspresi diri perempuan. Disertai puisi dan prosa, Pahésan menghadirkan perspektif perempuan muda terhadap isu sosial, budaya, dan gaya hidup pada masanya.',
+      },
       numberOfPage: 25,
       authorId: 'dunia_wanita',
       highlight: null,
@@ -271,12 +283,28 @@ class BooksRepository {
       type: {AppLanguage.id: 'Buku'},
       title: 'Kesatuan Pergerakan Wanita Indonesia',
       date: {AppLanguage.id: '22 Desember 1958'},
-      contentTitle: {AppLanguage.id: '“TODO” '},
-      content: {AppLanguage.id: 'TODO'},
+      contentTitle: {
+        AppLanguage.id:
+            "Tentang buku peringatan 30 tahun kesatuan pergerakan wanita indonesia",
+        AppLanguage.en:
+            "ABOUT buku peringatan 30 tahun kesatuan pergerakan wanita indonesia",
+      },
+      content: {
+        AppLanguage.id:
+            "Perjalanan panjang ini kemudian didokumentasikan secara komprehensif dalam Buku Peringatan 30 Tahun Kesatuan Pergerakan Wanita Indonesia 22 Desember 1928-22 Desember 1958 mendokumentasikan catatan historis transformasi gerakan perempuan Indonesia dari masa ke masa. Dibagi dalam tiga babak, buku ini menuliskan riwayat perkembangan gerakan kolektif perempuan dari zaman penjajahan Belanda, zaman penjajahan Jepang, hingga zaman Kemerdekaan.",
+        AppLanguage.en:
+            "This long journey was later documented in the commemorative book 30 Years of the Indonesian Women's Movement Union: December 22, 1928 – December 22, 1958, which provides a comprehensive historical account of the Indonesian women's movement from the Dutch colonial era, through the Japanese occupation, and into independence.",
+      },
       numberOfPage: 46,
       authorId: 'kpwi',
-      highlight: null,
-      edition: {AppLanguage.id: 'TODO'},
+      highlight: BookHighlight(
+        page: 20,
+        centerX: 0.513217465522929,
+        centerY: 0.1312698255804865,
+        width: 0.6597176507455421,
+        height: 0.07285668784000666,
+      ),
+      edition: {AppLanguage.id: 'Edisi No. 3 Tahun 9'},
       isOtherEdition: false,
       isMedia: true,
     ),
