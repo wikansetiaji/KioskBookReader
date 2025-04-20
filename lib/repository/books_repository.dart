@@ -154,6 +154,8 @@ class BooksRepository {
       content: {
         AppLanguage.id:
             'Edisi ini memuat tulisan untuk mengenang R.A. Kartini, pandangan tentang pentingnya pendidikan campuran antara perempuan dan laki-laki, perkembangan seni rupa Bali, serta pembahasan seputar gaya busana dan ekspresi diri perempuan. Disertai puisi dan prosa, Pahésan menghadirkan perspektif perempuan muda terhadap isu sosial, budaya, dan gaya hidup pada masanya.',
+        AppLanguage.en:
+            "This issue featured articles commemorating R.A. Kartini, perspectives on co-education for girls and boys, developments in Balinese visual arts, and discussions about fashion and women's self-expression. Through poetry and prose, Pahésan captured young women’s viewpoints on social, cultural, and lifestyle issues of their era.",
       },
       numberOfPage: 12,
       authorId: 'pahesan',
@@ -175,6 +177,8 @@ class BooksRepository {
       content: {
         AppLanguage.id:
             'Melalui nama pena “Doro Petak”, penulis artikel ini mengkritik anggapan bahwa perempuan adalah makhluk lemah. Ia menekankan pentingnya kesetaraan hak dan kewajiban antara laki-laki dan perempuan, serta perlunya pemahaman tentang dinamika sosial. Penulis membandingkan situasi di Hindia Belanda dengan kondisi di negara-negara di Eropa, di mana perempuan telah memiliki hak untuk menduduki berbagai jenis pekerjaan, termasuk hak untuk memilih dan dipilih dalam pemilihan umum. Di Rusia, bahkan perempuan dapat terlibat dalam upaya mempertahankan kemerdekaan bangsa. Kondisi ini kemudian dikontraskan dengan keadaan di negeri jajahan seperti Hindia Belanda, di mana masih terdapat ketimpangan dalam relasi antara laki-laki dan perempuan. Tulisan ini menyerukan kerja sama antara perempuan dan laki-laki demi menghapus penderitaan bangsa dan membangun masa depan yang lebih setara.',
+        AppLanguage.en:
+            "Under the pen name “Doro Petak,” the author critiques the notion of women as weak beings. She emphasizes the importance of equal rights and responsibilities between men and women, along with a need for understanding social dynamics. She compares conditions in the Dutch East Indies with European countries, where women already held rights to various jobs and political participation. In Russia, women even took part in defending their nation’s independence. These were contrasted with the colonial situation in the Indies, where gender inequality persisted. The article calls for cooperation between men and women to end national suffering and build a more equal future.",
       },
       numberOfPage: 8,
       authorId: 'sedar',
@@ -200,6 +204,8 @@ class BooksRepository {
       content: {
         AppLanguage.id:
             'Artikel ini menyoroti pentingnya pendidikan bagi perempuan di tengah pandangan tradisional bahwa perempuan pada akhirnya hanya akan “kembali ke dapur.” V. Diaviance menegaskan bahwa ibu berpendidikan lebih mampu mengelola rumah tangga dibandingkan yang tidak. Ia mengajak pembaca merenung lewat pertanyaan retoris: “Tidakkah kita bangga jika anak atau cucu perempuan kita mampu sejajar dengan saudara laki-lakinya?” Menurutnya, untuk menjadi ibu yang baik, perempuan harus mampu memberi teladan melalui pendidikan.',
+        AppLanguage.en:
+            "This article highlights the importance of education for girls. At the time, society still held to the traditional view: “Aren’t women going to end up in the kitchen anyway?” According to the author, this mindset was a major barrier to girls’ education. Written by V. Diaviance, the article argues that an educated mother can run a household better than an uneducated one. She invites readers to reflect through rhetorical questions: “Wouldn’t we feel proud if our daughters or granddaughters could grow and stand equal to their brothers?” She asserts that anyone wanting to be a good mother must first be able to set a good example.",
       },
       numberOfPage: 4,
       authorId: 'soeara_iboe',
@@ -225,6 +231,8 @@ class BooksRepository {
       content: {
         AppLanguage.id:
             'Artikel berjudul “Ilmoe Penjoeloeh Djalan” yang ditulis oleh Siti Salimah dan dimuat dalam majalah Doenia Kita edisi Agustus 1938 membahas pentingnya kaum ibu memiliki aktivitas di luar urusan domestik. Dalam tulisannya, Salimah menekankan bahwa para ibu sebaiknya meluangkan waktu untuk membaca buku-buku yang bermanfaat bagi pengembangan diri. Selain itu, ia juga menganjurkan agar kaum ibu memperluas jaringan pergaulan di luar rumah tangga. Menurutnya, pergaulan yang luas memungkinkan perempuan untuk senantiasa mengikuti perkembangan zaman dan memperoleh informasi baru. Meskipun tugas utama perempuan terletak pada pengasuhan anak, peran sebagai istri, dan pengelolaan rumah tangga, penulis meyakini bahwa semakin luas pengetahuan dan keterampilan yang dimiliki seorang ibu, maka akan semakin baik pula kemampuannya dalam menjalankan peran domestik dan mendidik anak-anaknya.',
+        AppLanguage.en:
+            "Written by Siti Salimah, this article urges mothers to pursue activities beyond domestic tasks. She encourages women to read useful books and expand social networks outside their households. Salimah argues that broader social interaction allows women to stay updated with the times and acquire new information. While a woman’s primary role remains child-rearing and household management, the writer believes that a mother’s knowledge and skills directly enhance her ability to fulfill those domestic roles and raise children well.",
       },
       numberOfPage: 26,
       authorId: 'doenia_kita',
@@ -320,12 +328,16 @@ class BooksRepository {
       background: {
         AppLanguage.id:
             'Utami Suryadarma merupakan tokoh perempuan yang pernah mewakili Indonesia dalam Inter-Asian Women Conference pada Desember 1947. Saat remaja, bersama sang kakak, Utami mendirikan Pahésan. Melalui media ini, ia mendorong perempuan untuk berpikir, bersuara, dan menyuarakan harapan atas masa depan bangsanya.',
+        AppLanguage.en:
+            "Utami Suryadarma was a female figure who represented Indonesia at the Inter-Asian Women Conference in December 1947. In her youth, she co-founded Pahésan with her sister. Through this media, she encouraged women to think, speak out, and express hopes for their nation's future.",
       },
       contentType: {AppLanguage.id: 'Majalah'},
       contentTitle: 'Pahésan',
       contentDescription: {
         AppLanguage.id:
             'Majalah Pahésan (berarti “cermin”) didirikan di Solo dan terbit antara tahun 1937 hingga 1941. Mengangkat tema sosial-budaya serta peran perempuan, Pahésan menjadi ruang bagi perempuan muda menyuarakan pandangan dan membangun kesadaran kolektif di tengah perjuangan menuju kemerdekaan. Meski menggunakan bahasa Belanda yang menjadi bahasa pendidikan formal bagi anak-anak priyayi masa itu, suara-suara kritis dan emansipasi terasa pada tiap halamannya.',
+        AppLanguage.en:
+            "Pahésan (meaning “mirror”) was a magazine founded in Solo and published between 1937 and 1941. It addressed social and cultural issues as well as women's roles, becoming a space for young women to voice their opinions and build collective awareness in the struggle for independence. Although written in Dutch—the formal education language for noble children at the time—the magazine featured critical and emancipatory voices.",
       },
       isMediaAuthor: true,
     ),
@@ -338,6 +350,8 @@ class BooksRepository {
       contentDescription: {
         AppLanguage.id:
             'Organisasi Persatuan Wanita Sedar didirikan di Bandung pada tahun 1930 sebagai ruang perjuangan bagi perempuan kelas pekerja. Salah satu media yang diterbitkan organisasi ini adalah Majalah Sedar, yang memuat tulisan-tulisan tentang pendidikan, perjuangan perempuan, serta pemikiran-pemikiran progresif. Banyak di antaranya menyuarakan keresahan terhadap kondisi perempuan, termasuk penolakan terhadap praktik poligami yang dianggap merugikan perempuan. Majalah ini juga berfungsi sebagai sarana pendidikan rakyat.',
+        AppLanguage.en:
+            "The Women’s Union Sedar was founded in Bandung in 1930 as a platform for working-class women. One of the organization’s media outlets was Majalah Sedar, which featured writings on education, women's struggles, and progressive thought. Many articles voiced concern over women’s conditions, including rejection of polygamy practices seen as harmful to women. The magazine also served as a tool for popular education.",
       },
       isMediaAuthor: true,
     ),
@@ -350,6 +364,8 @@ class BooksRepository {
       contentDescription: {
         AppLanguage.id:
             'Soeara Iboe adalah surat kabar yang terbit di Sibolga pada 2 Mei 1932, lahir dari semangat kolektif organisasi kaum ibu bernama Comite Kaoem Iboe yang berdiri pada 8 November 1931. Surat kabar ini hadir untuk mempererat hubungan antar ibu, menyebarkan informasi dari luar wilayah, serta menjadi alat perlawanan terhadap kekuasaan adat. Isinya mencakup berbagai topik seperti masakan, kesehatan ibu dan anak, pendidikan, iklan, berita umum, hingga karya sastra berupa puisi dan cerita.',
+        AppLanguage.en:
+            "Soeara Iboe was a newspaper published in Sibolga on May 2, 1932, born out of the collective spirit of a women’s organization called Comite Kaoem Iboe, founded on November 8, 1931. This paper aimed to strengthen connections among mothers, spread information, and resist traditional power. Its content ranged from recipes, women’s and children’s health, education, advertisements, general news, to literary works like poetry and stories.",
       },
       isMediaAuthor: true,
     ),
@@ -362,6 +378,8 @@ class BooksRepository {
       contentDescription: {
         AppLanguage.id:
             'Majalah Doenia Kita (DK) adalah majalah bulanan yang pertama kali terbit pada tahun 1937. Majalah ini didirikan oleh Siti Alimah untuk memenuhi aspirasi kaum perempuan yang mengalami kesulitan akibat zaman baru. Istilah Doenia Kita mengandung makna dunia kelahiran dan kebatinannya kaum putri. Haluan dari majalah ini adalah kemajuan seluruh perempuan Indonesia.',
+        AppLanguage.en:
+            "Doenia Kita was a monthly magazine that first appeared in 1937. Founded by Siti Alimah, the magazine aimed to support women struggling during modern times. The term “Doenia Kita” refers to the world of birth and inner life of women. The magazine advocated for the advancement of all Indonesian women.",
       },
       isMediaAuthor: true,
     ),
@@ -372,12 +390,16 @@ class BooksRepository {
       background: {
         AppLanguage.id:
             'Ani Idrus, tokoh pers dan wartawan perempuan Indonesia, lahir di Sawahlunto pada 25 November 1918. Ia mendirikan majalah Dunia Wanita yang mengangkat isu-isu perempuan di bidang sosial, politik, dan ekonomi untuk mendorong kemajuan kaum perempuan. Atas jasanya di bidang jurnalistik, ia menerima penghargaan Satya Penegak Pers Pancasila dari Menteri Penerangan RI pada tahun 1998.',
+        AppLanguage.en:
+            "Ani Idrus, a prominent Indonesian female journalist, was born in Sawahlunto on November 25, 1918. She founded Dunia Wanita magazine, which covered women's issues in social, political, and economic fields. For her contribution to journalism, she received the Satya Penegak Pers Pancasila award from the Minister of Information in 1998.",
       },
       contentType: {AppLanguage.id: 'Majalah'},
       contentTitle: 'Dunia Wanita',
       contentDescription: {
         AppLanguage.id:
             'Majalah Dunia Wanita didirikan pada tahun 1949 di Medan. Dunia Wanita menjadi salah satu majalah perempuan yang populer pasca kemerdekaan Indonesia. Memuat berbagai isu perempuan dari bidang sosial, politik hingga ekonomi untuk memberikan informasi dan kemajuan bagi perempuan. Di bawah pimpinan Ani Idrus, majalah ini juga menyuarakan tentang pentingnya keterlibatan laki-laki dalam rumah tangga.',
+        AppLanguage.en:
+            "Dunia Wanita magazine was established in 1949 in Medan. It became one of the most popular women’s magazines in post-independence Indonesia. Covering various issues from social, political, to economic fields, it aimed to inform and advance women. Under Ani Idrus’ leadership, it also advocated for men’s involvement in household responsibilities.",
       },
       isMediaAuthor: true,
     ),
@@ -390,6 +412,8 @@ class BooksRepository {
       contentDescription: {
         AppLanguage.id:
             'Perjuangan kolektif perempuan Indonesia secara historis ditandai dengan terselenggaranya Kongres Perempuan Pertama pada 28 Desember 1928. Momentum tersebut menjadi tonggak penting bagi terbentuknya kesadaran bersama akan perlunya pengorganisasian perempuan dalam memperjuangkan hak-hak sosial, politik, dan budaya. Salah satu wujud konkret dari perkembangan ini adalah pendirian Perikatan Perkumpulan Isteri Indonesia.',
+        AppLanguage.en:
+            "The collective struggle of Indonesian women was historically marked by the First Women’s Congress held on December 28, 1928. This moment was crucial for building shared awareness about the need to organize and fight for women’s social, political, and cultural rights. One outcome of this movement was the establishment of Perikatan Perkumpulan Isteri Indonesia. This long journey was later documented in the commemorative book 30 Years of the Indonesian Women's Movement Union: December 22, 1928 – December 22, 1958, which provides a comprehensive historical account of the Indonesian women's movement from the Dutch colonial era, through the Japanese occupation, and into independence.",
       },
       isMediaAuthor: true,
     ),
