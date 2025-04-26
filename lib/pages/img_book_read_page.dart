@@ -194,10 +194,12 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
           Matrix4.identity()
             ..scale(scale)
             ..translate(
-              _bookWidth * -(widget.book.highlights[0].centerX - (0.5 / scale)) -
+              _bookWidth *
+                      -(widget.book.highlights[0].centerX - (0.5 / scale)) -
                   ((_mediaWidth - _bookWidth) / scale) +
                   ((400.sc) / scale),
-              _bookHeight * -(widget.book.highlights[0].centerY - (0.5 / scale)) -
+              _bookHeight *
+                      -(widget.book.highlights[0].centerY - (0.5 / scale)) -
                   ((_mediaHeight - _bookHeight) / scale) -
                   ((120.sc) / scale),
             );
@@ -479,62 +481,70 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                                                         ),
                                                       ),
                                                     ),
-                                                    if (_isShowHighlight && widget.book.highlights.where((highlight) => highlight.page == currentPageIndex + 1,).toList().isNotEmpty)
-                                                      Positioned(
-                                                        left:
-                                                            widget
-                                                                    .book
-                                                                    .highlights[currentPageIndex]
-                                                                    .centerX *
-                                                                bookWidth -
-                                                            ((widget
-                                                                        .book
-                                                                        .highlights[currentPageIndex]
-                                                                        .width /
-                                                                    2) *
-                                                                bookWidth),
-                                                        top:
-                                                            widget
-                                                                    .book
-                                                                    .highlights[currentPageIndex]
-                                                                    .centerY *
-                                                                bookHeight -
-                                                            ((widget
-                                                                        .book
-                                                                        .highlights[currentPageIndex]
-                                                                        .height /
-                                                                    2) *
-                                                                bookHeight),
-                                                        child: ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius.all(
-                                                                Radius.circular(
-                                                                  10.sc,
+                                                    if (_isShowHighlight &&
+                                                        widget.book.highlights
+                                                            .where(
+                                                              (highlight) =>
+                                                                  highlight
+                                                                      .page ==
+                                                                  currentPageIndex +
+                                                                      1,
+                                                            )
+                                                            .toList()
+                                                            .isNotEmpty)
+                                                      for (var highlight
+                                                          in widget
+                                                              .book
+                                                              .highlights
+                                                              .where(
+                                                                (highlight) =>
+                                                                    highlight
+                                                                        .page ==
+                                                                    currentPageIndex +
+                                                                        1,
+                                                              )
+                                                              .toList())
+                                                        Positioned(
+                                                          left:
+                                                              highlight
+                                                                      .centerX *
+                                                                  bookWidth -
+                                                              ((highlight.width /
+                                                                      2) *
+                                                                  bookWidth),
+                                                          top:
+                                                              highlight
+                                                                      .centerY *
+                                                                  bookHeight -
+                                                              ((highlight.height /
+                                                                      2) *
+                                                                  bookHeight),
+                                                          child: ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius.all(
+                                                                  Radius.circular(
+                                                                    10.sc,
+                                                                  ),
                                                                 ),
-                                                              ),
-                                                          child: Container(
-                                                            color:
-                                                                Color.fromARGB(
-                                                                  80,
-                                                                  238,
-                                                                  245,
-                                                                  145,
-                                                                ),
-                                                            width:
-                                                                widget
-                                                                    .book
-                                                                    .highlights[currentPageIndex]
-                                                                    .width *
-                                                                bookWidth,
-                                                            height:
-                                                                widget
-                                                                    .book
-                                                                    .highlights[currentPageIndex]
-                                                                    .height *
-                                                                bookHeight,
+                                                            child: Container(
+                                                              color:
+                                                                  Color.fromARGB(
+                                                                    80,
+                                                                    238,
+                                                                    245,
+                                                                    145,
+                                                                  ),
+                                                              width:
+                                                                  highlight
+                                                                      .width *
+                                                                  bookWidth,
+                                                              height:
+                                                                  highlight
+                                                                      .height *
+                                                                  bookHeight,
+                                                            ),
                                                           ),
                                                         ),
-                                                      ),
                                                   ],
                                                 ),
                                               ),

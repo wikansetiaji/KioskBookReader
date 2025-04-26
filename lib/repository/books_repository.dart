@@ -119,6 +119,13 @@ class BooksRepository {
           width: 0.5769200408423047,
           height: 0.6902042549992871,
         ),
+        BookHighlight(
+          page: 1,
+          centerX: 0.7990776399937772,
+          centerY: 0.37331454897394185,
+          width: 0.2957096127196636,
+          height: 0.2403014758077405,
+        ),
       ],
       collection: {AppLanguage.id: 'Koleksi PERPUSNAS'},
       edition: {AppLanguage.id: 'Edisi No. 10 Tahun 1'},
