@@ -11,7 +11,7 @@ class Book {
   final Map<AppLanguage, String> content; // Translatable
   final int numberOfPage;
   final String? authorId;
-  final BookHighlight? highlight;
+  final List<BookHighlight> highlights;
   final Map<AppLanguage, String>? collection; // Translatable
   final Map<AppLanguage, String>? edition; // Translatable
   final String? editionId;
@@ -27,13 +27,13 @@ class Book {
     required this.content,
     required this.numberOfPage,
     this.authorId,
-    this.highlight,
+    List<BookHighlight>? highlights,
     this.collection,
     this.edition,
     this.editionId,
     this.isOtherEdition = false,
     this.isMedia = false,
-  });
+  }) : highlights = highlights ?? [];
 
   String getTranslated(BuildContext context, Map<AppLanguage, String>? field) {
     if (field == null) return '';

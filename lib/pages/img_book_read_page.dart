@@ -159,9 +159,6 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
           _isNavigating = false;
         });
       });
-      setState(() {
-        _isShowHighlight = false;
-      });
       if (_isZoomed) _handleZoomReset();
     }
   }
@@ -176,7 +173,6 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
       Future.delayed(const Duration(milliseconds: 600)).then((val) {
         setState(() {
           currentPageIndex -= 1;
-          _isShowHighlight = false;
           _isNavigating = false;
         });
       });
@@ -185,11 +181,11 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
   }
 
   void showHighlight() {
-    if (widget.book.highlight!.page >= 0 &&
-        widget.book.highlight!.page < widget.book.numberOfPage + 1) {
-      bookController.goTo(widget.book.highlight!.page);
+    if (widget.book.highlights[0].page >= 0 &&
+        widget.book.highlights[0].page < widget.book.numberOfPage + 1) {
+      bookController.goTo(widget.book.highlights[0].page);
       setState(() {
-        currentPageIndex = widget.book.highlight!.page - 1;
+        currentPageIndex = widget.book.highlights[0].page - 1;
       });
       if (_isZoomed) _handleZoomReset();
 
@@ -198,10 +194,10 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
           Matrix4.identity()
             ..scale(scale)
             ..translate(
-              _bookWidth * -(widget.book.highlight!.centerX - (0.5 / scale)) -
+              _bookWidth * -(widget.book.highlights[0].centerX - (0.5 / scale)) -
                   ((_mediaWidth - _bookWidth) / scale) +
                   ((400.sc) / scale),
-              _bookHeight * -(widget.book.highlight!.centerY - (0.5 / scale)) -
+              _bookHeight * -(widget.book.highlights[0].centerY - (0.5 / scale)) -
                   ((_mediaHeight - _bookHeight) / scale) -
                   ((120.sc) / scale),
             );
@@ -466,8 +462,6 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                                                             index,
                                                           ) {
                                                             setState(() {
-                                                              _isShowHighlight =
-                                                                  false;
                                                               currentPageIndex =
                                                                   index - 1;
                                                             });
@@ -477,8 +471,6 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                                                           ) {
                                                             if (index > 0) {
                                                               setState(() {
-                                                                _isShowHighlight =
-                                                                    false;
                                                                 currentPageIndex =
                                                                     index - 1;
                                                               });
@@ -487,29 +479,29 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                                                         ),
                                                       ),
                                                     ),
-                                                    if (_isShowHighlight)
+                                                    if (_isShowHighlight && widget.book.highlights.where((highlight) => highlight.page == currentPageIndex + 1,).toList().isNotEmpty)
                                                       Positioned(
                                                         left:
                                                             widget
                                                                     .book
-                                                                    .highlight!
+                                                                    .highlights[currentPageIndex]
                                                                     .centerX *
                                                                 bookWidth -
                                                             ((widget
                                                                         .book
-                                                                        .highlight!
+                                                                        .highlights[currentPageIndex]
                                                                         .width /
                                                                     2) *
                                                                 bookWidth),
                                                         top:
                                                             widget
                                                                     .book
-                                                                    .highlight!
+                                                                    .highlights[currentPageIndex]
                                                                     .centerY *
                                                                 bookHeight -
                                                             ((widget
                                                                         .book
-                                                                        .highlight!
+                                                                        .highlights[currentPageIndex]
                                                                         .height /
                                                                     2) *
                                                                 bookHeight),
@@ -531,13 +523,13 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                                                             width:
                                                                 widget
                                                                     .book
-                                                                    .highlight!
+                                                                    .highlights[currentPageIndex]
                                                                     .width *
                                                                 bookWidth,
                                                             height:
                                                                 widget
                                                                     .book
-                                                                    .highlight!
+                                                                    .highlights[currentPageIndex]
                                                                     .height *
                                                                 bookHeight,
                                                           ),
@@ -650,7 +642,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                 BookInfoWidget(
                   book: widget.book,
                   onShowHighlight: () {
-                    if (widget.book.highlight != null) {
+                    if (widget.book.highlights.isNotEmpty) {
                       showHighlight();
                     }
                   },

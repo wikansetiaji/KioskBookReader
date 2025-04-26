@@ -84,7 +84,7 @@ class BookInfoWidget extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 16.sc),
-                      if (book.highlight != null)
+                      if (book.highlights.isNotEmpty)
                         Column(
                           children: [
                             Row(
