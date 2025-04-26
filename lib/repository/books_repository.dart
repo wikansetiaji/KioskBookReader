@@ -303,7 +303,30 @@ class BooksRepository {
         AppLanguage.en:
             "Written by Siti Salimah, this article urges mothers to pursue activities beyond domestic tasks. She encourages women to read useful books and expand social networks outside their households. Salimah argues that broader social interaction allows women to stay updated with the times and acquire new information. While a woman’s primary role remains child-rearing and household management, the writer believes that a mother’s knowledge and skills directly enhance her ability to fulfill those domestic roles and raise children well.",
       },
-      numberOfPage: 20,
+      numberOfPage: 26,
+      highlights: [
+        BookHighlight(
+          page: 3,
+          centerX: 0.48267283193818597,
+          centerY: 0.43436437016460074,
+          width: 0.8775591974781594,
+          height: 0.8035291042637215,
+        ),
+        BookHighlight(
+          page: 5,
+          centerX: 0.4936832729326547,
+          centerY: 0.43845287337501084,
+          width: 0.8844720312235492,
+          height: 0.8055660809521821,
+        ),
+        BookHighlight(
+          page: 6,
+          centerX: 0.3587928475008743,
+          centerY: 0.24419440900494936,
+          width: 0.3802359117953328,
+          height: 0.35700198940294066,
+        ),
+      ],
       authorId: 'doenia_kita',
       edition: {AppLanguage.id: 'Edisi No. 10 Tahun 1'},
       isOtherEdition: false,
