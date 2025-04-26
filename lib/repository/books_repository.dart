@@ -33,6 +33,20 @@ class BooksRepository {
           width: 0.27,
           height: 0.35,
         ),
+        BookHighlight(
+          page: 2,
+          centerX: 0.23632593833603882,
+          centerY: 0.48966875982151945,
+          width: 0.28469233900550995,
+          height: 0.8381487695336851,
+        ),
+        BookHighlight(
+          page: 2,
+          centerX: 0.5092313306243022,
+          centerY: 0.3416335032267679,
+          width: 0.2763907866665595,
+          height: 0.5426266538171286,
+        ),
       ],
       collection: {AppLanguage.id: 'Koleksi PERPUSNAS'},
       edition: {AppLanguage.id: 'Edisi No. 12 Tahun 48'},
@@ -61,6 +75,13 @@ class BooksRepository {
           width: 0.2785716272457427,
           height: 0.1406850873856222,
         ),
+        BookHighlight(
+          page: 2,
+          centerX: 0.194800095011577,
+          centerY: 0.4693635355322066,
+          width: 0.2662581213937686,
+          height: 0.7659428702909632,
+        ),
       ],
       collection: {AppLanguage.id: 'Koleksi PERPUSNAS'},
       edition: {AppLanguage.id: 'Edisi No. 19 Tahun 49'},
@@ -82,6 +103,13 @@ class BooksRepository {
       numberOfPage: 2,
       authorId: 'maramis',
       highlights: [
+        BookHighlight(
+          page: 1,
+          centerX: 0.7472334680661147,
+          centerY: 0.9213207937035678,
+          width: 0.2790128730666803,
+          height: 0.0615699225768005,
+        ),
         BookHighlight(
           page: 2,
           centerX: 0.21890775584626136,
