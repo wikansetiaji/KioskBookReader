@@ -272,10 +272,17 @@ class BooksRepository {
       highlights: [
         BookHighlight(
           page: 1,
-          centerX: 0.6533516531018382,
-          centerY: 0.7767897084801051,
-          width: 0.620725511654897,
-          height: 0.4005513058340456,
+          centerX: 0.4952897092882126,
+          centerY: 0.7717560410769142,
+          width: 0.302733031667481,
+          height: 0.3904037081152763,
+        ),
+        BookHighlight(
+          page: 1,
+          centerX: 0.8075200543757241,
+          centerY: 0.5227558990210857,
+          width: 0.3084398757040361,
+          height: 0.6917484416751342,
         ),
       ],
       edition: {AppLanguage.id: 'Edisi 1 Tahun 1'},
