@@ -491,7 +491,8 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
                                                                       1,
                                                             )
                                                             .toList()
-                                                            .isNotEmpty)
+                                                            .isNotEmpty &&
+                                                        !_isNavigating)
                                                       for (var highlight
                                                           in widget
                                                               .book
