@@ -154,7 +154,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
       setState(() {
         _isNavigating = true;
       });
-      Future.delayed(const Duration(milliseconds: 600)).then((val) {
+      Future.delayed(const Duration(milliseconds: 800)).then((val) {
         setState(() {
           _isNavigating = false;
         });
@@ -170,7 +170,7 @@ class _ImgBookReadPageState extends State<ImgBookReadPage>
       setState(() {
         _isNavigating = true;
       });
-      Future.delayed(const Duration(milliseconds: 600)).then((val) {
+      Future.delayed(const Duration(milliseconds: 800)).then((val) {
         setState(() {
           currentPageIndex -= 1;
           _isNavigating = false;
