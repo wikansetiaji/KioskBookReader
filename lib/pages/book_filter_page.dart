@@ -117,8 +117,8 @@ class _BookFilterPageState extends State<BookFilterPage> {
                                       context
                                               .watch<LanguageProvider>()
                                               .isEnglish
-                                          ? 'WRITINGS OF'
-                                          : 'TULISAN KARYA',
+                                          ? 'COLLECTION OF WORKS'
+                                          : 'KARYA PEMIKIRAN',
                                       style: TextStyle(
                                         fontFamily: 'Archivo',
                                         fontSize: 42.sc,
@@ -137,9 +137,9 @@ class _BookFilterPageState extends State<BookFilterPage> {
                                     ? context
                                             .watch<LanguageProvider>()
                                             .isEnglish
-                                        ? 'ALL WOMEN WRITERS'
+                                        ? 'BY WOMAN THINKERS'
                                         : 'SEMUA PENULIS WANITA'
-                                    : (_selectedAuthor!.contentTitle!.isEmpty ? BooksRepository().getBooksFromAuthor(author: _selectedAuthor!).first.title.toUpperCase() : _selectedAuthor!.contentTitle!.toUpperCase()),
+                                    : (_selectedAuthor!.name.isEmpty ? BooksRepository().getBooksFromAuthor(author: _selectedAuthor!).first.title.toUpperCase() : _selectedAuthor!.name.toUpperCase()),
                                 style: TextStyle(
                                   fontFamily: 'Archivo',
                                   fontSize: 42.sc,

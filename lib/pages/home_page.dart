@@ -5,7 +5,9 @@ import 'package:kiosk_book_reader/pages/img_book_read_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kiosk_book_reader/pages/book_filter_page.dart';
 import 'package:kiosk_book_reader/repository/books_repository.dart';
+import 'package:kiosk_book_reader/service/language_provider.dart';
 import 'package:kiosk_book_reader/service/size_config.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.title});
@@ -55,7 +57,9 @@ class _HomePageState extends State<HomePage> {
                   child: Column(
                     children: [
                       Text(
-                        'ARSIP DIGITAL',
+                        context.watch<LanguageProvider>().isEnglish
+                            ? 'DIGITAL ARCHIVE'
+                            : 'ARSIP DIGITAL',
                         style: TextStyle(
                           fontFamily: 'Archivo',
                           fontWeight: FontWeight.bold,
@@ -66,7 +70,9 @@ class _HomePageState extends State<HomePage> {
                         textAlign: TextAlign.center,
                       ),
                       Text(
-                        'JEJAK PEMIKIRAN',
+                        context.watch<LanguageProvider>().isEnglish
+                            ? "TRACE OF WOMEN's"
+                            : 'JEJAK PEMIKIRAN',
                         style: TextStyle(
                           fontFamily: 'ArchivoBlack',
                           fontSize: 68.sc,
@@ -76,7 +82,9 @@ class _HomePageState extends State<HomePage> {
                         textAlign: TextAlign.center,
                       ),
                       Text(
-                        'PEREMPUAN',
+                        context.watch<LanguageProvider>().isEnglish
+                            ? "THOUGHTS"
+                            : 'PEREMPUAN',
                         style: TextStyle(
                           fontFamily: 'ArchivoBlack',
                           fontSize: 155.sc,
@@ -88,7 +96,9 @@ class _HomePageState extends State<HomePage> {
                       ),
                       SizedBox(height: 20.sc),
                       Text(
-                        'DI ERA PERGERAKAN NASIONAL',
+                        context.watch<LanguageProvider>().isEnglish
+                            ? "IN THE ERA OF THE NATIONAL MOVEMENT"
+                            : 'DI ERA PERGERAKAN NASIONAL',
                         style: TextStyle(
                           fontFamily: 'Archivo',
                           fontWeight: FontWeight.bold,
@@ -349,7 +359,9 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   child: Text(
-                    'BACA TULISAN',
+                    context.watch<LanguageProvider>().isEnglish
+                        ? "READ ARTICLES"
+                        : 'BACA TULISAN',
                     style: TextStyle(
                       fontFamily: 'Archivo',
                       fontWeight: FontWeight.bold,
@@ -379,7 +391,9 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   child: Text(
-                    'LIHAT ARSIP LAINNYA',
+                    context.watch<LanguageProvider>().isEnglish
+                        ? "VIEW OTHER ARTICLES"
+                        : 'LIHAT ARSIP LAINNYA',
                     style: TextStyle(
                       fontFamily: 'Archivo',
                       fontWeight: FontWeight.bold,

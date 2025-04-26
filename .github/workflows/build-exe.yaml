@@ -9,8 +9,6 @@ jobs:
   build:
     name: Build Windows App
     runs-on: windows-latest
-    outputs:
-      tag_name: ${{ steps.set_tag.outputs.tag }}
 
     steps:
       - name: Checkout repository
@@ -38,29 +36,3 @@ jobs:
         with:
           name: windows-exe
           path: build/windows/x64/runner/Release
-
-      - name: Set tag name
-        id: set_tag
-        run: echo "tag=v1.0.${{ github.run_number }}" >> $GITHUB_OUTPUT
-        shell: bash
-
-  release:
-    name: Create GitHub Release
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: windows-exe
-          path: windows-build
-
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: ${{ needs.build.outputs.tag_name }}
-          name: Windows Release ${{ needs.build.outputs.tag_name }}
-          files: windows-build/*.exe
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
