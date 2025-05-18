@@ -340,12 +340,14 @@ class BooksRepository {
       title: 'Dunia Wanita',
       date: {AppLanguage.id: '15 Juni 1917'},
       contentTitle: {
-        AppLanguage.id: 'Majalah Pahésan, Edisi 15 April 1941',
-        AppLanguage.en: "",
+        AppLanguage.id: 'Majalah Dunia Wanita',
+        AppLanguage.en: "Dunia Wanita Magazine",
       },
       content: {
         AppLanguage.id:
-            'Edisi ini memuat tulisan untuk mengenang R.A. Kartini, pandangan tentang pentingnya pendidikan campuran antara perempuan dan laki-laki, perkembangan seni rupa Bali, serta pembahasan seputar gaya busana dan ekspresi diri perempuan. Disertai puisi dan prosa, Pahésan menghadirkan perspektif perempuan muda terhadap isu sosial, budaya, dan gaya hidup pada masanya.',
+            'Majalah Dunia Wanita didirikan pada tahun 1949 di Medan. Dunia Wanita menjadi salah satu majalah perempuan yang populer pasca kemerdekaan Indonesia. Memuat berbagai isu perempuan dari bidang sosial, politik hingga ekonomi untuk memberikan informasi dan kemajuan bagi perempuan. Di bawah pimpinan Ani Idrus, majalah ini juga menyuarakan tentang pentingnya keterlibatan laki-laki dalam rumah tangga.',
+        AppLanguage.en:
+            'Dunia Wanita magazine was established in 1949 in Medan. It became one of the most popular women’s magazines in post-independence Indonesia. Covering various issues from social, political, to economic fields, it aimed to inform and advance women. Under Ani Idrus’ leadership, it also advocated for men’s involvement in household responsibilities.',
       },
       numberOfPage: 25,
       authorId: 'dunia_wanita',
